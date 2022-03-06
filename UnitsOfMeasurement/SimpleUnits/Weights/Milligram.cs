@@ -6,7 +6,7 @@
         /// <summary>
         /// 0.000001kg
         /// </summary>
-        public const decimal FactorToKilogram = 0.001m * 0.001m;
+        public const decimal FactorToKilogram = 0.001m * Gram.FactorToKilogram;
 
         /// <summary>
         /// Returns the multiplication factor of <see cref="Milligram"/> in relation to the <see cref="Kilogram"/>.

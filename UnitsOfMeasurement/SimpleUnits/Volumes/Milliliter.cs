@@ -13,7 +13,7 @@
         /// <summary>
         /// Returns the multiplication factor of <see cref="Millimeter"/> in relation to the <see cref="Liter"/>.
         /// </summary>
-        public override decimal FactorToBaseUnit => 0.001m;
+        public override decimal FactorToBaseUnit => FactorToLiter;
 
         /// <summary>
         /// Returns the unit in a format that can be sent over a data stream.

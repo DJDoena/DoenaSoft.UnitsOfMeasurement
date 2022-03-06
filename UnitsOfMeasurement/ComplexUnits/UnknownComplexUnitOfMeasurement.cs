@@ -1,9 +1,7 @@
 ﻿using System;
 
-namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits
+namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
 {
-    using ComplexUnits;
-
     /// <summary>
     /// A complex unit that does not fall into any of the known categories.
     /// </summary>

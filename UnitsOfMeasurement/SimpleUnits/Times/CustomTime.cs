@@ -9,7 +9,7 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times
     {
         private readonly decimal _factorToBaseUnit;
 
-        private readonly string _serializableValue;
+        private readonly string _unitKey;
 
         private readonly Time _builtinUnit;
 
@@ -20,21 +20,21 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times
 
         /// <summary/>
         /// <param name="conversionFactorToSecond">the multiplication factor of this unit in relation to the <see cref="Second"/></param>
-        /// <param name="serializableValue">the unit in a format that can be sent over a data stream, must not contain a '/'</param>
-        public CustomTime(double conversionFactorToSecond, string serializableValue)
+        /// <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
+        public CustomTime(double conversionFactorToSecond, string unitKey)
         {
-            if (string.IsNullOrWhiteSpace(serializableValue))
+            if (string.IsNullOrWhiteSpace(unitKey))
             {
-                throw new ArgumentNullException(nameof(serializableValue));
+                throw new ArgumentNullException(nameof(unitKey));
             }
-            else if (serializableValue.Contains("/"))
+            else if (unitKey.Contains("/"))
             {
-                throw new ArgumentException("serializableValue must not contain '/'", nameof(serializableValue));
+                throw new ArgumentException("serializableValue must not contain '/'", nameof(unitKey));
             }
 
             _factorToBaseUnit = Convert.ToDecimal(conversionFactorToSecond);
 
-            _serializableValue = serializableValue;
+            _unitKey = unitKey;
 
             if (_factorToBaseUnit == 1m)
             {
@@ -54,18 +54,18 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times
             }
         }
 
-        string ICustomUnit.UnitKey => _serializableValue;
+        string ICustomUnit.UnitKey => _unitKey;
 
         /// <summary>
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _serializableValue;
+        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _unitKey;
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _serializableValue;
+        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _unitKey;
     }
 }

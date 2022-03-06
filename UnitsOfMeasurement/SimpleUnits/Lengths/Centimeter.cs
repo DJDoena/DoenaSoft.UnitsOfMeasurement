@@ -6,7 +6,7 @@
         /// <summary>
         /// 0.01m
         /// </summary>
-        public const decimal FactorToMeter = 0.01m;
+        public const decimal FactorToMeter = 0.1m * Decimeter.FactorToMeter;
 
         /// <summary>
         /// Returns the multiplication factor of <see cref="Centimeter"/> in relation to the <see cref="Meter"/>.

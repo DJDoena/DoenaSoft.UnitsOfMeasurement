@@ -4,14 +4,14 @@
     public sealed class WattHour : Energy
     {
         /// <summary>
-        /// 0.001kWh
+        /// 3,600J
         /// </summary>
-        public const decimal FactorToKiloWattHour = 0.001m;
+        public const decimal FactorToJoule = 3.6m * KiloJoule.FactorToJoule;
 
         /// <summary>
-        /// Returns the multiplication factor of <see cref="WattHour"/> in relation to the <see cref="WattHour"/>.
+        /// Returns the multiplication factor of <see cref="WattHour"/> in relation to the <see cref="Joule"/>.
         /// </summary>
-        public override decimal FactorToBaseUnit => FactorToKiloWattHour;
+        public override decimal FactorToBaseUnit => FactorToJoule;
 
         /// <summary>
         /// Returns the unit in a format that can be sent over a data stream.

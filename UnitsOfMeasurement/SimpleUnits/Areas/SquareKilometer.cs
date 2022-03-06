@@ -1,12 +1,14 @@
 ﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas
 {
+    using Lengths;
+
     /// <summary />
     public sealed class SquareKilometer : Area
     {
         /// <summary>
         /// 1,000,000m²
         /// </summary>
-        public const decimal FactorToSquareMeter = 1000m * 1000m;
+        public const decimal FactorToSquareMeter = Kilometer.FactorToMeter * Kilometer.FactorToMeter;
 
         /// <summary>
         /// Returns the multiplication factor of <see cref="SquareKilometer"/> in relation to the <see cref="SquareMeter"/>.

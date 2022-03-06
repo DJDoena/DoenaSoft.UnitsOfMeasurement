@@ -189,6 +189,10 @@ namespace DoenaSoft.UnitsOfMeasurement
 
             #region Energy
 
+            _units.Add("J", new Joule());
+
+            _units.Add("kJ", new KiloJoule());
+
             _units.Add("Wh", new WattHour());
 
             _units.Add("kWh", new KiloWattHour());

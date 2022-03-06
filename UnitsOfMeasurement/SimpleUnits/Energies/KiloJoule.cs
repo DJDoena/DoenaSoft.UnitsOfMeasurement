@@ -1,28 +1,28 @@
-﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
+﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies
 {
     /// <summary />
-    public sealed class Millimeter : Length
+    public sealed class KiloJoule : Energy
     {
         /// <summary>
-        /// 0.001m
+        /// 1000J
         /// </summary>
-        public const decimal FactorToMeter = 0.1m * Centimeter.FactorToMeter;
+        public const decimal FactorToJoule = 1000m;
 
         /// <summary>
-        /// Returns the multiplication factor of <see cref="Millimeter"/> in relation to the <see cref="Meter"/>.
+        /// Returns the multiplication factor of <see cref="KiloJoule"/> in relation to the <see cref="Joule"/>.
         /// </summary>
-        public override decimal FactorToBaseUnit => FactorToMeter;
+        public override decimal FactorToBaseUnit => FactorToJoule;
 
         /// <summary>
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => "mm";
+        public override string ToSerializable() => "kJ";
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => "mm";
+        public override string GetDisplayValue() => "kJ";
     }
 }
