@@ -11,12 +11,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
 
         private readonly string _unitKey;
 
-        private readonly Length _builtinUnit;
+        private readonly Length _builtInUnit;
 
         /// <summary>
         /// Returns the multiplication factor of this unit in relation to the <see cref="Meter"/>.
         /// </summary>
-        public override decimal FactorToBaseUnit => _builtinUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
+        public override decimal FactorToBaseUnit => _builtInUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
 
         /// <summary/>
         /// <param name="conversionFactorToMeter">the multiplication factor of this unit in relation to the <see cref="Meter"/></param>
@@ -38,39 +38,39 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
 
             if (_factorToBaseUnit == 1m)
             {
-                _builtinUnit = new Meter();
+                _builtInUnit = new Meter();
             }
             else if (_factorToBaseUnit == Kilometer.FactorToMeter)
             {
-                _builtinUnit = new Kilometer();
+                _builtInUnit = new Kilometer();
             }
             else if (_factorToBaseUnit == Millimeter.FactorToMeter)
             {
-                _builtinUnit = new Millimeter();
+                _builtInUnit = new Millimeter();
             }
             else if (_factorToBaseUnit == Centimeter.FactorToMeter)
             {
-                _builtinUnit = new Centimeter();
+                _builtInUnit = new Centimeter();
             }
             else if (_factorToBaseUnit == Decimeter.FactorToMeter)
             {
-                _builtinUnit = new Decimeter();
+                _builtInUnit = new Decimeter();
             }
             else if (_factorToBaseUnit == Mile.FactorToMeter)
             {
-                _builtinUnit = new Mile();
+                _builtInUnit = new Mile();
             }
             else if (_factorToBaseUnit == Yard.FactorToMeter)
             {
-                _builtinUnit = new Yard();
+                _builtInUnit = new Yard();
             }
             else if (_factorToBaseUnit == Foot.FactorToMeter)
             {
-                _builtinUnit = new Foot();
+                _builtInUnit = new Foot();
             }
             else if (_factorToBaseUnit == Inch.FactorToMeter)
             {
-                _builtinUnit = new Inch();
+                _builtInUnit = new Inch();
             }
         }
 
@@ -80,12 +80,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _unitKey;
+        public override string ToSerializable() => _builtInUnit?.ToSerializable() ?? _unitKey;
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _unitKey;
+        public override string GetDisplayValue() => _builtInUnit?.GetDisplayValue() ?? _unitKey;
     }
 }

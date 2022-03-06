@@ -11,10 +11,10 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas
 
         private readonly string _unitKey;
 
-        private readonly Area _builtinUnit;
+        private readonly Area _builtInUnit;
 
         /// <summary />
-        public override decimal FactorToBaseUnit => _builtinUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
+        public override decimal FactorToBaseUnit => _builtInUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
 
         /// <summary/>
         /// <param name="conversionFactorToSquareMeter">the multiplication factor of this unit in relation to the <see cref="SquareMeter"/></param>
@@ -36,27 +36,27 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas
 
             if (_factorToBaseUnit == 1m)
             {
-                _builtinUnit = new SquareMeter();
+                _builtInUnit = new SquareMeter();
             }
             else if (_factorToBaseUnit == Hectare.FactorToSquareMeter)
             {
-                _builtinUnit = new Hectare();
+                _builtInUnit = new Hectare();
             }
             else if (_factorToBaseUnit == SquareKilometer.FactorToSquareMeter)
             {
-                _builtinUnit = new SquareKilometer();
+                _builtInUnit = new SquareKilometer();
             }
             else if (_factorToBaseUnit == SquareInch.FactorToSquareMeter)
             {
-                _builtinUnit = new SquareInch();
+                _builtInUnit = new SquareInch();
             }
             else if (_factorToBaseUnit == SquareFoot.FactorToSquareMeter)
             {
-                _builtinUnit = new SquareFoot();
+                _builtInUnit = new SquareFoot();
             }
             else if (_factorToBaseUnit == Acre.FactorToSquareMeter)
             {
-                _builtinUnit = new Acre();
+                _builtInUnit = new Acre();
             }
         }
 
@@ -66,12 +66,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _unitKey;
+        public override string ToSerializable() => _builtInUnit?.ToSerializable() ?? _unitKey;
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _unitKey;
+        public override string GetDisplayValue() => _builtInUnit?.GetDisplayValue() ?? _unitKey;
     }
 }

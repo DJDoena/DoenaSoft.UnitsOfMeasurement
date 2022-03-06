@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
 
 namespace DoenaSoft.UnitsOfMeasurement.Values
@@ -7,7 +6,6 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     /// <summary>
     /// Describes a scalar with an <see cref="IUnitOfMeasurement"/> unit.
     /// </summary>
-    [DebuggerDisplay("{ToString()}")]
     public class Value
     {
         /// <summary/>
@@ -47,16 +45,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// Returns the value in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the value in a format that can be sent over a data stream</returns>
-        public SerializableValue ToSerializable()
-        {
-            var value = new SerializableValue()
-            {
-                Scalar = Scalar,
-                UnitOfMeasurement = this.Unit.ToSerializable(),
-            };
-
-            return value;
-        }
+        public SerializableValue ToSerializable() => new SerializableValue(this.Scalar, this.Unit.ToSerializable());
 
         /// <summary>
         /// Create a copy of this value.
@@ -182,7 +171,6 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     /// Describes a scalar with an <see cref="IUnitOfMeasurement"/> unit.
     /// </summary>
     /// <typeparam name="TUnit">the <see cref="IUnitOfMeasurement"/> unit</typeparam>
-    [DebuggerDisplay("{ToString()}")]
     public class Value<TUnit> : Value where TUnit : IUnitOfMeasurement, new()
     {
         /// <summary/>

@@ -11,12 +11,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times
 
         private readonly string _unitKey;
 
-        private readonly Time _builtinUnit;
+        private readonly Time _builtInUnit;
 
         /// <summary>
         /// Returns the multiplication factor of this unit in relation to the <see cref="Second"/>.
         /// </summary>
-        public override decimal FactorToBaseUnit => _builtinUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
+        public override decimal FactorToBaseUnit => _builtInUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
 
         /// <summary/>
         /// <param name="conversionFactorToSecond">the multiplication factor of this unit in relation to the <see cref="Second"/></param>
@@ -38,19 +38,19 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times
 
             if (_factorToBaseUnit == 1m)
             {
-                _builtinUnit = new Second();
+                _builtInUnit = new Second();
             }
             else if (_factorToBaseUnit == Minute.FactorToSecond)
             {
-                _builtinUnit = new Minute();
+                _builtInUnit = new Minute();
             }
             else if (_factorToBaseUnit == Hour.FactorToSecond)
             {
-                _builtinUnit = new Hour();
+                _builtInUnit = new Hour();
             }
             else if (_factorToBaseUnit == Day.FactorToSecond)
             {
-                _builtinUnit = new Day();
+                _builtInUnit = new Day();
             }
         }
 
@@ -60,12 +60,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _unitKey;
+        public override string ToSerializable() => _builtInUnit?.ToSerializable() ?? _unitKey;
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _unitKey;
+        public override string GetDisplayValue() => _builtInUnit?.GetDisplayValue() ?? _unitKey;
     }
 }

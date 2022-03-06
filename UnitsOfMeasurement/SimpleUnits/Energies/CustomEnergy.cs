@@ -11,10 +11,10 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies
 
         private readonly string _unitKey;
 
-        private readonly Energy _builtinUnit;
+        private readonly Energy _builtInUnit;
 
         /// <summary />
-        public override decimal FactorToBaseUnit => _builtinUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
+        public override decimal FactorToBaseUnit => _builtInUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
 
         /// <summary/>
         /// <param name="conversionFactorToKiloWattHour">the multiplication factor of this unit in relation to the <see cref="KiloWattHour"/></param>
@@ -36,23 +36,23 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies
 
             if (_factorToBaseUnit == 1m)
             {
-                _builtinUnit = new Joule();
+                _builtInUnit = new Joule();
             }
             else if (_factorToBaseUnit == KiloJoule.FactorToJoule)
             {
-                _builtinUnit = new KiloJoule();
+                _builtInUnit = new KiloJoule();
             }
             else if (_factorToBaseUnit == WattHour.FactorToJoule)
             {
-                _builtinUnit = new WattHour();
+                _builtInUnit = new WattHour();
             }
             else if (_factorToBaseUnit == KiloWattHour.FactorToJoule)
             {
-                _builtinUnit = new KiloWattHour();
+                _builtInUnit = new KiloWattHour();
             }
             else if (_factorToBaseUnit == MegaWattHour.FactorToJoule)
             {
-                _builtinUnit = new MegaWattHour();
+                _builtInUnit = new MegaWattHour();
             }
         }
 
@@ -62,12 +62,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _unitKey;
+        public override string ToSerializable() => _builtInUnit?.ToSerializable() ?? _unitKey;
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _unitKey;
+        public override string GetDisplayValue() => _builtInUnit?.GetDisplayValue() ?? _unitKey;
     }
 }

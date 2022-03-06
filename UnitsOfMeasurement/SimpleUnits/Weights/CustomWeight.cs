@@ -11,12 +11,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights
 
         private readonly string _unitKey;
 
-        private readonly Weight _builtinUnit;
+        private readonly Weight _builtInUnit;
 
         /// <summary>
         /// Returns the multiplication factor of this unit in relation to the <see cref="Kilogram"/>.
         /// </summary>
-        public override decimal FactorToBaseUnit => _builtinUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
+        public override decimal FactorToBaseUnit => _builtInUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
 
         /// <summary/>
         /// <param name="conversionFactorToKilogram">the multiplication factor of this unit in relation to the <see cref="Kilogram"/></param>
@@ -38,27 +38,27 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights
 
             if (_factorToBaseUnit == 1m)
             {
-                _builtinUnit = new Kilogram();
+                _builtInUnit = new Kilogram();
             }
             else if (_factorToBaseUnit == Ton.FactorToKilogram)
             {
-                _builtinUnit = new Ton();
+                _builtInUnit = new Ton();
             }
             else if (_factorToBaseUnit == Gram.FactorToKilogram)
             {
-                _builtinUnit = new Gram();
+                _builtInUnit = new Gram();
             }
             else if (_factorToBaseUnit == Milligram.FactorToKilogram)
             {
-                _builtinUnit = new Milligram();
+                _builtInUnit = new Milligram();
             }
             else if (_factorToBaseUnit == Pound.FactorToKilogram)
             {
-                _builtinUnit = new Pound();
+                _builtInUnit = new Pound();
             }
             else if (_factorToBaseUnit == ShortTon.FactorToKilogram)
             {
-                _builtinUnit = new ShortTon();
+                _builtInUnit = new ShortTon();
             }
         }
 
@@ -68,12 +68,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _unitKey;
+        public override string ToSerializable() => _builtInUnit?.ToSerializable() ?? _unitKey;
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _unitKey;
+        public override string GetDisplayValue() => _builtInUnit?.GetDisplayValue() ?? _unitKey;
     }
 }

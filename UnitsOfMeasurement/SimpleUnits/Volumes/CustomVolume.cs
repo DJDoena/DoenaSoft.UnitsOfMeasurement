@@ -11,12 +11,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes
 
         private readonly string _unitKey;
 
-        private readonly Volume _builtinUnit;
+        private readonly Volume _builtInUnit;
 
         /// <summary>
         /// Returns the multiplication factor of this unit in relation to the <see cref="Liter"/>.
         /// </summary>
-        public override decimal FactorToBaseUnit => _builtinUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
+        public override decimal FactorToBaseUnit => _builtInUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
 
         /// <summary/>
         /// <param name="conversionFactorToLiter">the multiplication factor of this unit in relation to the <see cref="Liter"/></param>
@@ -38,31 +38,31 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes
 
             if (_factorToBaseUnit == 1m)
             {
-                _builtinUnit = new Liter();
+                _builtInUnit = new Liter();
             }
             else if (_factorToBaseUnit == Milliliter.FactorToLiter)
             {
-                _builtinUnit = new Milliliter();
+                _builtInUnit = new Milliliter();
             }
             else if (_factorToBaseUnit == CubicMeter.FactorToLiter)
             {
-                _builtinUnit = new CubicMeter();
+                _builtInUnit = new CubicMeter();
             }
             else if (_factorToBaseUnit == USLiquidGallon.FactorToLiter)
             {
-                _builtinUnit = new USLiquidGallon();
+                _builtInUnit = new USLiquidGallon();
             }
             else if (_factorToBaseUnit == ImperialGallon.FactorToLiter)
             {
-                _builtinUnit = new ImperialGallon();
+                _builtInUnit = new ImperialGallon();
             }
             else if (_factorToBaseUnit == CubicFoot.FactorToLiter)
             {
-                _builtinUnit = new CubicFoot();
+                _builtInUnit = new CubicFoot();
             }
             else if (_factorToBaseUnit == CubicInch.FactorToLiter)
             {
-                _builtinUnit = new CubicInch();
+                _builtInUnit = new CubicInch();
             }
         }
 
@@ -72,12 +72,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _unitKey;
+        public override string ToSerializable() => _builtInUnit?.ToSerializable() ?? _unitKey;
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _unitKey;
+        public override string GetDisplayValue() => _builtInUnit?.GetDisplayValue() ?? _unitKey;
     }
 }

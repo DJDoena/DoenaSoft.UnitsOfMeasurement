@@ -7,7 +7,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     /// Represents a scalar with a unit in a format that can be sent over a data stream.
     /// </summary>
     [DebuggerDisplay("{Scalar} {UnitOfMeasurement}")]
-    public class SerializableValue
+    public sealed class SerializableValue
     {
         /// <summary/>
         [Required]
