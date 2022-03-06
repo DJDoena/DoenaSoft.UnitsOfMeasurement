@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+     <RuntimeFrameworkVersion>2.1.0</RuntimeFrameworkVersion>
+    <IsPackable>false</IsPackable>
+    <AssemblyName>DoenaSoft.UnitsOfMeasurement.Tests</AssemblyName>
+    <RootNamespace>DoenaSoft.UnitsOfMeasurement.Tests</RootNamespace>
+	<FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnitsOfMeasurement\UnitsOfMeasurement.csproj" />
+  </ItemGroup>
+
+</Project>
