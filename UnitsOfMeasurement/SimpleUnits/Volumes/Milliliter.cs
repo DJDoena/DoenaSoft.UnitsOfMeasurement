@@ -6,6 +6,11 @@
     public sealed class Milliliter : Volume
     {
         /// <summary>
+        /// 0.001l
+        /// </summary>
+        public const decimal FactorToLiter = 0.001m;
+
+        /// <summary>
         /// Returns the multiplication factor of <see cref="Millimeter"/> in relation to the <see cref="Liter"/>.
         /// </summary>
         public override decimal FactorToBaseUnit => 0.001m;

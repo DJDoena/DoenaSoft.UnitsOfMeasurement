@@ -9,16 +9,14 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
     {
         private readonly decimal _factorToBaseUnit;
 
-        private readonly string _unitKey;
-
         private readonly string _serializableValue;
 
-        private readonly Length standardUnit;
+        private readonly Length _builtinUnit;
 
         /// <summary>
         /// Returns the multiplication factor of this unit in relation to the <see cref="Meter"/>.
         /// </summary>
-        public override decimal FactorToBaseUnit => standardUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
+        public override decimal FactorToBaseUnit => _builtinUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
 
         /// <summary/>
         /// <param name="conversionFactorToMeter">the multiplication factor of this unit in relation to the <see cref="Meter"/></param>
@@ -34,60 +32,60 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
                 throw new ArgumentException("serializableValue must not contain '/'", nameof(serializableValue));
             }
 
-            _factorToBaseUnit = System.Convert.ToDecimal(conversionFactorToMeter);
-            _unitKey = serializableValue;
+            _factorToBaseUnit = Convert.ToDecimal(conversionFactorToMeter);
+
             _serializableValue = serializableValue;
 
             if (_factorToBaseUnit == 1m)
             {
-                standardUnit = new Meter();
+                _builtinUnit = new Meter();
             }
             else if (_factorToBaseUnit == Kilometer.FactorToMeter)
             {
-                standardUnit = new Kilometer();
+                _builtinUnit = new Kilometer();
             }
             else if (_factorToBaseUnit == Millimeter.FactorToMeter)
             {
-                standardUnit = new Millimeter();
+                _builtinUnit = new Millimeter();
             }
             else if (_factorToBaseUnit == Centimeter.FactorToMeter)
             {
-                standardUnit = new Centimeter();
+                _builtinUnit = new Centimeter();
             }
             else if (_factorToBaseUnit == Decimeter.FactorToMeter)
             {
-                standardUnit = new Decimeter();
+                _builtinUnit = new Decimeter();
             }
             else if (_factorToBaseUnit == Mile.FactorToMeter)
             {
-                standardUnit = new Mile();
+                _builtinUnit = new Mile();
             }
             else if (_factorToBaseUnit == Yard.FactorToMeter)
             {
-                standardUnit = new Yard();
+                _builtinUnit = new Yard();
             }
             else if (_factorToBaseUnit == Foot.FactorToMeter)
             {
-                standardUnit = new Foot();
+                _builtinUnit = new Foot();
             }
             else if (_factorToBaseUnit == Inch.FactorToMeter)
             {
-                standardUnit = new Inch();
+                _builtinUnit = new Inch();
             }
         }
 
-        string ICustomUnit.UnitKey => _unitKey;
+        string ICustomUnit.UnitKey => _serializableValue;
 
         /// <summary>
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => standardUnit?.ToSerializable() ?? _serializableValue;
+        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _serializableValue;
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => standardUnit?.GetDisplayValue() ?? _serializableValue;
+        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _serializableValue;
     }
 }

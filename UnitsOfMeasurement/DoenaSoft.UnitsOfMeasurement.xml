@@ -1172,6 +1172,11 @@
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicMeter">
             <summary />
         </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicMeter.FactorToLiter">
+            <summary>
+            1000l
+            </summary>
+        </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicMeter.FactorToBaseUnit">
             <summary>
             Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicMeter"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>.
@@ -1264,6 +1269,11 @@
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Milliliter">
             <summary />
         </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Milliliter.FactorToLiter">
+            <summary>
+            0.001l
+            </summary>
+        </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Milliliter.FactorToBaseUnit">
             <summary>
             Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Millimeter"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>.
@@ -1349,6 +1359,11 @@
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Gram">
             <summary />
         </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Gram.FactorToKilogram">
+            <summary>
+            0.001kg
+            </summary>
+        </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Gram.FactorToBaseUnit">
             <summary>
             Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Gram"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Kilogram"/>.
@@ -1388,6 +1403,11 @@
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Milligram">
             <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Milligram.FactorToKilogram">
+            <summary>
+            0.000001kg
+            </summary>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Milligram.FactorToBaseUnit">
             <summary>
@@ -1460,6 +1480,11 @@
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Ton">
             <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Ton.FactorToKilogram">
+            <summary>
+            1000kg
+            </summary>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Ton.FactorToBaseUnit">
             <summary>

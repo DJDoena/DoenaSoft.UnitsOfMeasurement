@@ -9,14 +9,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas
     {
         private readonly decimal _factorToBaseUnit;
 
-        private readonly string _unitKey;
-
         private readonly string _serializableValue;
 
-        private readonly Area standardUnit;
+        private readonly Area _builtinUnit;
 
         /// <summary />
-        public override decimal FactorToBaseUnit => standardUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
+        public override decimal FactorToBaseUnit => _builtinUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
 
         /// <summary/>
         /// <param name="conversionFactorToSquareMeter">the multiplication factor of this unit in relation to the <see cref="SquareMeter"/></param>
@@ -32,48 +30,48 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas
                 throw new ArgumentException("serializableValue must not contain '/'", nameof(serializableValue));
             }
 
-            _factorToBaseUnit = System.Convert.ToDecimal(conversionFactorToSquareMeter);
-            _unitKey = serializableValue;
+            _factorToBaseUnit = Convert.ToDecimal(conversionFactorToSquareMeter);
+
             _serializableValue = serializableValue;
 
             if (_factorToBaseUnit == 1m)
             {
-                standardUnit = new SquareMeter();
+                _builtinUnit = new SquareMeter();
             }
             else if (_factorToBaseUnit == Hectare.FactorToSquareMeter)
             {
-                standardUnit = new Hectare();
+                _builtinUnit = new Hectare();
             }
             else if (_factorToBaseUnit == SquareKilometer.FactorToSquareMeter)
             {
-                standardUnit = new SquareKilometer();
+                _builtinUnit = new SquareKilometer();
             }
             else if (_factorToBaseUnit == SquareInch.FactorToSquareMeter)
             {
-                standardUnit = new SquareInch();
+                _builtinUnit = new SquareInch();
             }
             else if (_factorToBaseUnit == SquareFoot.FactorToSquareMeter)
             {
-                standardUnit = new SquareFoot();
+                _builtinUnit = new SquareFoot();
             }
             else if (_factorToBaseUnit == Acre.FactorToSquareMeter)
             {
-                standardUnit = new Acre();
+                _builtinUnit = new Acre();
             }
         }
 
-        string ICustomUnit.UnitKey => _unitKey;
+        string ICustomUnit.UnitKey => _serializableValue;
 
         /// <summary>
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => standardUnit?.ToSerializable() ?? _serializableValue;
+        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _serializableValue;
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => standardUnit?.GetDisplayValue() ?? _serializableValue;
+        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _serializableValue;
     }
 }

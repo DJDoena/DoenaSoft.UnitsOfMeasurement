@@ -4,9 +4,14 @@
     public sealed class CubicMeter : Volume
     {
         /// <summary>
+        /// 1000l
+        /// </summary>
+        public const decimal FactorToLiter = 1000m;
+
+        /// <summary>
         /// Returns the multiplication factor of <see cref="CubicMeter"/> in relation to the <see cref="Liter"/>.
         /// </summary>
-        public override decimal FactorToBaseUnit => 1000m;
+        public override decimal FactorToBaseUnit => FactorToLiter;
 
         /// <summary>
         /// Returns the unit in a format that can be sent over a data stream.

@@ -9,16 +9,14 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights
     {
         private readonly decimal _factorToBaseUnit;
 
-        private readonly string _unitKey;
-
         private readonly string _serializableValue;
 
-        private readonly Weight standardUnit;
+        private readonly Weight _builtinUnit;
 
         /// <summary>
         /// Returns the multiplication factor of this unit in relation to the <see cref="Kilogram"/>.
         /// </summary>
-        public override decimal FactorToBaseUnit => standardUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
+        public override decimal FactorToBaseUnit => _builtinUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
 
         /// <summary/>
         /// <param name="conversionFactorToKilogram">the multiplication factor of this unit in relation to the <see cref="Kilogram"/></param>
@@ -34,48 +32,48 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights
                 throw new ArgumentException("serializableValue must not contain '/'", nameof(serializableValue));
             }
 
-            _factorToBaseUnit = System.Convert.ToDecimal(conversionFactorToKilogram);
-            _unitKey = serializableValue;
+            _factorToBaseUnit = Convert.ToDecimal(conversionFactorToKilogram);
+
             _serializableValue = serializableValue;
 
             if (_factorToBaseUnit == 1m)
             {
-                standardUnit = new Kilogram();
+                _builtinUnit = new Kilogram();
             }
-            else if (_factorToBaseUnit == 1000m)
+            else if (_factorToBaseUnit == Ton.FactorToKilogram)
             {
-                standardUnit = new Ton();
+                _builtinUnit = new Ton();
             }
-            else if (_factorToBaseUnit == 0.001m)
+            else if (_factorToBaseUnit == Gram.FactorToKilogram)
             {
-                standardUnit = new Gram();
+                _builtinUnit = new Gram();
             }
-            else if (_factorToBaseUnit == 0.000001m)
+            else if (_factorToBaseUnit == Milligram.FactorToKilogram)
             {
-                standardUnit = new Milligram();
+                _builtinUnit = new Milligram();
             }
             else if (_factorToBaseUnit == Pound.FactorToKilogram)
             {
-                standardUnit = new Pound();
+                _builtinUnit = new Pound();
             }
             else if (_factorToBaseUnit == ShortTon.FactorToKilogram)
             {
-                standardUnit = new ShortTon();
+                _builtinUnit = new ShortTon();
             }
         }
 
-        string ICustomUnit.UnitKey => _unitKey;
+        string ICustomUnit.UnitKey => _serializableValue;
 
         /// <summary>
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => standardUnit?.ToSerializable() ?? _serializableValue;
+        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _serializableValue;
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => standardUnit?.GetDisplayValue() ?? _serializableValue;
+        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _serializableValue;
     }
 }

@@ -9,14 +9,12 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies
     {
         private readonly decimal _factorToBaseUnit;
 
-        private readonly string _unitKey;
-
         private readonly string _serializableValue;
 
-        private readonly Energy standardUnit;
+        private readonly Energy _builtinUnit;
 
         /// <summary />
-        public override decimal FactorToBaseUnit => standardUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
+        public override decimal FactorToBaseUnit => _builtinUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
 
         /// <summary/>
         /// <param name="conversionFactorToKiloWattHour">the multiplication factor of this unit in relation to the <see cref="KiloWattHour"/></param>
@@ -32,36 +30,36 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies
                 throw new ArgumentException("serializableValue must not contain '/'", nameof(serializableValue));
             }
 
-            _factorToBaseUnit = System.Convert.ToDecimal(conversionFactorToKiloWattHour);
-            _unitKey = serializableValue;
+            _factorToBaseUnit = Convert.ToDecimal(conversionFactorToKiloWattHour);
+
             _serializableValue = serializableValue;
 
             if (_factorToBaseUnit == WattHour.FactorToKiloWattHour)
             {
-                standardUnit = new WattHour();
+                _builtinUnit = new WattHour();
             }
             else if (_factorToBaseUnit == 1m)
             {
-                standardUnit = new KiloWattHour();
+                _builtinUnit = new KiloWattHour();
             }
             else if (_factorToBaseUnit == MegaWattHour.FactorToKiloWattHour)
             {
-                standardUnit = new MegaWattHour();
+                _builtinUnit = new MegaWattHour();
             }
         }
 
-        string ICustomUnit.UnitKey => _unitKey;
+        string ICustomUnit.UnitKey => _serializableValue;
 
         /// <summary>
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override string ToSerializable() => standardUnit?.ToSerializable() ?? _serializableValue;
+        public override string ToSerializable() => _builtinUnit?.ToSerializable() ?? _serializableValue;
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override string GetDisplayValue() => standardUnit?.GetDisplayValue() ?? _serializableValue;
+        public override string GetDisplayValue() => _builtinUnit?.GetDisplayValue() ?? _serializableValue;
     }
 }
