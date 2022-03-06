@@ -1899,10 +1899,6 @@
         <member name="P:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.Unit">
             <summary/>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.#ctor(System.String)">
-            <summary/>
-            <param name="value"/>
-        </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.#ctor(System.Double,System.String)">
             <summary/>
             <param name="scalar"/>

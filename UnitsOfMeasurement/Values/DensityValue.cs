@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
 
 namespace DoenaSoft.UnitsOfMeasurement.Values
 {
@@ -11,17 +9,10 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     /// <summary>
     /// Describes a scalar with a <see cref="Density"/> unit.
     /// </summary>
-    [DebuggerDisplay("{ToString()}")]
     public class DensityValue : Value
     {
         /// <summary/>
         public new Density Unit => (Density)base.Unit;
-
-        /// <summary/>
-        /// <param name="value"/>
-        public DensityValue(string value) : this(double.Parse(Regex.Match(value, @"[\d,.]+").Groups[0].Value), value.Trim().Replace(Regex.Match(value, @"[\d,.]+").Groups[0].Value, "").Trim())
-        {
-        }
 
         /// <summary/>
         /// <param name="scalar"/>
@@ -99,7 +90,6 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     /// Describes a scalar with a <see cref="Density"/> unit.
     /// </summary>
     /// <typeparam name="TDensityUnit"/>
-    [DebuggerDisplay("{ToString()}")]
     public class DensityValue<TDensityUnit> : DensityValue
         where TDensityUnit : Density, new()
     {
@@ -164,7 +154,6 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     /// </summary>
     /// <typeparam name="TWeight"/>
     /// <typeparam name="TVolume"/>
-    [DebuggerDisplay("{ToString()}")]
     public class DensityValue<TWeight, TVolume> : DensityValue
         where TWeight : Weight, new()
         where TVolume : Volume, new()
