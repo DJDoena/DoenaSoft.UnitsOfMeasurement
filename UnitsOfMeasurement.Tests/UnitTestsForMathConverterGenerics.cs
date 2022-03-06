@@ -1,10 +1,15 @@
 ﻿using System;
-using DoenaSoft.UnitsOfMeasurement.ComplexUnits;
-using DoenaSoft.UnitsOfMeasurement.SimpleUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
+    using ComplexUnits;
+    using SimpleUnits.Lengths;
+    using SimpleUnits.Times;
+    using SimpleUnits.Volumes;
+    using SimpleUnits.Weights;
+    using Values;
+
     [TestClass]
     public class UnitTestsForMathConverterGenerics
     {
@@ -351,7 +356,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [TestMethod]
         public void AddOnePoundToOneKilo()
         {
-            var source = new Value(1,"kg");
+            var source = new Value(1, "kg");
 
             var target = source.Add(new Value(1, "lb"));
 

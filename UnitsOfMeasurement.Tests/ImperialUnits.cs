@@ -2,7 +2,11 @@
 
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
-    using SimpleUnits;
+    using SimpleUnits.Areas;
+    using SimpleUnits.Lengths;
+    using SimpleUnits.Volumes;
+    using SimpleUnits.Weights;
+    using Values;
 
     [TestClass]
     public class ImperialUnits

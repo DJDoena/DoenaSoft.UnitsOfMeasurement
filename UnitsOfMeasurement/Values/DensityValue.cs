@@ -2,10 +2,11 @@
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-namespace DoenaSoft.UnitsOfMeasurement
+namespace DoenaSoft.UnitsOfMeasurement.Values
 {
     using ComplexUnits;
-    using SimpleUnits;
+    using SimpleUnits.Volumes;
+    using SimpleUnits.Weights;
 
     /// <summary>
     /// Describes a scalar with a <see cref="Density"/> unit.

@@ -20,7 +20,7 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits
         /// Serves as the default hash function.
         /// </summary>
         /// <returns>A hash code for the current object.</returns>
-        public override sealed int GetHashCode() => this.UnitCategory.GetHashCode();
+        public override sealed int GetHashCode() => this.UnitCategory.GetHashCode() ^ this.ToSerializable().GetHashCode();
 
         /// <summary>
         /// Determines whether the specified object is equal to the current object.

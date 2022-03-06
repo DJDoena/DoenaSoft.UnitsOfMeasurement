@@ -36,6 +36,19 @@ namespace DoenaSoft.UnitsOfMeasurement
         public abstract string GetDisplayValue();
 
         /// <summary>
+        /// Serves as the default hash function.
+        /// </summary>
+        /// <returns>A hash code for the current object.</returns>
+        public override abstract int GetHashCode();
+
+        /// <summary>
+        /// Determines whether the specified object is equal to the current object.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        public override abstract bool Equals(object obj);
+
+        /// <summary>
         /// Checks if this unit is equal to another unit.
         /// </summary>
         /// <param name="other">the other unit</param>
@@ -66,5 +79,21 @@ namespace DoenaSoft.UnitsOfMeasurement
 
             return equals;
         }
+
+        /// <summary>
+        /// The == (equality) operators checks if the two given objects are equal.
+        /// </summary>
+        /// <param name="left"/>
+        /// <param name="right"/>
+        /// <returns>if the two given objects are equal</returns>
+        public static bool operator ==(UnitOfMeasurement left, UnitOfMeasurement right) => ReferenceEquals(left, right) || (left is UnitOfMeasurement && left.Equals(right));
+
+        /// <summary>
+        /// The != (inequality) operators checks if the two given objects are not equal.
+        /// </summary>
+        /// <param name="left"/>
+        /// <param name="right"/>
+        /// <returns>if the two given objects are not equal</returns>
+        public static bool operator !=(UnitOfMeasurement left, UnitOfMeasurement right) => !(left == right);
     }
 }

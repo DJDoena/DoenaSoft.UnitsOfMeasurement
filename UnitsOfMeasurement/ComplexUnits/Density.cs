@@ -1,6 +1,7 @@
 ﻿namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
 {
-    using SimpleUnits;
+    using SimpleUnits.Volumes;
+    using SimpleUnits.Weights;
 
     /// <summary>
     /// Describes a <see cref="ComplexUnit"/> of <see cref="Weight"/>/<see cref="Volume"/>

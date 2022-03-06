@@ -1,11 +1,18 @@
 ﻿using System;
-using DoenaSoft.UnitsOfMeasurement.ComplexUnits;
-using DoenaSoft.UnitsOfMeasurement.Exceptions;
-using DoenaSoft.UnitsOfMeasurement.SimpleUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
+    using ComplexUnits;
+    using Exceptions;
+    using SimpleUnits;
+    using SimpleUnits.Lengths;
+    using SimpleUnits.Temperatures;
+    using SimpleUnits.Times;
+    using SimpleUnits.Volumes;
+    using SimpleUnits.Weights;
+    using Values;
+
     [TestClass]
     public class UnitTestsForMathConverter
     {
@@ -555,16 +562,61 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         }
 
         [TestMethod]
-        public void Equality()
+        public void UnitEquality()
+        {
+            var kg = new Kilogram();
+
+            Assert.IsTrue(kg == UnitConverter.ToUnitOfMeasurement("kg"));
+            Assert.IsTrue(kg == UnitConverter.ToUnitOfMeasurement("KG"));
+
+            var kgm_in = new CustomWeight(1, "kgm");
+
+            Assert.IsTrue(kg == kgm_in);
+
+            UnitConverter.RegisterCustomUnit(kgm_in);
+
+            var kgm_out = UnitConverter.ToUnitOfMeasurement("kgm");
+
+            Assert.IsTrue(kg == kgm_out);
+
+            Assert.IsFalse(kg == null);
+            Assert.IsFalse(null == kg);
+
+            Assert.IsTrue(kg != null);
+            Assert.IsTrue(null != kg);
+
+            Assert.IsFalse(kg != kgm_in);
+        }
+
+        [TestMethod]
+        public void ValueEquality()
         {
             Assert.IsTrue(new Value(5, "kg") == new Value(5, "kg"));
-            Assert.IsFalse(new Value(5, "kg") == null);
-            Assert.IsFalse(null == new Value(5, "kg"));
             Assert.IsTrue(new Value(5, "t") == new Value(5000, "kg"));
             Assert.IsTrue(new Value(5000, "kg") == new Value(5, "t"));
             Assert.IsTrue(new Value(5, "kg/m3") == new DensityValue<Kilogram, CubicMeter>(5));
             Assert.IsTrue(new Value(5, "t/m3") == new DensityValue<Kilogram, Liter>(5));
             Assert.IsTrue(new Value<Foot>(6) == new Value<Yard>(2));
+
+            Assert.IsTrue(new Value(5, "kg") != null);
+            Assert.IsTrue(null != new Value(5, "kg"));
+
+            Assert.IsFalse(new Value<Foot>(6) != new Value<Yard>(2));
+        }
+
+        [TestMethod]
+        public void FallbackFail()
+        {
+            UnitConverter.RegisterCustomUnit(new CustomWeight(15, "aB"));
+            UnitConverter.RegisterCustomUnit(new CustomVolume(25, "Ab"));
+
+            var ab = UnitConverter.ToUnitOfMeasurement("ab");
+
+            Assert.IsInstanceOfType(ab, typeof(UnknownSimpleUnitOfMeasurement));
+
+            var AB = UnitConverter.ToUnitOfMeasurement("AB");
+
+            Assert.IsInstanceOfType(AB, typeof(UnknownSimpleUnitOfMeasurement));
         }
 
         [TestMethod]
@@ -704,7 +756,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         }
 
         [TestMethod]
-        public void STD()
+        public void ShortTon()
         {
             var shortTon = new Value<Pound>(2000);
 

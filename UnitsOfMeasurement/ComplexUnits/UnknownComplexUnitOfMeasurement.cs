@@ -2,6 +2,8 @@
 
 namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits
 {
+    using ComplexUnits;
+
     /// <summary>
     /// A complex unit that does not fall into any of the known categories.
     /// </summary>

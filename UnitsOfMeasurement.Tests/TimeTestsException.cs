@@ -1,11 +1,15 @@
 ﻿using System;
-using DoenaSoft.UnitsOfMeasurement.ComplexUnits;
-using DoenaSoft.UnitsOfMeasurement.Exceptions;
-using DoenaSoft.UnitsOfMeasurement.SimpleUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
+    using ComplexUnits;
+    using Exceptions;
+    using SimpleUnits.Lengths;
+    using SimpleUnits.Times;
+    using SimpleUnits.Volumes;
+    using Values;
+
     [TestClass]
     public class ExceptionTests
     {

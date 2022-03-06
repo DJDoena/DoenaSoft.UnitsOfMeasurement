@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 
-namespace DoenaSoft.UnitsOfMeasurement
+namespace DoenaSoft.UnitsOfMeasurement.Values
 {
     /// <summary>
     /// Represents a scalar with a unit in a format that can be sent over a data stream.

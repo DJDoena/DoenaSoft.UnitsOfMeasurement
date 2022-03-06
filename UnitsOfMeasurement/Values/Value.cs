@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Globalization;
 
-namespace DoenaSoft.UnitsOfMeasurement
+namespace DoenaSoft.UnitsOfMeasurement.Values
 {
     /// <summary>
     /// Describes a scalar with an <see cref="IUnitOfMeasurement"/> unit.

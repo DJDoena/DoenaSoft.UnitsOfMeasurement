@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DoenaSoft.UnitsOfMeasurement
+namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits
 {
     /// <summary>
     /// Describes an atomic unit.

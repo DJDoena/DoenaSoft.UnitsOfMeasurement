@@ -2,8 +2,13 @@
 
 namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
 {
+    using SimpleUnits;
+    using SimpleUnits.Times;
+    using SimpleUnits.Volumes;
+    using SimpleUnits.Weights;
+
     /// <summary>
-    /// Describes a unit that has a unit over another unit, e.g. <see cref="SimpleUnits.Liter"/>/<see cref="SimpleUnits.Second"/>
+    /// Describes a unit that has a unit over another unit, e.g. <see cref="Liter"/>/<see cref="Second"/>
     /// </summary>
     public class ComplexUnit : UnitOfMeasurement, IComplexUnit, IEquatable<ComplexUnit>
     {
@@ -20,12 +25,12 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
         IUnitOfMeasurement IComplexUnit.Denominator => this.Denominator;
 
         /// <summary>
-        /// Returns the category of the unit, e.g. <see cref="SimpleUnits.Weight"/>/<see cref="SimpleUnits.Volume"/>.
+        /// Returns the category of the unit, e.g. <see cref="Weight"/>/<see cref="Volume"/>.
         /// </summary>
         public override sealed string UnitCategory => $"{this.Numerator.UnitCategory}/{this.Denominator.UnitCategory}";
 
         /// <summary>
-        /// Returns the unit that all other units of this category refer to as the base unit, e.g. <see cref="SimpleUnits.Liter"/>/<see cref="SimpleUnits.Second"/>
+        /// Returns the unit that all other units of this category refer to as the base unit, e.g. <see cref="Liter"/>/<see cref="Second"/>
         /// </summary>
         public override sealed IUnitOfMeasurement BaseUnit => new ComplexUnit((ISimpleUnit)this.Numerator.BaseUnit, (ISimpleUnit)this.Denominator.BaseUnit);
 
@@ -118,10 +123,10 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
     }
 
     /// <summary>
-    /// Describes a unit that has a unit over another unit, e.g. <see cref="SimpleUnits.Liter"/>/<see cref="SimpleUnits.Hour"/>
+    /// Describes a unit that has a unit over another unit, e.g. <see cref="Liter"/>/<see cref="Hour"/>
     /// </summary>
-    /// <typeparam name="TNumeratorUnit">the unit over the divider, e.g. <see cref="SimpleUnits.Liter"/></typeparam>
-    /// <typeparam name="TDenominatorUnit">the unit under the divider, e.g. <see cref="SimpleUnits.Hour"/></typeparam>
+    /// <typeparam name="TNumeratorUnit">the unit over the divider, e.g. <see cref="Liter"/></typeparam>
+    /// <typeparam name="TDenominatorUnit">the unit under the divider, e.g. <see cref="Hour"/></typeparam>
     public class ComplexUnit<TNumeratorUnit, TDenominatorUnit> : ComplexUnit
         where TNumeratorUnit : ISimpleUnit, new()
         where TDenominatorUnit : ISimpleUnit, new()

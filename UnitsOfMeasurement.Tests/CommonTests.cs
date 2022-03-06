@@ -1,9 +1,14 @@
-﻿using DoenaSoft.UnitsOfMeasurement.ComplexUnits;
-using DoenaSoft.UnitsOfMeasurement.SimpleUnits;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
+    using ComplexUnits;
+    using SimpleUnits;
+    using SimpleUnits.Lengths;
+    using SimpleUnits.Temperatures;
+    using SimpleUnits.Times;
+    using SimpleUnits.Weights;
+
     [TestClass]
     public class CommonTests
     {

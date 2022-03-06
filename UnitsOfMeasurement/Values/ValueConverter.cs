@@ -1,10 +1,13 @@
 ﻿using System;
 
-namespace DoenaSoft.UnitsOfMeasurement
+namespace DoenaSoft.UnitsOfMeasurement.Values
 {
     using ComplexUnits;
     using Exceptions;
     using SimpleUnits;
+    using SimpleUnits.Times;
+    using SimpleUnits.Volumes;
+    using SimpleUnits.Weights;
 
     /// <summary>
     /// Converts the <see cref="Value.Scalar"/> of a <see cref="Value"/> into a <see cref="Value.Scalar"/> of a compatible <see cref="Value.Unit"/>.

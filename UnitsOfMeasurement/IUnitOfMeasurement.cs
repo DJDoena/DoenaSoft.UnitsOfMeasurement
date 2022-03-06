@@ -2,7 +2,8 @@
 
 namespace DoenaSoft.UnitsOfMeasurement
 {
-    using SimpleUnits;
+    using SimpleUnits.Volumes;
+    using SimpleUnits.Weights;
 
     /// <summary>
     /// Base interface to all units of measurement.

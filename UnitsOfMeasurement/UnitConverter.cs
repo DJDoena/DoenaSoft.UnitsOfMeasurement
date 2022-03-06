@@ -7,6 +7,13 @@ namespace DoenaSoft.UnitsOfMeasurement
     using ComplexUnits;
     using Exceptions;
     using SimpleUnits;
+    using SimpleUnits.Areas;
+    using SimpleUnits.Energies;
+    using SimpleUnits.Lengths;
+    using SimpleUnits.Temperatures;
+    using SimpleUnits.Times;
+    using SimpleUnits.Volumes;
+    using SimpleUnits.Weights;
 
     /// <summary>
     /// Converts <see cref="string"/>s representing units to <see cref="UnitOfMeasurement"/>s.
@@ -219,7 +226,9 @@ namespace DoenaSoft.UnitsOfMeasurement
 
             if (fraction.Length > 1)
             {
-                if (fraction.Length == 2 && ToUnitOfMeasurement(fraction[0]) is ISimpleUnit numeratorUnit && ToUnitOfMeasurement(fraction[1]) is ISimpleUnit denominatorUnit)
+                if (fraction.Length == 2
+                    && ToUnitOfMeasurement(fraction[0]) is ISimpleUnit numeratorUnit
+                    && ToUnitOfMeasurement(fraction[1]) is ISimpleUnit denominatorUnit)
                 {
                     if (numeratorUnit is Weight weight && denominatorUnit is Volume volume)
                     {
