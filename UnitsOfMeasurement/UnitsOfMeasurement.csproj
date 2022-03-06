@@ -7,11 +7,9 @@
 		<Authors>DJ Doena</Authors>
 		<Company>Doena Soft.</Company>
 		<Product>Units of Measurement</Product>
-		<Description>
-			Provides the most common unit for length, weight, area, volume and temperature and their conversion from one to the other.
-			Also provides the ability to use complex units in the style of a/b
-			Also provides the ability to convert from volumes to weights (and vice versa) using density
-		</Description>
+		<Description>Provides the most common unit for length, weight, area, volume and temperature and their conversion from one to the other.
+Also provides the ability to use complex units in the style of a/b
+Also provides the ability to convert from volumes to weights (and vice versa) using density</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Copyright>2022</Copyright>
 		<PackageProjectUrl>https://github.com/DJDoena/DoenaSoft.UnitsOfMeasurement</PackageProjectUrl>
