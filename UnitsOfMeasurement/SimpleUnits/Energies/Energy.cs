@@ -9,8 +9,8 @@
         public override sealed string UnitCategory => nameof(Energy);
 
         /// <summary>
-        /// Returns the unit that all other units of this category refer to as the base unit, <see cref="KiloWattHour"/>.
+        /// Returns the unit that all other units of this category refer to as the base unit, <see cref="Joule"/>.
         /// </summary>
-        public override sealed IUnitOfMeasurement BaseUnit => new KiloWattHour();
+        public override sealed IUnitOfMeasurement BaseUnit => new Joule();
     }
 }

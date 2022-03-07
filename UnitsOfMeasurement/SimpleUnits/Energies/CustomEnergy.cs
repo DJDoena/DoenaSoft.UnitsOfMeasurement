@@ -17,9 +17,9 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies
         public override decimal FactorToBaseUnit => _builtInUnit?.FactorToBaseUnit ?? _factorToBaseUnit;
 
         /// <summary/>
-        /// <param name="conversionFactorToKiloWattHour">the multiplication factor of this unit in relation to the <see cref="KiloWattHour"/></param>
+        /// <param name="conversionFactorToJoule">the multiplication factor of this unit in relation to the <see cref="Joule"/></param>
         /// <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
-        public CustomEnergy(double conversionFactorToKiloWattHour, string unitKey)
+        public CustomEnergy(double conversionFactorToJoule, string unitKey)
         {
             if (string.IsNullOrWhiteSpace(unitKey))
             {
@@ -30,7 +30,7 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies
                 throw new ArgumentException("serializableValue must not contain '/'", nameof(unitKey));
             }
 
-            _factorToBaseUnit = Convert.ToDecimal(conversionFactorToKiloWattHour);
+            _factorToBaseUnit = Convert.ToDecimal(conversionFactorToJoule);
 
             _unitKey = unitKey;
 
