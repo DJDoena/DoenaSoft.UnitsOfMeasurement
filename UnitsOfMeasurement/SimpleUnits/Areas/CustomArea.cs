@@ -54,6 +54,10 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas
             {
                 _builtInUnit = new SquareFoot();
             }
+            else if (_factorToBaseUnit == SquareYard.FactorToSquareMeter)
+            {
+                _builtInUnit = new SquareYard();
+            }
             else if (_factorToBaseUnit == Acre.FactorToSquareMeter)
             {
                 _builtInUnit = new Acre();

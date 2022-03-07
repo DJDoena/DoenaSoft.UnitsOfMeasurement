@@ -56,6 +56,10 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes
             {
                 _builtInUnit = new ImperialGallon();
             }
+            else if (_factorToBaseUnit == CubicYard.FactorToLiter)
+            {
+                _builtInUnit = new CubicYard();
+            }
             else if (_factorToBaseUnit == CubicFoot.FactorToLiter)
             {
                 _builtInUnit = new CubicFoot();

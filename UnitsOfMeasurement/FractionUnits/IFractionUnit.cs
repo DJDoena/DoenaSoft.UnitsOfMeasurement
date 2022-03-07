@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
+namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
 {
     using SimpleUnits.Times;
     using SimpleUnits.Volumes;
@@ -8,7 +8,7 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
     /// <summary>
     /// Describes a unit that has a unit over another unit, e.g. <see cref="Liter"/>/<see cref="Hour"/>
     /// </summary>
-    public interface IComplexUnit : IUnitOfMeasurement, IEquatable<IComplexUnit>
+    public interface IFractionUnit : IUnitOfMeasurement, IEquatable<IFractionUnit>
     {
         /// <summary />
         IUnitOfMeasurement Numerator { get; }

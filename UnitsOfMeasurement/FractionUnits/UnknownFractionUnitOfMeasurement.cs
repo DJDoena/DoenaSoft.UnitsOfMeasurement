@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
+namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
 {
     /// <summary>
-    /// A complex unit that does not fall into any of the known categories.
+    /// A fraction unit that does not fall into any of the known categories.
     /// </summary>
-    public sealed class UnknownComplexUnitOfMeasurement : UnknownUnitOfMeasurement, IComplexUnit, IEquatable<UnknownComplexUnitOfMeasurement>
+    public sealed class UnknownFractionUnitOfMeasurement : UnknownUnitOfMeasurement, IFractionUnit, IEquatable<UnknownFractionUnitOfMeasurement>
     {
         /// <summary>
         /// Zähler
@@ -17,7 +17,7 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
         /// </summary>
         public IUnitOfMeasurement Denominator { get; }
 
-        internal UnknownComplexUnitOfMeasurement(string unit) : base(unit)
+        internal UnknownFractionUnitOfMeasurement(string unit) : base(unit)
         {
             var indexOfSlash = unit.IndexOf("/");
 
@@ -44,7 +44,7 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
                 obj = UnitConverter.ToUnitOfMeasurement(serializableValue);
             }
 
-            var equals = this.Equals(obj as IComplexUnit);
+            var equals = this.Equals(obj as IFractionUnit);
 
             return equals;
         }
@@ -54,14 +54,14 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
         /// </summary>
         /// <param name="other">the other unit</param>
         /// <returns>if this unit is equal to another unit</returns>
-        public override bool Equals(IUnitOfMeasurement other) => this.Equals(other as UnknownComplexUnitOfMeasurement);
+        public override bool Equals(IUnitOfMeasurement other) => this.Equals(other as UnknownFractionUnitOfMeasurement);
 
         /// <summary>
         /// Checks if this unit is equal to another unit.
         /// </summary>
         /// <param name="other">the other unit</param>
         /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(UnknownComplexUnitOfMeasurement other)
+        public bool Equals(UnknownFractionUnitOfMeasurement other)
         {
             if (other == null)
             {
@@ -80,6 +80,6 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
         /// </summary>
         /// <param name="other">the other unit</param>
         /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(IComplexUnit other) => this.Equals(other as UnknownComplexUnitOfMeasurement);
+        public bool Equals(IFractionUnit other) => this.Equals(other as UnknownFractionUnitOfMeasurement);
     }
 }

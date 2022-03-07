@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
-    using ComplexUnits;
+    using FractionUnits;
     using SimpleUnits.Lengths;
     using SimpleUnits.Times;
     using SimpleUnits.Volumes;
@@ -234,19 +234,19 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
             const double LiterPerKilometer = 5.9 / 100;
             const double GasMileage = 39.86688;
 
-            Value source = new Value<ComplexUnit<Liter, Kilometer>>(LiterPerKilometer);
-            Value target = ValueConverter.Convert<ComplexUnit<USLiquidGallon, Mile>>(source);
+            Value source = new Value<FractionUnit<Liter, Kilometer>>(LiterPerKilometer);
+            Value target = ValueConverter.Convert<FractionUnit<USLiquidGallon, Mile>>(source);
             var inverted = Math.Round(1 / target.Scalar, 5);
 
             Assert.AreEqual(GasMileage, inverted);
-            Assert.AreEqual(typeof(ComplexUnit<USLiquidGallon, Mile>), target.Unit.GetType());
+            Assert.AreEqual(typeof(FractionUnit<USLiquidGallon, Mile>), target.Unit.GetType());
 
-            source = new Value<ComplexUnit<Liter, Kilometer>>(LiterPerKilometer);
-            target = ValueConverter.Convert<ComplexUnit<Mile, USLiquidGallon>>(source);
+            source = new Value<FractionUnit<Liter, Kilometer>>(LiterPerKilometer);
+            target = ValueConverter.Convert<FractionUnit<Mile, USLiquidGallon>>(source);
             var rounded = Math.Round(target.Scalar, 5);
 
             Assert.AreEqual(GasMileage, rounded);
-            Assert.AreEqual(typeof(ComplexUnit<Mile, USLiquidGallon>), target.Unit.GetType());
+            Assert.AreEqual(typeof(FractionUnit<Mile, USLiquidGallon>), target.Unit.GetType());
         }
 
         [TestMethod]
@@ -380,13 +380,13 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [TestMethod]
         public void AddMilesPerHourToMetersPerSecond()
         {
-            var source = new Value<ComplexUnit<Meter, Second>>(30);
+            var source = new Value<FractionUnit<Meter, Second>>(30);
 
-            var target = source.Add(new Value<ComplexUnit<Mile, Hour>>(15));
+            var target = source.Add(new Value<FractionUnit<Mile, Hour>>(15));
 
             Assert.IsNotNull(target);
             Assert.AreEqual(36.7056, target.Scalar);
-            Assert.IsInstanceOfType(target.Unit, typeof(ComplexUnit<Meter, Second>));
+            Assert.IsInstanceOfType(target.Unit, typeof(FractionUnit<Meter, Second>));
         }
     }
 }

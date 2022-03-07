@@ -1,12 +1,12 @@
-﻿namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
+﻿namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
 {
     using SimpleUnits.Volumes;
     using SimpleUnits.Weights;
 
     /// <summary>
-    /// Describes a <see cref="ComplexUnit"/> of <see cref="Weight"/>/<see cref="Volume"/>
+    /// Describes a <see cref="FractionUnit"/> of <see cref="Weight"/>/<see cref="Volume"/>
     /// </summary>
-    public class Density : ComplexUnit
+    public class Density : FractionUnit
     {
         /// <summary>
         /// Zähler
@@ -32,7 +32,7 @@
     }
 
     /// <summary>
-    /// Describes a <see cref="ComplexUnit{TWeight, TVolume}"/> of <see cref="Weight"/>/<see cref="Volume"/>
+    /// Describes a <see cref="FractionUnit{TWeight, TVolume}"/> of <see cref="Weight"/>/<see cref="Volume"/>
     /// </summary>
     public class Density<TWeight, TVolume> : Density
         where TWeight : Weight, new()

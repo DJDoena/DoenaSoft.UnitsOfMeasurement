@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
-    using ComplexUnits;
+    using FractionUnits;
     using Exceptions;
     using SimpleUnits.Lengths;
     using SimpleUnits.Times;
@@ -24,7 +24,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void NullArgumentTest2()
         {
-            var _ = ValueConverter.Convert(null, new ComplexUnit<Mile, USLiquidGallon>());
+            var _ = ValueConverter.Convert(null, new FractionUnit<Mile, USLiquidGallon>());
         }
 
         [TestMethod]

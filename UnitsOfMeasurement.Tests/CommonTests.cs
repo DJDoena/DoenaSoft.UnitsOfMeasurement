@@ -2,7 +2,7 @@
 
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
-    using ComplexUnits;
+    using FractionUnits;
     using SimpleUnits;
     using SimpleUnits.Lengths;
     using SimpleUnits.Temperatures;
@@ -98,9 +98,9 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         }
 
         [TestMethod]
-        public void RegisterUniqueComplexUnit()
+        public void RegisterUniqueFractionUnit()
         {
-            var unit = new CustomComplexUnit(new CustomWeight(0.0311034768, "oz.tr."), new CustomTime(86400 * 7, "w"), "ozpw");
+            var unit = new CustomFractionUnit(new CustomWeight(0.0311034768, "oz.tr."), new CustomTime(86400 * 7, "w"), "ozpw");
 
             UnitConverter.RegisterCustomUnit(unit);
 
@@ -110,23 +110,23 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             Assert.AreEqual("oz.tr./w", result.ToSerializable());
 
-            var complexResult = result as ComplexUnit;
+            var fractionResult = result as FractionUnit;
 
-            Assert.IsNotNull(complexResult);
+            Assert.IsNotNull(fractionResult);
 
-            var complexNumeratorResult = complexResult.Numerator;
+            var fractionNumeratorResult = fractionResult.Numerator;
 
-            Assert.IsNotNull(complexNumeratorResult);
+            Assert.IsNotNull(fractionNumeratorResult);
 
-            Assert.AreEqual("oz.tr.", complexNumeratorResult.ToSerializable());
-            Assert.IsTrue(complexNumeratorResult is CustomWeight);
+            Assert.AreEqual("oz.tr.", fractionNumeratorResult.ToSerializable());
+            Assert.IsTrue(fractionNumeratorResult is CustomWeight);
 
-            var complexDenominatorResult = complexResult.Denominator;
+            var fractionDenominatorResult = fractionResult.Denominator;
 
-            Assert.IsNotNull(complexDenominatorResult);
+            Assert.IsNotNull(fractionDenominatorResult);
 
-            Assert.AreEqual("w", complexDenominatorResult.ToSerializable());
-            Assert.IsTrue(complexDenominatorResult is CustomTime);
+            Assert.AreEqual("w", fractionDenominatorResult.ToSerializable());
+            Assert.IsTrue(fractionDenominatorResult is CustomTime);
 
             var numeratorResult = UnitConverter.ToUnitOfMeasurement("oz.tr.");
 
@@ -149,23 +149,23 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             Assert.AreEqual("oz.tr./w", result.ToSerializable());
 
-            complexResult = result as ComplexUnit;
+            fractionResult = result as FractionUnit;
 
-            Assert.IsNotNull(complexResult);
+            Assert.IsNotNull(fractionResult);
 
-            complexNumeratorResult = complexResult.Numerator;
+            fractionNumeratorResult = fractionResult.Numerator;
 
-            Assert.IsNotNull(complexNumeratorResult);
+            Assert.IsNotNull(fractionNumeratorResult);
 
-            Assert.AreEqual("oz.tr.", complexNumeratorResult.ToSerializable());
-            Assert.IsTrue(complexNumeratorResult is CustomWeight);
+            Assert.AreEqual("oz.tr.", fractionNumeratorResult.ToSerializable());
+            Assert.IsTrue(fractionNumeratorResult is CustomWeight);
 
-            complexDenominatorResult = complexResult.Denominator;
+            fractionDenominatorResult = fractionResult.Denominator;
 
-            Assert.IsNotNull(complexDenominatorResult);
+            Assert.IsNotNull(fractionDenominatorResult);
 
-            Assert.AreEqual("w", complexDenominatorResult.ToSerializable());
-            Assert.IsTrue(complexDenominatorResult is CustomTime);
+            Assert.AreEqual("w", fractionDenominatorResult.ToSerializable());
+            Assert.IsTrue(fractionDenominatorResult is CustomTime);
 
             numeratorResult = UnitConverter.ToUnitOfMeasurement("oz.tr.");
 
@@ -183,9 +183,9 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         }
 
         [TestMethod]
-        public void RegisterStandardComplexUnit()
+        public void RegisterStandardFractionUnit()
         {
-            var unit = new CustomComplexUnit(new Kilometer(), new Hour());
+            var unit = new CustomFractionUnit(new Kilometer(), new Hour());
 
             UnitConverter.RegisterCustomUnit(unit);
 
@@ -199,9 +199,9 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         }
 
         [TestMethod]
-        public void RegisterStandardComplexUnitUnitKey()
+        public void RegisterStandardFractionUnitUnitKey()
         {
-            var unit = new CustomComplexUnit(new CustomWeight(907.18474, "stn"), new CustomTime(86400, "d"), "STPD");
+            var unit = new CustomFractionUnit(new CustomWeight(907.18474, "stn"), new CustomTime(86400, "d"), "STPD");
 
             UnitConverter.RegisterCustomUnit(unit);
 
@@ -211,23 +211,23 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             Assert.AreEqual("stn/d", result.ToSerializable());
 
-            var complexResult = result as ComplexUnit;
+            var fractionResult = result as FractionUnit;
 
-            Assert.IsNotNull(complexResult);
+            Assert.IsNotNull(fractionResult);
 
-            var complexNumeratorResult = complexResult.Numerator;
+            var fractionNumeratorResult = fractionResult.Numerator;
 
-            Assert.IsNotNull(complexNumeratorResult);
+            Assert.IsNotNull(fractionNumeratorResult);
 
-            Assert.AreEqual("stn", complexNumeratorResult.ToSerializable());
-            Assert.IsTrue(complexNumeratorResult is CustomWeight);
+            Assert.AreEqual("stn", fractionNumeratorResult.ToSerializable());
+            Assert.IsTrue(fractionNumeratorResult is CustomWeight);
 
-            var complexDenominatorResult = complexResult.Denominator;
+            var fractionDenominatorResult = fractionResult.Denominator;
 
-            Assert.IsNotNull(complexDenominatorResult);
+            Assert.IsNotNull(fractionDenominatorResult);
 
-            Assert.AreEqual("d", complexDenominatorResult.ToSerializable());
-            Assert.IsTrue(complexDenominatorResult is CustomTime);
+            Assert.AreEqual("d", fractionDenominatorResult.ToSerializable());
+            Assert.IsTrue(fractionDenominatorResult is CustomTime);
 
             var numeratorResult = UnitConverter.ToUnitOfMeasurement("stn");
 
@@ -250,23 +250,23 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             Assert.AreEqual("stn/d", result.ToSerializable());
 
-            complexResult = result as ComplexUnit;
+            fractionResult = result as FractionUnit;
 
-            Assert.IsNotNull(complexResult);
+            Assert.IsNotNull(fractionResult);
 
-            complexNumeratorResult = complexResult.Numerator;
+            fractionNumeratorResult = fractionResult.Numerator;
 
-            Assert.IsNotNull(complexNumeratorResult);
+            Assert.IsNotNull(fractionNumeratorResult);
 
-            Assert.AreEqual("stn", complexNumeratorResult.ToSerializable());
-            Assert.IsTrue(complexNumeratorResult is ShortTon);
+            Assert.AreEqual("stn", fractionNumeratorResult.ToSerializable());
+            Assert.IsTrue(fractionNumeratorResult is ShortTon);
 
-            complexDenominatorResult = complexResult.Denominator;
+            fractionDenominatorResult = fractionResult.Denominator;
 
-            Assert.IsNotNull(complexDenominatorResult);
+            Assert.IsNotNull(fractionDenominatorResult);
 
-            Assert.AreEqual("d", complexDenominatorResult.ToSerializable());
-            Assert.IsTrue(complexDenominatorResult is Day);
+            Assert.AreEqual("d", fractionDenominatorResult.ToSerializable());
+            Assert.IsTrue(fractionDenominatorResult is Day);
 
             numeratorResult = UnitConverter.ToUnitOfMeasurement("stn");
 
@@ -284,9 +284,9 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         }
 
         [TestMethod]
-        public void ComplexEquality()
+        public void FractionEquality()
         {
-            var unit = new CustomComplexUnit(new CustomWeight(0.0311034768, "oz.tr."), new CustomTime(86400 * 7, "w"), "ozpw");
+            var unit = new CustomFractionUnit(new CustomWeight(0.0311034768, "oz.tr."), new CustomTime(86400 * 7, "w"), "ozpw");
 
             UnitConverter.RegisterCustomUnit(unit);
 
@@ -313,22 +313,22 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             AssertAreEqual(result4a, result4b);
 
-            var result5 = result1 as IComplexUnit;
+            var result5 = result1 as IFractionUnit;
 
-            var result6 = result2 as IComplexUnit;
+            var result6 = result2 as IFractionUnit;
 
             AssertAreEqual(result5, result6);
 
-            var result7a = result3a as IComplexUnit;
-            var result7b = result3b as IComplexUnit;
+            var result7a = result3a as IFractionUnit;
+            var result7b = result3b as IFractionUnit;
 
             AssertAreNotEqual(result5, result7a);
             AssertAreNotEqual(result6, result7a);
 
             AssertAreEqual(result7a, result7b);
 
-            var result8a = result4a as IComplexUnit;
-            var result8b = result4b as IComplexUnit;
+            var result8a = result4a as IFractionUnit;
+            var result8b = result4b as IFractionUnit;
 
             AssertAreNotEqual(result5, result8a);
             AssertAreNotEqual(result6, result8a);
@@ -338,48 +338,48 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         }
 
         [TestMethod]
-        public void UndefinedComplex()
+        public void UndefinedFraction()
         {
-            var result = UnitConverter.ToUnitOfMeasurement("/h") as IComplexUnit;
+            var result = UnitConverter.ToUnitOfMeasurement("/h") as IFractionUnit;
 
             Assert.IsNotNull(result);
 
             AssertAreEqual(result.Numerator, new UndefinedUnitOfMeasurement());
             AssertAreEqual(result.Denominator, new Hour());
 
-            var result2 = UnitConverter.ToUnitOfMeasurement("m/") as IComplexUnit;
+            var result2 = UnitConverter.ToUnitOfMeasurement("m/") as IFractionUnit;
 
             Assert.IsNotNull(result2);
 
             AssertAreEqual(result2.Numerator, new Meter());
             AssertAreEqual(result2.Denominator, new UndefinedUnitOfMeasurement());
 
-            var result3 = UnitConverter.ToUnitOfMeasurement("m//d") as IComplexUnit;
+            var result3 = UnitConverter.ToUnitOfMeasurement("m//d") as IFractionUnit;
 
             Assert.IsNotNull(result3);
 
             AssertAreEqual(result3.Numerator, new Meter());
-            AssertAreEqual(result3.Denominator, new UnknownComplexUnitOfMeasurement("/d"));
+            AssertAreEqual(result3.Denominator, new UnknownFractionUnitOfMeasurement("/d"));
 
-            var result4 = UnitConverter.ToUnitOfMeasurement("m/s²") as IComplexUnit;
+            var result4 = UnitConverter.ToUnitOfMeasurement("m/s²") as IFractionUnit;
 
             Assert.IsNotNull(result4);
 
             AssertAreEqual(result4.Numerator, new Meter());
             AssertAreEqual(result4.Denominator, new UnknownSimpleUnitOfMeasurement("s²"));
 
-            var result5 = UnitConverter.ToUnitOfMeasurement("m/s/kg/°C") as IComplexUnit;
+            var result5 = UnitConverter.ToUnitOfMeasurement("m/s/kg/°C") as IFractionUnit;
 
             Assert.IsNotNull(result5);
 
             AssertAreEqual(result5.Numerator, new Meter());
 
-            var result5d = UnitConverter.ToUnitOfMeasurement("s/kg/°C") as IComplexUnit;
+            var result5d = UnitConverter.ToUnitOfMeasurement("s/kg/°C") as IFractionUnit;
 
             AssertAreEqual(result5.Denominator, result5d);
 
             AssertAreEqual(result5d.Numerator, new Second());
-            AssertAreEqual(result5d.Denominator, new ComplexUnit<Kilogram, Celsius>());
+            AssertAreEqual(result5d.Denominator, new FractionUnit<Kilogram, Celsius>());
         }
 
         private static void AssertAreEqual(UnitOfMeasurement left, UnitOfMeasurement right)

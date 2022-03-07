@@ -4,203 +4,6 @@
         <name>DoenaSoft.UnitsOfMeasurement</name>
     </assembly>
     <members>
-        <member name="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit">
-            <summary>
-            Describes a unit that has a unit over another unit, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Second"/>
-            </summary>
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.Numerator">
-            <summary />
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.Denominator">
-            <summary />
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.DoenaSoft#UnitsOfMeasurement#ComplexUnits#IComplexUnit#Numerator">
-            <summary />
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.DoenaSoft#UnitsOfMeasurement#ComplexUnits#IComplexUnit#Denominator">
-            <summary />
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.UnitCategory">
-            <summary>
-            Returns the category of the unit, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/>.
-            </summary>
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.BaseUnit">
-            <summary>
-            Returns the unit that all other units of this category refer to as the base unit, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Second"/>
-            </summary>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit)">
-            <summary/>
-            <param name="numerator"/>
-            <param name="denominator"/>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.GetHashCode">
-            <summary>
-            Serves as the default hash function.
-            </summary>
-            <returns>A hash code for the current object.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.Equals(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.Equals(DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.Equals(DoenaSoft.UnitsOfMeasurement.ComplexUnits.IComplexUnit)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.ToSerializable">
-            <summary>
-            Returns the unit in a format that can be sent over a data stream.
-            </summary>
-            <returns>the unit in a format that can be sent over a data stream</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit.GetDisplayValue">
-            <summary>
-            Returns the unit text in a well-formatted way.
-            </summary>
-            <returns>the unit text in a well-formatted way</returns>
-        </member>
-        <member name="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit`2">
-            <summary>
-            Describes a unit that has a unit over another unit, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Hour"/>
-            </summary>
-            <typeparam name="TNumeratorUnit">the unit over the divider, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/></typeparam>
-            <typeparam name="TDenominatorUnit">the unit under the divider, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Hour"/></typeparam>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit`2.#ctor">
-            <summary/>
-        </member>
-        <member name="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.CustomComplexUnit">
-            <summary>
-            Eine Klasse für Einheiten, die nicht dem Standard Zähler/Nenner Format folgen.
-            </summary>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.CustomComplexUnit.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,System.String)">
-            <summary/>
-            <param name="numerator"/>
-            <param name="denominator"/>
-            <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.CustomComplexUnit.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit)">
-            <summary/>
-            <param name="numerator"/>
-            <param name="denominator"/>
-        </member>
-        <member name="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density">
-            <summary>
-            Describes a <see cref="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit"/> of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/>
-            </summary>
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density.Numerator">
-            <summary>
-            Zähler
-            </summary>
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density.Denominator">
-            <summary>
-            Nenner
-            </summary>
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density.BaseUnit">
-            <summary>
-            Returns the base <see cref="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density"/> unit, i.e. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Kilogram"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>.
-            </summary>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight,DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume)">
-            <summary/>
-            <param name="numerator"/>
-            <param name="denominator"/>
-        </member>
-        <member name="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density`2">
-            <summary>
-            Describes a <see cref="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.ComplexUnit`2"/> of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/>
-            </summary>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density`2.#ctor">
-            <summary/>
-        </member>
-        <member name="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.IComplexUnit">
-            <summary>
-            Describes a unit that has a unit over another unit, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Hour"/>
-            </summary>
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.IComplexUnit.Numerator">
-            <summary />
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.IComplexUnit.Denominator">
-            <summary />
-        </member>
-        <member name="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.UnknownComplexUnitOfMeasurement">
-            <summary>
-            A complex unit that does not fall into any of the known categories.
-            </summary>
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.UnknownComplexUnitOfMeasurement.Numerator">
-            <summary>
-            Zähler
-            </summary>
-        </member>
-        <member name="P:DoenaSoft.UnitsOfMeasurement.ComplexUnits.UnknownComplexUnitOfMeasurement.Denominator">
-            <summary>
-            Nenner
-            </summary>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.UnknownComplexUnitOfMeasurement.GetHashCode">
-            <summary>
-            Serves as the default hash function.
-            </summary>
-            <returns>A hash code for the current object.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.UnknownComplexUnitOfMeasurement.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.UnknownComplexUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.UnknownComplexUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.ComplexUnits.UnknownComplexUnitOfMeasurement)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.ComplexUnits.UnknownComplexUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.ComplexUnits.IComplexUnit)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Exceptions.UnitConversionException">
             <summary/>
         </member>
@@ -219,6 +22,203 @@
             </summary>
             <param name="unitOfMeasurement">a <see cref="T:System.String"/> representing a unit</param>
             <returns>a <see cref="T:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement"/></returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.CustomFractionUnit">
+            <summary>
+            Eine Klasse für Einheiten, die nicht dem Standard Zähler/Nenner Format folgen.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.CustomFractionUnit.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,System.String)">
+            <summary/>
+            <param name="numerator"/>
+            <param name="denominator"/>
+            <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.CustomFractionUnit.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit)">
+            <summary/>
+            <param name="numerator"/>
+            <param name="denominator"/>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density">
+            <summary>
+            Describes a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit"/> of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/>
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density.Numerator">
+            <summary>
+            Zähler
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density.Denominator">
+            <summary>
+            Nenner
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density.BaseUnit">
+            <summary>
+            Returns the base <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density"/> unit, i.e. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Kilogram"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight,DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume)">
+            <summary/>
+            <param name="numerator"/>
+            <param name="denominator"/>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density`2">
+            <summary>
+            Describes a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit`2"/> of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/>
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density`2.#ctor">
+            <summary/>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit">
+            <summary>
+            Describes a unit that has a unit over another unit, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Second"/>
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.Numerator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.Denominator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.DoenaSoft#UnitsOfMeasurement#FractionUnits#IFractionUnit#Numerator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.DoenaSoft#UnitsOfMeasurement#FractionUnits#IFractionUnit#Denominator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.UnitCategory">
+            <summary>
+            Returns the category of the unit, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/>.
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.BaseUnit">
+            <summary>
+            Returns the unit that all other units of this category refer to as the base unit, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Second"/>
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit)">
+            <summary/>
+            <param name="numerator"/>
+            <param name="denominator"/>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.GetHashCode">
+            <summary>
+            Serves as the default hash function.
+            </summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.Equals(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
+            <summary>
+            Checks if this unit is equal to another unit.
+            </summary>
+            <param name="other">the other unit</param>
+            <returns>if this unit is equal to another unit</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit)">
+            <summary>
+            Checks if this unit is equal to another unit.
+            </summary>
+            <param name="other">the other unit</param>
+            <returns>if this unit is equal to another unit</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.IFractionUnit)">
+            <summary>
+            Checks if this unit is equal to another unit.
+            </summary>
+            <param name="other">the other unit</param>
+            <returns>if this unit is equal to another unit</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit`2">
+            <summary>
+            Describes a unit that has a unit over another unit, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Hour"/>
+            </summary>
+            <typeparam name="TNumeratorUnit">the unit over the divider, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/></typeparam>
+            <typeparam name="TDenominatorUnit">the unit under the divider, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Hour"/></typeparam>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit`2.#ctor">
+            <summary/>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.IFractionUnit">
+            <summary>
+            Describes a unit that has a unit over another unit, e.g. <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Hour"/>
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.IFractionUnit.Numerator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.IFractionUnit.Denominator">
+            <summary />
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement">
+            <summary>
+            A fraction unit that does not fall into any of the known categories.
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Numerator">
+            <summary>
+            Zähler
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Denominator">
+            <summary>
+            Nenner
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.GetHashCode">
+            <summary>
+            Serves as the default hash function.
+            </summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
+            <summary>
+            Checks if this unit is equal to another unit.
+            </summary>
+            <param name="other">the other unit</param>
+            <returns>if this unit is equal to another unit</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement)">
+            <summary>
+            Checks if this unit is equal to another unit.
+            </summary>
+            <param name="other">the other unit</param>
+            <returns>if this unit is equal to another unit</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.IFractionUnit)">
+            <summary>
+            Checks if this unit is equal to another unit.
+            </summary>
+            <param name="other">the other unit</param>
+            <returns>if this unit is equal to another unit</returns>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.ICustomUnit">
             <summary>
@@ -440,6 +440,31 @@
             </summary>
             <returns>the unit text in a well-formatted way</returns>
         </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.SquareYard">
+            <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.SquareYard.FactorToSquareMeter">
+            <summary>
+            0.83612736m²
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.SquareYard.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.SquareYard"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.SquareMeter"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.SquareYard.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.SquareYard.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.CustomEnergy">
             <summary>
             Describes an <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.Energy"/> unit that is not predefined in this assembly.
@@ -450,7 +475,7 @@
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.CustomEnergy.#ctor(System.Double,System.String)">
             <summary/>
-            <param name="conversionFactorToKiloWattHour">the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.KiloWattHour"/></param>
+            <param name="conversionFactorToJoule">the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.Joule"/></param>
             <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.CustomEnergy.ToSerializable">
@@ -475,7 +500,7 @@
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.Energy.BaseUnit">
             <summary>
-            Returns the unit that all other units of this category refer to as the base unit, <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.KiloWattHour"/>.
+            Returns the unit that all other units of this category refer to as the base unit, <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.Joule"/>.
             </summary>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.Joule">
@@ -1300,6 +1325,31 @@
             </summary>
             <returns>the unit text in a well-formatted way</returns>
         </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicYard">
+            <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicYard.FactorToLiter">
+            <summary>
+            764.554857984l
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicYard.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicYard"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicYard.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicYard.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CustomVolume">
             <summary>
             Describes an <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/> unit that is not predefined in this assembly.
@@ -1706,7 +1756,7 @@
             <summary>
             Converts the given data into a <see cref="T:DoenaSoft.UnitsOfMeasurement.ICustomUnit"/>.
             </summary>
-            <param name="complexUnitSerializableValue">the complex unit in a format that can be sent over a data stream</param>
+            <param name="fractionUnitSerializableValue">the fraction unit in a format that can be sent over a data stream</param>
             <param name="numeratorUnitCategory">the category the numerator unit belongs to</param>
             <param name="numeratorConversionFactorToBaseUnit">the multiplication factor of the numerator unit in relation to the base unit of the given category</param>
             <param name="numeratorSerializableValue">the numerator unit in a format that can be sent over a data stream</param>
@@ -1717,10 +1767,10 @@
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.UnitConverter.ToDensityUnit(System.String)">
             <summary>
-            Converts a <see cref="T:System.String"/> representing a unit to a <see cref="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density"/> unit.
+            Converts a <see cref="T:System.String"/> representing a unit to a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density"/> unit.
             </summary>
             <param name="unitOfMeasurement">a <see cref="T:System.String"/> representing a unit</param>
-            <returns>a <see cref="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density"/> unit</returns>
+            <returns>a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density"/> unit</returns>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.UnitConverter.RegisterCustomUnit(DoenaSoft.UnitsOfMeasurement.ICustomUnit)">
             <summary>
@@ -1737,11 +1787,11 @@
             <param name="customUnit">a custom <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.SimpleUnit"/></param>
             <returns>true if unit was registered newly, false if already registered</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.UnitConverter.RegisterCustomUnit(DoenaSoft.UnitsOfMeasurement.ComplexUnits.CustomComplexUnit)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.UnitConverter.RegisterCustomUnit(DoenaSoft.UnitsOfMeasurement.FractionUnits.CustomFractionUnit)">
             <summary>
-            Registers a <see cref="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.CustomComplexUnit"/> in the system to be retreived/used later.
+            Registers a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.CustomFractionUnit"/> in the system to be retreived/used later.
             </summary>
-            <param name="customUnit">the <see cref="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.CustomComplexUnit"/></param>
+            <param name="customUnit">the <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.CustomFractionUnit"/></param>
             <returns>true if unit was registered newly, false if already registered</returns>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement">
@@ -1893,7 +1943,7 @@
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.DensityValue">
             <summary>
-            Describes a scalar with a <see cref="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density"/> unit.
+            Describes a scalar with a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density"/> unit.
             </summary>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.Unit">
@@ -1904,7 +1954,7 @@
             <param name="scalar"/>
             <param name="unit"/>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.#ctor(System.Double,DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.#ctor(System.Double,DoenaSoft.UnitsOfMeasurement.FractionUnits.Density)">
             <summary/>
             <param name="scalar"/>
             <param name="densityUnit"/>
@@ -1966,7 +2016,7 @@
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1">
             <summary>
-            Describes a scalar with a <see cref="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density"/> unit.
+            Describes a scalar with a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density"/> unit.
             </summary>
             <typeparam name="TDensityUnit"/>
         </member>
@@ -2025,7 +2075,7 @@
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2">
             <summary>
-            Describes a scalar with a <see cref="T:DoenaSoft.UnitsOfMeasurement.ComplexUnits.Density"/> unit.
+            Describes a scalar with a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density"/> unit.
             </summary>
             <typeparam name="TWeight"/>
             <typeparam name="TVolume"/>
@@ -2338,7 +2388,7 @@
             <summary>
             Converts the throughput of a value over time
             </summary>
-            <param name="valueOverTime">s complex value where the denominator is <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Time"/></param>
+            <param name="valueOverTime">a fraction value where the denominator is <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Time"/></param>
             <param name="time">a simple value where the unit is <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Time"/></param>
         </member>
     </members>

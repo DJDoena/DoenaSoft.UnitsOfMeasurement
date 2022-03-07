@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
-    using ComplexUnits;
+    using FractionUnits;
     using Exceptions;
     using SimpleUnits;
     using SimpleUnits.Lengths;
@@ -122,13 +122,13 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         }
 
         [TestMethod]
-        public void UnknownTripleComplexUnit()
+        public void UnknownTripleFractionUnit()
         {
             var unit = "m/s/s";
 
             var unitOfMeasurement = UnitConverter.ToUnitOfMeasurement(unit);
 
-            Assert.AreEqual(typeof(UnknownComplexUnitOfMeasurement), unitOfMeasurement.GetType());
+            Assert.AreEqual(typeof(UnknownFractionUnitOfMeasurement), unitOfMeasurement.GetType());
             Assert.AreEqual(unit, unitOfMeasurement.ToSerializable());
             Assert.AreEqual(unit, unitOfMeasurement.GetDisplayValue());
         }
@@ -152,13 +152,13 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             var unitOfMeasurement = UnitConverter.ToUnitOfMeasurement(unit);
 
-            var complexUnit = unitOfMeasurement as ComplexUnit;
+            var fractionUnit = unitOfMeasurement as FractionUnit;
 
-            Assert.IsNotNull(complexUnit);
+            Assert.IsNotNull(fractionUnit);
             Assert.AreEqual(unit, unitOfMeasurement.ToSerializable());
             Assert.AreEqual(unit, unitOfMeasurement.GetDisplayValue());
-            Assert.AreEqual(typeof(UnknownSimpleUnitOfMeasurement), complexUnit.Numerator.GetType());
-            Assert.AreEqual(typeof(UnknownSimpleUnitOfMeasurement), complexUnit.Denominator.GetType());
+            Assert.AreEqual(typeof(UnknownSimpleUnitOfMeasurement), fractionUnit.Numerator.GetType());
+            Assert.AreEqual(typeof(UnknownSimpleUnitOfMeasurement), fractionUnit.Denominator.GetType());
 
             unit = "Meilen pro Stunde";
 
@@ -249,19 +249,19 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
             const double LiterPerKilometer = 5.9 / 100;
             const double GasMileage = 39.86688;
 
-            Value source = new Value<ComplexUnit<Liter, Kilometer>>(LiterPerKilometer);
-            Value target = ValueConverter.Convert(source, new ComplexUnit<USLiquidGallon, Mile>());
+            Value source = new Value<FractionUnit<Liter, Kilometer>>(LiterPerKilometer);
+            Value target = ValueConverter.Convert(source, new FractionUnit<USLiquidGallon, Mile>());
             var inverted = Math.Round(1 / target.Scalar, 5);
 
             Assert.AreEqual(GasMileage, inverted);
-            Assert.AreEqual(typeof(ComplexUnit<USLiquidGallon, Mile>), target.Unit.GetType());
+            Assert.AreEqual(typeof(FractionUnit<USLiquidGallon, Mile>), target.Unit.GetType());
 
-            source = new Value<ComplexUnit<Liter, Kilometer>>(LiterPerKilometer);
-            target = ValueConverter.Convert(source, new ComplexUnit<Mile, USLiquidGallon>());
+            source = new Value<FractionUnit<Liter, Kilometer>>(LiterPerKilometer);
+            target = ValueConverter.Convert(source, new FractionUnit<Mile, USLiquidGallon>());
             inverted = Math.Round(target.Scalar, 5);
 
             Assert.AreEqual(GasMileage, inverted);
-            Assert.AreEqual(typeof(ComplexUnit<Mile, USLiquidGallon>), target.Unit.GetType());
+            Assert.AreEqual(typeof(FractionUnit<Mile, USLiquidGallon>), target.Unit.GetType());
         }
 
         [TestMethod]
@@ -521,7 +521,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [TestMethod]
         public void LitersPerHourToLiters()
         {
-            var litersPerHour = new Value(12.0, new ComplexUnit<Liter, Hour>());
+            var litersPerHour = new Value(12.0, new FractionUnit<Liter, Hour>());
 
             var time = new Value<Minute>(30);
 
@@ -620,7 +620,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         }
 
         [TestMethod]
-        public void CustomComplexUnitsFromText()
+        public void CustomFractionUnitsFromText()
         {
             var pph_in = UnitConverter.ToUnitOfMeasurement("PPH", "Weight", 0.45359237, "lb", "Time", 60.0 * 60.0, "h");
 
@@ -631,19 +631,19 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
             var pph_out = UnitConverter.ToUnitOfMeasurement("PPH");
 
             Assert.IsNotNull(pph_out);
-            Assert.IsInstanceOfType(pph_out, typeof(ComplexUnit));
+            Assert.IsInstanceOfType(pph_out, typeof(FractionUnit));
             Assert.AreSame(pph_in, pph_out);
 
-            var complexPph = (ComplexUnit)pph_out;
+            var fractionPph = (FractionUnit)pph_out;
 
-            Assert.IsInstanceOfType(complexPph.Numerator, typeof(CustomWeight));
-            Assert.IsInstanceOfType(complexPph.Denominator, typeof(CustomTime));
+            Assert.IsInstanceOfType(fractionPph.Numerator, typeof(CustomWeight));
+            Assert.IsInstanceOfType(fractionPph.Denominator, typeof(CustomTime));
         }
 
         [TestMethod]
-        public void CustomComplexUnitsFromUnit()
+        public void CustomFractionUnitsFromUnit()
         {
-            var pph_in = new CustomComplexUnit(new Pound(), new Hour());
+            var pph_in = new CustomFractionUnit(new Pound(), new Hour());
 
             var success = UnitConverter.RegisterCustomUnit(pph_in);
 
@@ -652,13 +652,13 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
             var pph_out = UnitConverter.ToUnitOfMeasurement("lb/h");
 
             Assert.IsNotNull(pph_out);
-            Assert.IsInstanceOfType(pph_out, typeof(ComplexUnit));
+            Assert.IsInstanceOfType(pph_out, typeof(FractionUnit));
             Assert.AreSame(pph_in, pph_out);
 
-            var complexPph = (ComplexUnit)pph_out;
+            var fractionPph = (FractionUnit)pph_out;
 
-            Assert.IsInstanceOfType(complexPph.Numerator, typeof(Pound));
-            Assert.IsInstanceOfType(complexPph.Denominator, typeof(Hour));
+            Assert.IsInstanceOfType(fractionPph.Numerator, typeof(Pound));
+            Assert.IsInstanceOfType(fractionPph.Denominator, typeof(Hour));
         }
 
         [TestMethod]
@@ -764,9 +764,9 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             Assert.AreEqual(907.18474m, Convert.ToDecimal(kg.Scalar));
 
-            var std = new Value(2000, new ComplexUnit<Pound, Day>());
+            var std = new Value(2000, new FractionUnit<Pound, Day>());
 
-            var kph = ValueConverter.Convert(std, new ComplexUnit<Kilogram, Hour>());
+            var kph = ValueConverter.Convert(std, new FractionUnit<Kilogram, Hour>());
 
             Assert.AreEqual(37.7993641666667m, Convert.ToDecimal(kph.Scalar));
         }

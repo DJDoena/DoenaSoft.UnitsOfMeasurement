@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DoenaSoft.UnitsOfMeasurement
 {
-    using ComplexUnits;
+    using FractionUnits;
     using Exceptions;
     using SimpleUnits;
     using SimpleUnits.Areas;
@@ -76,6 +76,10 @@ namespace DoenaSoft.UnitsOfMeasurement
             var m3 = new CubicMeter();
             _units.Add("m3", m3);
             _units.Add("m³", m3);
+
+            var yd3 = new CubicYard();
+            _units.Add("yd3", yd3);
+            _units.Add("yd³", yd3);
 
             var ft3 = new CubicFoot();
             _units.Add("ft3", ft3);
@@ -167,6 +171,10 @@ namespace DoenaSoft.UnitsOfMeasurement
             _units.Add("\"2", in2);
             _units.Add("\"²", in2);
 
+            var yd2 = new SquareYard();
+            _units.Add("yd2", yd2);
+            _units.Add("yd²", yd2);
+
             var acre = new Acre();
             _units.Add("ac", acre);
             _units.Add("acre", acre);
@@ -240,12 +248,12 @@ namespace DoenaSoft.UnitsOfMeasurement
                     }
                     else
                     {
-                        return new ComplexUnit(numeratorUnit, denominatorUnit);
+                        return new FractionUnit(numeratorUnit, denominatorUnit);
                     }
                 }
                 else
                 {
-                    return new UnknownComplexUnitOfMeasurement(unitOfMeasurement);
+                    return new UnknownFractionUnitOfMeasurement(unitOfMeasurement);
                 }
             }
             else if (unitOfMeasurement.Any(char.IsWhiteSpace))
@@ -324,7 +332,7 @@ namespace DoenaSoft.UnitsOfMeasurement
         /// <summary>
         /// Converts the given data into a <see cref="ICustomUnit"/>.
         /// </summary>
-        /// <param name="complexUnitSerializableValue">the complex unit in a format that can be sent over a data stream</param>
+        /// <param name="fractionUnitSerializableValue">the fraction unit in a format that can be sent over a data stream</param>
         /// <param name="numeratorUnitCategory">the category the numerator unit belongs to</param>
         /// <param name="numeratorConversionFactorToBaseUnit">the multiplication factor of the numerator unit in relation to the base unit of the given category</param>
         /// <param name="numeratorSerializableValue">the numerator unit in a format that can be sent over a data stream</param>
@@ -332,7 +340,7 @@ namespace DoenaSoft.UnitsOfMeasurement
         /// <param name="denominatorConversionFactorToBaseUnit">the multiplication factor of the denominator unit in relation to the base unit of the given category</param>
         /// <param name="denominatorSerializableValue">the denominator unit in a format that can be sent over a data stream</param>
         /// <returns>a <see cref="ICustomUnit"/></returns>
-        public static ICustomUnit ToUnitOfMeasurement(string complexUnitSerializableValue
+        public static ICustomUnit ToUnitOfMeasurement(string fractionUnitSerializableValue
             , string numeratorUnitCategory, double numeratorConversionFactorToBaseUnit, string numeratorSerializableValue
             , string denominatorUnitCategory, double denominatorConversionFactorToBaseUnit, string denominatorSerializableValue)
         {
@@ -350,7 +358,7 @@ namespace DoenaSoft.UnitsOfMeasurement
                 throw new NotSupportedException($"Unit category '{denominatorUnit.UnitCategory}' is not supported.");
             }
 
-            return new CustomComplexUnit(simpleNumeratorUnit, simpleDenominatorUnit, complexUnitSerializableValue);
+            return new CustomFractionUnit(simpleNumeratorUnit, simpleDenominatorUnit, fractionUnitSerializableValue);
         }
 
         /// <summary>
@@ -364,15 +372,15 @@ namespace DoenaSoft.UnitsOfMeasurement
 
             var unit = ToUnitOfMeasurement(unitOfMeasurement);
 
-            if (!(unit is ComplexUnit complexUnit))
+            if (!(unit is FractionUnit fractionUnit))
             {
                 throw new UnitConversionException(ErrorText);
             }
-            else if (!(complexUnit.Numerator is Weight weight))
+            else if (!(fractionUnit.Numerator is Weight weight))
             {
                 throw new UnitConversionException(ErrorText);
             }
-            else if (!(complexUnit.Denominator is Volume volume))
+            else if (!(fractionUnit.Denominator is Volume volume))
             {
                 throw new UnitConversionException(ErrorText);
             }
@@ -420,9 +428,9 @@ namespace DoenaSoft.UnitsOfMeasurement
                     {
                         return RegisterCustomUnit(customEnergy);
                     }
-                case CustomComplexUnit customComplexUnit:
+                case CustomFractionUnit customFractionUnit:
                     {
-                        return RegisterCustomUnit(customComplexUnit);
+                        return RegisterCustomUnit(customFractionUnit);
                     }
                 default:
                     {
@@ -452,11 +460,11 @@ namespace DoenaSoft.UnitsOfMeasurement
         }
 
         /// <summary>
-        /// Registers a <see cref="CustomComplexUnit"/> in the system to be retreived/used later.
+        /// Registers a <see cref="CustomFractionUnit"/> in the system to be retreived/used later.
         /// </summary>
-        /// <param name="customUnit">the <see cref="CustomComplexUnit"/></param>
+        /// <param name="customUnit">the <see cref="CustomFractionUnit"/></param>
         /// <returns>true if unit was registered newly, false if already registered</returns>
-        public static bool RegisterCustomUnit(CustomComplexUnit customUnit)
+        public static bool RegisterCustomUnit(CustomFractionUnit customUnit)
         {
             if (customUnit == null)
             {

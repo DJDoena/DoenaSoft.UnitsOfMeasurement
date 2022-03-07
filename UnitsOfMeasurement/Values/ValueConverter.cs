@@ -2,7 +2,7 @@
 
 namespace DoenaSoft.UnitsOfMeasurement.Values
 {
-    using ComplexUnits;
+    using FractionUnits;
     using Exceptions;
     using SimpleUnits;
     using SimpleUnits.Times;
@@ -77,9 +77,9 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
 
                 return targetValue;
             }
-            else if (sourceValue.Unit is ComplexUnit && destinationUnit is ComplexUnit complexTargetUnit)
+            else if (sourceValue.Unit is FractionUnit && destinationUnit is FractionUnit fractionTargetUnit)
             {
-                var targetValue = ConvertComplexValue(sourceValue, complexTargetUnit);
+                var targetValue = ConvertFractionValue(sourceValue, fractionTargetUnit);
 
                 return targetValue;
             }
@@ -109,7 +109,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// <summary>
         /// Converts the throughput of a value over time
         /// </summary>
-        /// <param name="valueOverTime">s complex value where the denominator is <see cref="Time"/></param>
+        /// <param name="valueOverTime">a fraction value where the denominator is <see cref="Time"/></param>
         /// <param name="time">a simple value where the unit is <see cref="Time"/></param>
         public static Value ConvertValueOverTimeToValue(Value valueOverTime, Value time)
         {
@@ -122,9 +122,9 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
                 throw new ArgumentNullException(nameof(time));
             }
 
-            if (!(valueOverTime.Unit is ComplexUnit sourceUnit))
+            if (!(valueOverTime.Unit is FractionUnit sourceUnit))
             {
-                throw new ArgumentException($"{nameof(valueOverTime)} is not a complex unit!");
+                throw new ArgumentException($"{nameof(valueOverTime)} is not a fraction unit!");
             }
 
             if (!(sourceUnit.Denominator is Time sourceTimeUnit))
@@ -180,20 +180,20 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             }
         }
 
-        private static Value ConvertComplexValue(Value sourceValue, ComplexUnit destinationUnit)
+        private static Value ConvertFractionValue(Value sourceValue, FractionUnit destinationUnit)
         {
             if (sourceValue.Unit.Equals(destinationUnit))
             {
                 //already done -> saves computing power
                 return sourceValue.Clone();
             }
-            else if (sourceValue.Unit is ComplexUnit sourceUnit)
+            else if (sourceValue.Unit is FractionUnit sourceUnit)
             {
                 var sourceNumeratorValue = new Value(sourceValue.Scalar, sourceUnit.Numerator);
 
                 var sourceDenominatorValue = new Value(1.0, sourceUnit.Denominator);
 
-                var convertedValue = ConvertComplexValue(sourceNumeratorValue, sourceDenominatorValue, destinationUnit);
+                var convertedValue = ConvertFractionValue(sourceNumeratorValue, sourceDenominatorValue, destinationUnit);
 
                 return convertedValue;
             }
@@ -203,7 +203,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             }
         }
 
-        private static Value ConvertComplexValue(Value sourceNumeratorValue, Value sourceDenominatorValue, ComplexUnit destinationUnit)
+        private static Value ConvertFractionValue(Value sourceNumeratorValue, Value sourceDenominatorValue, FractionUnit destinationUnit)
         {
             if (!(destinationUnit.Numerator is SimpleUnit destinationNumeratorUnit))
             {
@@ -256,7 +256,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             }
 
             //normalize density to base units
-            var normalizedDensity = ConvertComplexValue(density, density.Unit.BaseUnit);
+            var normalizedDensity = ConvertFractionValue(density, density.Unit.BaseUnit);
 
             //normalize to base unit
             var normalizedWeightValue = ConvertSimpleValue(weightValue, new Kilogram());
@@ -281,7 +281,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             }
 
             //normalize density to base units
-            var normalizedDensity = ConvertComplexValue(density, density.Unit.BaseUnit);
+            var normalizedDensity = ConvertFractionValue(density, density.Unit.BaseUnit);
 
             //normalize to base unit
             var normalizedVolumeValue = ConvertSimpleValue(volumeValue, new Liter());

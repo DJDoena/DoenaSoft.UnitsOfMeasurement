@@ -2,7 +2,7 @@
 
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
-    using ComplexUnits;
+    using FractionUnits;
     using SimpleUnits.Times;
     using SimpleUnits.Volumes;
     using Values;
@@ -27,19 +27,19 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         }
 
         [TestMethod]
-        public void ComplexConversion()
+        public void FractionConversion()
         {
-            Value source = new Value<ComplexUnit<Liter, Hour>>(60);
-            Value target = ValueConverter.Convert<ComplexUnit<Liter, Minute>>(source);
+            Value source = new Value<FractionUnit<Liter, Hour>>(60);
+            Value target = ValueConverter.Convert<FractionUnit<Liter, Minute>>(source);
 
             Assert.AreEqual(1, target.Scalar);
-            Assert.AreEqual(typeof(ComplexUnit<Liter, Minute>), target.Unit.GetType());
+            Assert.AreEqual(typeof(FractionUnit<Liter, Minute>), target.Unit.GetType());
 
             source = new Value(60, UnitConverter.ToUnitOfMeasurement("l/h"));
-            target = ValueConverter.Convert<ComplexUnit<Liter, Minute>>(source);
+            target = ValueConverter.Convert<FractionUnit<Liter, Minute>>(source);
 
             Assert.AreEqual(1, target.Scalar);
-            Assert.AreEqual(typeof(ComplexUnit<Liter, Minute>), target.Unit.GetType());
+            Assert.AreEqual(typeof(FractionUnit<Liter, Minute>), target.Unit.GetType());
         }
     }
 }

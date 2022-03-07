@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
+namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
 {
     using SimpleUnits;
     using SimpleUnits.Times;
@@ -10,7 +10,7 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
     /// <summary>
     /// Describes a unit that has a unit over another unit, e.g. <see cref="Liter"/>/<see cref="Second"/>
     /// </summary>
-    public class ComplexUnit : UnitOfMeasurement, IComplexUnit, IEquatable<ComplexUnit>
+    public class FractionUnit : UnitOfMeasurement, IFractionUnit, IEquatable<FractionUnit>
     {
         /// <summary />
         public ISimpleUnit Numerator { get; }
@@ -19,10 +19,10 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
         public ISimpleUnit Denominator { get; }
 
         /// <summary />
-        IUnitOfMeasurement IComplexUnit.Numerator => this.Numerator;
+        IUnitOfMeasurement IFractionUnit.Numerator => this.Numerator;
 
         /// <summary />
-        IUnitOfMeasurement IComplexUnit.Denominator => this.Denominator;
+        IUnitOfMeasurement IFractionUnit.Denominator => this.Denominator;
 
         /// <summary>
         /// Returns the category of the unit, e.g. <see cref="Weight"/>/<see cref="Volume"/>.
@@ -32,12 +32,12 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
         /// <summary>
         /// Returns the unit that all other units of this category refer to as the base unit, e.g. <see cref="Liter"/>/<see cref="Second"/>
         /// </summary>
-        public override sealed IUnitOfMeasurement BaseUnit => new ComplexUnit((ISimpleUnit)this.Numerator.BaseUnit, (ISimpleUnit)this.Denominator.BaseUnit);
+        public override sealed IUnitOfMeasurement BaseUnit => new FractionUnit((ISimpleUnit)this.Numerator.BaseUnit, (ISimpleUnit)this.Denominator.BaseUnit);
 
         /// <summary/>
         /// <param name="numerator"/>
         /// <param name="denominator"/>
-        public ComplexUnit(ISimpleUnit numerator, ISimpleUnit denominator)
+        public FractionUnit(ISimpleUnit numerator, ISimpleUnit denominator)
         {
             if (numerator == null)
             {
@@ -70,7 +70,7 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
                 obj = UnitConverter.ToUnitOfMeasurement(serializableValue);
             }
 
-            return this.Equals(obj as IComplexUnit);
+            return this.Equals(obj as IFractionUnit);
         }
 
         /// <summary>
@@ -78,21 +78,21 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
         /// </summary>
         /// <param name="other">the other unit</param>
         /// <returns>if this unit is equal to another unit</returns>
-        public override bool Equals(IUnitOfMeasurement other) => this.Equals(other as IComplexUnit);
+        public override bool Equals(IUnitOfMeasurement other) => this.Equals(other as IFractionUnit);
 
         /// <summary>
         /// Checks if this unit is equal to another unit.
         /// </summary>
         /// <param name="other">the other unit</param>
         /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(ComplexUnit other) => this.Equals(other as IComplexUnit);
+        public bool Equals(FractionUnit other) => this.Equals(other as IFractionUnit);
 
         /// <summary>
         /// Checks if this unit is equal to another unit.
         /// </summary>
         /// <param name="other">the other unit</param>
         /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(IComplexUnit other)
+        public bool Equals(IFractionUnit other)
         {
             if (other == null)
             {
@@ -100,10 +100,10 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
             }
             else
             {
-                var thisComplexUnit = (IComplexUnit)this;
+                var thisFractionUnit = (IFractionUnit)this;
 
-                var equals = thisComplexUnit.Numerator.Equals(other.Numerator)
-                    && thisComplexUnit.Denominator.Equals(other.Denominator);
+                var equals = thisFractionUnit.Numerator.Equals(other.Numerator)
+                    && thisFractionUnit.Denominator.Equals(other.Denominator);
 
                 return equals;
             }
@@ -127,12 +127,12 @@ namespace DoenaSoft.UnitsOfMeasurement.ComplexUnits
     /// </summary>
     /// <typeparam name="TNumeratorUnit">the unit over the divider, e.g. <see cref="Liter"/></typeparam>
     /// <typeparam name="TDenominatorUnit">the unit under the divider, e.g. <see cref="Hour"/></typeparam>
-    public class ComplexUnit<TNumeratorUnit, TDenominatorUnit> : ComplexUnit
+    public class FractionUnit<TNumeratorUnit, TDenominatorUnit> : FractionUnit
         where TNumeratorUnit : ISimpleUnit, new()
         where TDenominatorUnit : ISimpleUnit, new()
     {
         /// <summary/>
-        public ComplexUnit() : base(new TNumeratorUnit(), new TDenominatorUnit())
+        public FractionUnit() : base(new TNumeratorUnit(), new TDenominatorUnit())
         {
         }
     }

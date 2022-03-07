@@ -2,7 +2,7 @@
 
 namespace DoenaSoft.UnitsOfMeasurement.Values
 {
-    using ComplexUnits;
+    using FractionUnits;
     using SimpleUnits.Volumes;
     using SimpleUnits.Weights;
 
