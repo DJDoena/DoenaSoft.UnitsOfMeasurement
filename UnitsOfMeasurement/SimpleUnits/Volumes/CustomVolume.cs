@@ -21,7 +21,7 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes
         /// <summary/>
         /// <param name="conversionFactorToLiter">the multiplication factor of this unit in relation to the <see cref="Liter"/></param>
         /// <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
-        public CustomVolume(double conversionFactorToLiter, string unitKey)
+        public CustomVolume(decimal conversionFactorToLiter, string unitKey)
         {
             if (string.IsNullOrWhiteSpace(unitKey))
             {
@@ -32,7 +32,7 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes
                 throw new ArgumentException("serializableValue must not contain '/'", nameof(unitKey));
             }
 
-            _factorToBaseUnit = Convert.ToDecimal(conversionFactorToLiter);
+            _factorToBaseUnit = conversionFactorToLiter;
 
             _unitKey = unitKey;
 

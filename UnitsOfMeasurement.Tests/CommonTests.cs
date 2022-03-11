@@ -23,7 +23,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [TestMethod]
         public void RegisterUniqueSimpleUnit()
         {
-            var unit = new CustomWeight(0.0311034768, "oz.tr.");
+            var unit = new CustomWeight(0.0311034768m, "oz.tr.");
 
             UnitConverter.RegisterCustomUnit(unit);
 
@@ -68,7 +68,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [TestMethod]
         public void SimpleEquality()
         {
-            var result1 = new CustomWeight(0.0311034768, "oz.tr.");
+            var result1 = new CustomWeight(0.0311034768m, "oz.tr.");
 
             UnitConverter.RegisterCustomUnit(result1);
 
@@ -100,7 +100,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [TestMethod]
         public void RegisterUniqueFractionUnit()
         {
-            var unit = new CustomFractionUnit(new CustomWeight(0.0311034768, "oz.tr."), new CustomTime(86400 * 7, "w"), "ozpw");
+            var unit = new CustomFractionUnit(new CustomWeight(0.0311034768m, "oz.tr."), new CustomTime(86400 * 7, "w"), "ozpw");
 
             UnitConverter.RegisterCustomUnit(unit);
 
@@ -201,7 +201,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [TestMethod]
         public void RegisterStandardFractionUnitUnitKey()
         {
-            var unit = new CustomFractionUnit(new CustomWeight(907.18474, "stn"), new CustomTime(86400, "d"), "STPD");
+            var unit = new CustomFractionUnit(new CustomWeight(907.18474m, "stn"), new CustomTime(86400, "d"), "STPD");
 
             UnitConverter.RegisterCustomUnit(unit);
 
@@ -286,7 +286,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [TestMethod]
         public void FractionEquality()
         {
-            var unit = new CustomFractionUnit(new CustomWeight(0.0311034768, "oz.tr."), new CustomTime(86400 * 7, "w"), "ozpw");
+            var unit = new CustomFractionUnit(new CustomWeight(0.0311034768m, "oz.tr."), new CustomTime(86400 * 7, "w"), "ozpw");
 
             UnitConverter.RegisterCustomUnit(unit);
 

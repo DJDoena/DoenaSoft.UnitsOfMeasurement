@@ -11,7 +11,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     {
         /// <summary/>
         [Required]
-        public double Scalar { get; set; }
+        public decimal Scalar { get; set; }
 
         /// <summary/>
         public string UnitOfMeasurement { get; set; }
@@ -22,7 +22,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         }
 
         /// <summary/>
-        public SerializableValue(double scalar, string unitOfMeasurement)
+        public SerializableValue(decimal scalar, string unitOfMeasurement)
         {
             this.Scalar = scalar;
             this.UnitOfMeasurement = unitOfMeasurement;

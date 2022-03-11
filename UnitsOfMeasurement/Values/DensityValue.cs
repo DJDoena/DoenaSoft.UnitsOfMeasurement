@@ -15,24 +15,32 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         public new Density Unit => (Density)base.Unit;
 
         /// <summary/>
-        /// <param name="scalar"/>
-        /// <param name="unit"/>
-        public DensityValue(double scalar, string unit) : this(scalar, UnitConverter.ToDensityUnit(unit))
+        public DensityValue(double scalar, string unit) : this(Convert.ToDecimal(scalar), unit)
         {
         }
 
         /// <summary/>
-        /// <param name="scalar"/>
-        /// <param name="densityUnit"/>
-        public DensityValue(double scalar, Density densityUnit) : base(scalar, densityUnit)
+        public DensityValue(decimal scalar, string unit) : this(scalar, UnitConverter.ToDensityUnit(unit))
         {
         }
 
         /// <summary/>
-        /// <param name="scalar"/>
-        /// <param name="numerator"/>
-        /// <param name="denominator"/>
-        public DensityValue(double scalar, Weight numerator, Volume denominator) : base(scalar, new Density(numerator, denominator))
+        public DensityValue(double scalar, Density densityUnit) : this(Convert.ToDecimal(scalar), densityUnit)
+        {
+        }
+
+        /// <summary/>
+        public DensityValue(decimal scalar, Density densityUnit) : base(scalar, densityUnit)
+        {
+        }
+
+        /// <summary/>
+        public DensityValue(double scalar, Weight numerator, Volume denominator) : this(Convert.ToDecimal(scalar), numerator, denominator)
+        {
+        }
+
+        /// <summary/>
+        public DensityValue(decimal scalar, Weight numerator, Volume denominator) : base(scalar, new Density(numerator, denominator))
         {
         }
 
@@ -47,7 +55,14 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// </summary>
         /// <param name="scalar">the scalar to be added</param>
         /// <returns>a new value with the summed-up scalar</returns>
-        public new DensityValue Add(double scalar) => new DensityValue(this.Scalar + scalar, this.Unit);
+        public new DensityValue Add(double scalar) => this.Add(Convert.ToDecimal(scalar));
+
+        /// <summary>
+        /// Adds the <see cref="Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
+        /// </summary>
+        /// <param name="scalar">the scalar to be added</param>
+        /// <returns>a new value with the summed-up scalar</returns>
+        public new DensityValue Add(decimal scalar) => new DensityValue(this.Scalar + scalar, this.Unit);
 
         /// <summary>
         /// Rounds the <see cref="Value.Scalar"/> to the given <paramref name="digits"/> and returns a new value with the rounded scalar.
@@ -94,8 +109,12 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         where TDensityUnit : Density, new()
     {
         /// <summary/>
-        /// <param name="scalar"/>
-        public DensityValue(double scalar) : base(scalar, new TDensityUnit())
+        public DensityValue(double scalar) : this(Convert.ToDecimal(scalar))
+        {
+        }
+
+        /// <summary/>
+        public DensityValue(decimal scalar) : base(scalar, new TDensityUnit())
         {
         }
 
@@ -110,7 +129,14 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// </summary>
         /// <param name="scalar">the scalar to be added</param>
         /// <returns>a new value with the summed-up scalar</returns>
-        public new DensityValue<TDensityUnit> Add(double scalar) => new DensityValue<TDensityUnit>(this.Scalar + scalar);
+        public new DensityValue<TDensityUnit> Add(double scalar) => this.Add(Convert.ToDecimal(scalar));
+
+        /// <summary>
+        /// Adds the <see cref="Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
+        /// </summary>
+        /// <param name="scalar">the scalar to be added</param>
+        /// <returns>a new value with the summed-up scalar</returns>
+        public new DensityValue<TDensityUnit> Add(decimal scalar) => new DensityValue<TDensityUnit>(this.Scalar + scalar);
 
         /// <summary>
         /// Rounds the <see cref="Value.Scalar"/> to the given <paramref name="digits"/> and returns a new value with the rounded scalar.
@@ -159,8 +185,12 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         where TVolume : Volume, new()
     {
         /// <summary/>
-        /// <param name="scalar"/>
-        public DensityValue(double scalar) : base(scalar, new Density(new TWeight(), new TVolume()))
+        public DensityValue(double scalar) : this(Convert.ToDecimal(scalar))
+        {
+        }
+
+        /// <summary/>
+        public DensityValue(decimal scalar) : base(scalar, new Density(new TWeight(), new TVolume()))
         {
         }
 
@@ -175,7 +205,14 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// </summary>
         /// <param name="scalar">the scalar to be added</param>
         /// <returns>a new value with the summed-up scalar</returns>
-        public new DensityValue<TWeight, TVolume> Add(double scalar) => new DensityValue<TWeight, TVolume>(this.Scalar + scalar);
+        public new DensityValue<TWeight, TVolume> Add(double scalar) => this.Add(Convert.ToDecimal(scalar));
+
+        /// <summary>
+        /// Adds the <see cref="Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
+        /// </summary>
+        /// <param name="scalar">the scalar to be added</param>
+        /// <returns>a new value with the summed-up scalar</returns>
+        public new DensityValue<TWeight, TVolume> Add(decimal scalar) => new DensityValue<TWeight, TVolume>(this.Scalar + scalar);
 
         /// <summary>
         /// Rounds the <see cref="Value.Scalar"/> to the given <paramref name="digits"/> and returns a new value with the rounded scalar.

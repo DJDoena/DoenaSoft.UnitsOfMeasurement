@@ -38,7 +38,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [ExpectedException(typeof(UnitConversionException))]
         public void UnitConversionExceptionTest1()
         {
-            var _ = new DensityValue(0.5, "m/s");
+            var _ = new DensityValue(0.5m, "m/s");
         }
     }
 }

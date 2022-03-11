@@ -9,20 +9,31 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     public class Value
     {
         /// <summary/>
-        public double Scalar { get; }
+        public decimal Scalar { get; }
+
+        /// <summary/>
+        public double ScalarAsDouble => Convert.ToDouble(this.Scalar);
 
         /// <summary/>
         public IUnitOfMeasurement Unit { get; }
 
         /// <summary/>
-        /// <param name="scalar"/>
-        /// <param name="unit"/>
-        public Value(double scalar, string unit) : this(scalar, UnitConverter.ToUnitOfMeasurement(unit))
+        public Value(double scalar, string unit) : this(Convert.ToDecimal(scalar), unit)
         {
         }
 
         /// <summary/>
-        public Value(double scalar, IUnitOfMeasurement unit)
+        public Value(decimal scalar, string unit) : this(scalar, UnitConverter.ToUnitOfMeasurement(unit))
+        {
+        }
+
+        /// <summary/>
+        public Value(double scalar, IUnitOfMeasurement unit) : this(Convert.ToDecimal(scalar), unit)
+        {
+        }
+
+        /// <summary/>
+        public Value(decimal scalar, IUnitOfMeasurement unit)
         {
             this.Scalar = scalar;
             this.Unit = unit ?? throw new ArgumentNullException(nameof(unit));
@@ -58,7 +69,14 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// </summary>
         /// <param name="scalar">the scalar to be added</param>
         /// <returns>a new value with the summed-up scalar</returns>
-        public Value Add(double scalar) => new Value(Convert.ToDouble(Convert.ToDecimal(this.Scalar) + Convert.ToDecimal(scalar)), this.Unit);
+        public Value Add(double scalar) => this.Add(Convert.ToDecimal(scalar));
+
+        /// <summary>
+        /// Adds the <see cref="Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
+        /// </summary>
+        /// <param name="scalar">the scalar to be added</param>
+        /// <returns>a new value with the summed-up scalar</returns>
+        public Value Add(decimal scalar) => new Value(this.Scalar + scalar, this.Unit);
 
         /// <summary>
         /// Adds this value and the given <paramref name="other"/> and returns a new value with the summed-up scalar.
@@ -81,7 +99,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             }
             else if (this.Unit.Equals(other.Unit))
             {
-                var newScalar = Convert.ToDouble(Convert.ToDecimal(this.Scalar) + Convert.ToDecimal(other.Scalar));
+                var newScalar = this.Scalar + other.Scalar;
 
                 return new Value(newScalar, this.Unit);
             }
@@ -89,7 +107,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             {
                 var convertedOtherValue = ValueConverter.Convert(other, this.Unit);
 
-                var newScalar = Convert.ToDouble(Convert.ToDecimal(this.Scalar) + Convert.ToDecimal(convertedOtherValue.Scalar));
+                var newScalar = this.Scalar + convertedOtherValue.Scalar;
 
                 return new Value(newScalar, this.Unit);
             }
@@ -174,8 +192,12 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     public class Value<TUnit> : Value where TUnit : IUnitOfMeasurement, new()
     {
         /// <summary/>
-        /// <param name="scalar"/>
-        public Value(double scalar) : base(scalar, new TUnit())
+        public Value(double scalar) : this(Convert.ToDecimal(scalar))
+        {
+        }
+
+        /// <summary/>
+        public Value(decimal scalar) : base(scalar, new TUnit())
         {
         }
 
@@ -190,7 +212,14 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// </summary>
         /// <param name="scalar">the scalar to be added</param>
         /// <returns>a new value with the summed-up scalar</returns>
-        public new Value<TUnit> Add(double scalar) => new Value<TUnit>(this.Scalar + scalar);
+        public new Value<TUnit> Add(double scalar) => this.Add(Convert.ToDecimal(scalar));
+
+        /// <summary>
+        /// Adds the <see cref="Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
+        /// </summary>
+        /// <param name="scalar">the scalar to be added</param>
+        /// <returns>a new value with the summed-up scalar</returns>
+        public new Value<TUnit> Add(decimal scalar) => new Value<TUnit>(this.Scalar + scalar);
 
         /// <summary>
         /// Adds this value and the given <paramref name="other"/> and returns a new value with the summed-up scalar.
@@ -213,7 +242,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             }
             else if (this.Unit.Equals(other.Unit))
             {
-                var newScalar = Convert.ToDouble(Convert.ToDecimal(this.Scalar) + Convert.ToDecimal(other.Scalar));
+                var newScalar = this.Scalar + other.Scalar;
 
                 return new Value<TUnit>(newScalar);
             }
@@ -221,7 +250,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             {
                 var convertedOtherValue = ValueConverter.Convert(other, this.Unit);
 
-                var newScalar = Convert.ToDouble(Convert.ToDecimal(this.Scalar) + Convert.ToDecimal(convertedOtherValue.Scalar));
+                var newScalar = this.Scalar + convertedOtherValue.Scalar;
 
                 return new Value<TUnit>(newScalar);
             }

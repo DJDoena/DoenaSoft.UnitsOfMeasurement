@@ -21,7 +21,7 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
         /// <summary/>
         /// <param name="conversionFactorToMeter">the multiplication factor of this unit in relation to the <see cref="Meter"/></param>
         /// <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
-        public CustomLength(double conversionFactorToMeter, string unitKey)
+        public CustomLength(decimal conversionFactorToMeter, string unitKey)
         {
             if (string.IsNullOrWhiteSpace(unitKey))
             {
@@ -32,7 +32,7 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
                 throw new ArgumentException("serializableValue must not contain '/'", nameof(unitKey));
             }
 
-            _factorToBaseUnit = Convert.ToDecimal(conversionFactorToMeter);
+            _factorToBaseUnit = conversionFactorToMeter;
 
             _unitKey = unitKey;
 

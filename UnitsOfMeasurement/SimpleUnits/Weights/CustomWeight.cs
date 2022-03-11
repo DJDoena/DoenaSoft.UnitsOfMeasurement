@@ -21,7 +21,7 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights
         /// <summary/>
         /// <param name="conversionFactorToKilogram">the multiplication factor of this unit in relation to the <see cref="Kilogram"/></param>
         /// <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
-        public CustomWeight(double conversionFactorToKilogram, string unitKey)
+        public CustomWeight(decimal conversionFactorToKilogram, string unitKey)
         {
             if (string.IsNullOrWhiteSpace(unitKey))
             {
@@ -32,7 +32,7 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights
                 throw new ArgumentException("serializableValue must not contain '/'", nameof(unitKey));
             }
 
-            _factorToBaseUnit = Convert.ToDecimal(conversionFactorToKilogram);
+            _factorToBaseUnit = conversionFactorToKilogram;
 
             _unitKey = unitKey;
 

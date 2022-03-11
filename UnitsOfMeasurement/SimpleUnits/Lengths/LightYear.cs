@@ -6,8 +6,10 @@
     public sealed class LightYear : Length
     {
         /// <summary>
-        /// 1 Julian year: 365.25 days
-        /// Light speed:   299,792,458m/s
+        /// https://en.wikipedia.org/wiki/Light-year
+        /// As defined by the International Astronomical Union (IAU), a light-year is the distance that light travels in vacuum in one Julian year (365.25 days)
+        /// https://en.wikipedia.org/wiki/Speed_of_light
+        /// Its exact value is defined as 299,792,458 metres per second
         /// </summary>
         public const decimal FactorToMeter = 365.25m * Day.FactorToSecond * 299_792_458m;
 

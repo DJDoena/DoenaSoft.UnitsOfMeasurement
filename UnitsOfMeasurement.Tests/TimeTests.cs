@@ -14,13 +14,13 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         public void SimpleConversion()
         {
 
-            Value source = new Value<Hour>(1);
+            Value source = new Value<Hour>(1m);
             Value target = ValueConverter.Convert(source, new Second());
 
             Assert.AreEqual(3600, target.Scalar);
             Assert.AreEqual(typeof(Second), target.Unit.GetType());
 
-            source = new Value<Hour>(1);
+            source = new Value<Hour>(1m);
             target = ValueConverter.Convert(source, new Minute());
 
             Assert.AreEqual(60, target.Scalar);
@@ -31,13 +31,13 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [TestMethod]
         public void FractionConversion()
         {
-            Value source = new Value<FractionUnit<Liter, Hour>>(60);
+            Value source = new Value<FractionUnit<Liter, Hour>>(60m);
             Value target = ValueConverter.Convert(source, new FractionUnit<Liter, Minute>());
 
             Assert.AreEqual(1, target.Scalar);
             Assert.AreEqual(typeof(FractionUnit<Liter, Minute>), target.Unit.GetType());
 
-            source = new Value(60, UnitConverter.ToUnitOfMeasurement("l/h"));
+            source = new Value(60m, UnitConverter.ToUnitOfMeasurement("l/h"));
             target = ValueConverter.Convert(source, new FractionUnit<Liter, Minute>());
 
             Assert.AreEqual(1, target.Scalar);

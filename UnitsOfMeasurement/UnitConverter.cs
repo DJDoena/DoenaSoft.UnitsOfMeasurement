@@ -292,7 +292,7 @@ namespace DoenaSoft.UnitsOfMeasurement
         /// <param name="conversionFactorToBaseUnit">the multiplication factor of this unit in relation to the base unit of the given category</param>
         /// <param name="serializableValue">the unit in a format that can be sent over a data stream</param>
         /// <returns>a <see cref="ICustomUnit"/></returns>
-        public static ICustomUnit ToUnitOfMeasurement(string unitCategory, double conversionFactorToBaseUnit, string serializableValue)
+        public static ICustomUnit ToUnitOfMeasurement(string unitCategory, decimal conversionFactorToBaseUnit, string serializableValue)
         {
             unitCategory = unitCategory?.ToLowerInvariant();
 
@@ -341,8 +341,8 @@ namespace DoenaSoft.UnitsOfMeasurement
         /// <param name="denominatorSerializableValue">the denominator unit in a format that can be sent over a data stream</param>
         /// <returns>a <see cref="ICustomUnit"/></returns>
         public static ICustomUnit ToUnitOfMeasurement(string fractionUnitSerializableValue
-            , string numeratorUnitCategory, double numeratorConversionFactorToBaseUnit, string numeratorSerializableValue
-            , string denominatorUnitCategory, double denominatorConversionFactorToBaseUnit, string denominatorSerializableValue)
+            , string numeratorUnitCategory, decimal numeratorConversionFactorToBaseUnit, string numeratorSerializableValue
+            , string denominatorUnitCategory, decimal denominatorConversionFactorToBaseUnit, string denominatorSerializableValue)
         {
             var numeratorUnit = ToUnitOfMeasurement(numeratorUnitCategory, numeratorConversionFactorToBaseUnit, numeratorSerializableValue);
 

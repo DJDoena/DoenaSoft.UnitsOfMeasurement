@@ -4,7 +4,8 @@
     public sealed class AstronomicalUnit : Length
     {
         /// <summary>
-        /// 149,597,870,700m
+        /// https://en.wikipedia.org/wiki/Astronomical_unit
+        /// since 2012 it has been defined as exactly 149,597,870,700m
         /// </summary>
         public const decimal FactorToMeter = 149_597_870_700m;
 

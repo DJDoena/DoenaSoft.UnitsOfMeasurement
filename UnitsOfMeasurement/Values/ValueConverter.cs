@@ -2,8 +2,8 @@
 
 namespace DoenaSoft.UnitsOfMeasurement.Values
 {
-    using FractionUnits;
     using Exceptions;
+    using FractionUnits;
     using SimpleUnits;
     using SimpleUnits.Times;
     using SimpleUnits.Volumes;
@@ -139,7 +139,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
 
             var targetTime = ConvertSimpleValue(time, sourceTimeUnit); //make both time units identical
 
-            var targetValue = new Value(System.Convert.ToDouble(System.Convert.ToDecimal(valueOverTime.Scalar) * System.Convert.ToDecimal(targetTime.Scalar)), sourceUnit.Numerator);
+            var targetValue = new Value(valueOverTime.Scalar * targetTime.Scalar, sourceUnit.Numerator);
 
             return targetValue;
         }
@@ -156,11 +156,11 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             else if (sourceValue.Unit is SimpleUnit sourceUnit
                 && sourceValue.Unit.UnitCategory.Equals(destinationUnit.UnitCategory))
             {
-                var sourceBaseScalar = sourceUnit.ToBaseUnitValue(System.Convert.ToDecimal(sourceValue.Scalar));
+                var sourceBaseScalar = sourceUnit.ToBaseUnitValue(sourceValue.Scalar);
 
                 var destinationScalar = destinationUnit.FromBaseUnitValue(sourceBaseScalar);
 
-                return new Value(System.Convert.ToDouble(destinationScalar), destinationUnit);
+                return new Value(destinationScalar, destinationUnit);
             }
             else if (sourceValue.Unit is Weight && destinationUnit is Volume targetVolumeUnit)
             {
@@ -191,7 +191,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             {
                 var sourceNumeratorValue = new Value(sourceValue.Scalar, sourceUnit.Numerator);
 
-                var sourceDenominatorValue = new Value(1.0, sourceUnit.Denominator);
+                var sourceDenominatorValue = new Value(1.0m, sourceUnit.Denominator);
 
                 var convertedValue = ConvertFractionValue(sourceNumeratorValue, sourceDenominatorValue, destinationUnit);
 
@@ -221,9 +221,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
 
                 var convertedDenominatorValue = ConvertSimpleValue(sourceDenominatorValue, destinationDenominatorUnit);
 
-                var decimalScalar = System.Convert.ToDecimal(convertedNumeratorValue.Scalar) / System.Convert.ToDecimal(convertedDenominatorValue.Scalar);
-
-                var scalar = System.Convert.ToDouble(decimalScalar);
+                var scalar = convertedNumeratorValue.Scalar / convertedDenominatorValue.Scalar;
 
                 return new Value(scalar, destinationUnit);
             }
@@ -235,9 +233,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
 
                     var convertedDenominatorValue = ConvertSimpleValue(sourceDenominatorValue, destinationNumeratorUnit);
 
-                    var decimalScalar = System.Convert.ToDecimal(convertedDenominatorValue.Scalar) / System.Convert.ToDecimal(convertedNumeratorValue.Scalar);
-
-                    var scalar = System.Convert.ToDouble(decimalScalar);
+                    var scalar = convertedDenominatorValue.Scalar / convertedNumeratorValue.Scalar;
 
                     return new Value(scalar, destinationUnit);
                 }
@@ -261,9 +257,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             //normalize to base unit
             var normalizedWeightValue = ConvertSimpleValue(weightValue, new Kilogram());
 
-            var decimalScalar = System.Convert.ToDecimal(normalizedWeightValue.Scalar) / System.Convert.ToDecimal(normalizedDensity.Scalar);
-
-            var scalar = System.Convert.ToDouble(decimalScalar);
+            var scalar = normalizedWeightValue.Scalar / normalizedDensity.Scalar;
 
             var normalizedVolumeValue = new Value<Liter>(scalar);
 
@@ -286,11 +280,9 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             //normalize to base unit
             var normalizedVolumeValue = ConvertSimpleValue(volumeValue, new Liter());
 
-            var decimalScalar = System.Convert.ToDecimal(normalizedVolumeValue.Scalar) * System.Convert.ToDecimal(normalizedDensity.Scalar);
+            var decimalScalar = normalizedVolumeValue.Scalar * normalizedDensity.Scalar;
 
-            var scalar = System.Convert.ToDouble(decimalScalar);
-
-            var normalizedWeightValue = new Value<Kilogram>(scalar);
+            var normalizedWeightValue = new Value<Kilogram>(decimalScalar);
 
             //conversion to target unit
             var weightValue = ConvertSimpleValue(normalizedWeightValue, targetWeightUnit);

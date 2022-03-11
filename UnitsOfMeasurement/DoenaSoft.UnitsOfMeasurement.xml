@@ -303,7 +303,7 @@
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.CustomArea.FactorToBaseUnit">
             <summary />
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.CustomArea.#ctor(System.Double,System.String)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.CustomArea.#ctor(System.Decimal,System.String)">
             <summary/>
             <param name="conversionFactorToSquareMeter">the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.SquareMeter"/></param>
             <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
@@ -473,7 +473,7 @@
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.CustomEnergy.FactorToBaseUnit">
             <summary />
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.CustomEnergy.#ctor(System.Double,System.String)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.CustomEnergy.#ctor(System.Decimal,System.String)">
             <summary/>
             <param name="conversionFactorToJoule">the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.Joule"/></param>
             <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
@@ -633,7 +633,8 @@
         </member>
         <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.AstronomicalUnit.FactorToMeter">
             <summary>
-            149,597,870,700m
+            https://en.wikipedia.org/wiki/Astronomical_unit
+            since 2012 it has been defined as exactly 149,597,870,700m
             </summary>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.AstronomicalUnit.FactorToBaseUnit">
@@ -688,7 +689,7 @@
             Returns the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Meter"/>.
             </summary>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.CustomLength.#ctor(System.Double,System.String)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.CustomLength.#ctor(System.Decimal,System.String)">
             <summary/>
             <param name="conversionFactorToMeter">the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Meter"/></param>
             <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
@@ -823,8 +824,10 @@
         </member>
         <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.LightYear.FactorToMeter">
             <summary>
-            1 Julian year: 365.25 days
-            Light speed:   299,792,458m/s
+            https://en.wikipedia.org/wiki/Light-year
+            As defined by the International Astronomical Union (IAU), a light-year is the distance that light travels in vacuum in one Julian year (365.25 days)
+            https://en.wikipedia.org/wiki/Speed_of_light
+            Its exact value is defined as 299,792,458 metres per second
             </summary>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.LightYear.FactorToBaseUnit">
@@ -920,6 +923,8 @@
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Parsec.FactorToBaseUnit">
             <summary>
             Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Parsec"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Meter"/>.
+            https://en.wikipedia.org/wiki/Parsec
+            [...] the International Astronomical Union (IAU) [...] mentioned an existing explicit definition of the parsec as exactly 648000/π au
             </summary>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Parsec.ToSerializable">
@@ -1086,7 +1091,7 @@
             Returns the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Second"/>.
             </summary>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.CustomTime.#ctor(System.Double,System.String)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.CustomTime.#ctor(System.Decimal,System.String)">
             <summary/>
             <param name="conversionFactorToSecond">the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Second"/></param>
             <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
@@ -1360,7 +1365,7 @@
             Returns the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/>.
             </summary>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CustomVolume.#ctor(System.Double,System.String)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CustomVolume.#ctor(System.Decimal,System.String)">
             <summary/>
             <param name="conversionFactorToLiter">the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Liter"/></param>
             <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
@@ -1495,7 +1500,7 @@
             Returns the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Kilogram"/>.
             </summary>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.CustomWeight.#ctor(System.Double,System.String)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.CustomWeight.#ctor(System.Decimal,System.String)">
             <summary/>
             <param name="conversionFactorToKilogram">the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Kilogram"/></param>
             <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
@@ -1743,7 +1748,7 @@
             <param name="unitOfMeasurement">a <see cref="T:System.String"/> representing a unit</param>
             <returns>a <see cref="T:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement"/></returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.UnitConverter.ToUnitOfMeasurement(System.String,System.Double,System.String)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.UnitConverter.ToUnitOfMeasurement(System.String,System.Decimal,System.String)">
             <summary>
             Converts the given data into a <see cref="T:DoenaSoft.UnitsOfMeasurement.ICustomUnit"/>.
             </summary>
@@ -1752,7 +1757,7 @@
             <param name="serializableValue">the unit in a format that can be sent over a data stream</param>
             <returns>a <see cref="T:DoenaSoft.UnitsOfMeasurement.ICustomUnit"/></returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.UnitConverter.ToUnitOfMeasurement(System.String,System.String,System.Double,System.String,System.String,System.Double,System.String)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.UnitConverter.ToUnitOfMeasurement(System.String,System.String,System.Decimal,System.String,System.String,System.Decimal,System.String)">
             <summary>
             Converts the given data into a <see cref="T:DoenaSoft.UnitsOfMeasurement.ICustomUnit"/>.
             </summary>
@@ -1951,19 +1956,21 @@
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.#ctor(System.Double,System.String)">
             <summary/>
-            <param name="scalar"/>
-            <param name="unit"/>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.#ctor(System.Decimal,System.String)">
+            <summary/>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.#ctor(System.Double,DoenaSoft.UnitsOfMeasurement.FractionUnits.Density)">
             <summary/>
-            <param name="scalar"/>
-            <param name="densityUnit"/>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.#ctor(System.Decimal,DoenaSoft.UnitsOfMeasurement.FractionUnits.Density)">
+            <summary/>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.#ctor(System.Double,DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight,DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume)">
             <summary/>
-            <param name="scalar"/>
-            <param name="numerator"/>
-            <param name="denominator"/>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.#ctor(System.Decimal,DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight,DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume)">
+            <summary/>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.Clone">
             <summary>
@@ -1972,6 +1979,13 @@
             <returns>a copy of this value</returns>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.Add(System.Double)">
+            <summary>
+            Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
+            </summary>
+            <param name="scalar">the scalar to be added</param>
+            <returns>a new value with the summed-up scalar</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.Add(System.Decimal)">
             <summary>
             Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
             </summary>
@@ -2022,7 +2036,9 @@
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.#ctor(System.Double)">
             <summary/>
-            <param name="scalar"/>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.#ctor(System.Decimal)">
+            <summary/>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.Clone">
             <summary>
@@ -2031,6 +2047,13 @@
             <returns>a copy of this value</returns>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.Add(System.Double)">
+            <summary>
+            Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
+            </summary>
+            <param name="scalar">the scalar to be added</param>
+            <returns>a new value with the summed-up scalar</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.Add(System.Decimal)">
             <summary>
             Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
             </summary>
@@ -2082,7 +2105,9 @@
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.#ctor(System.Double)">
             <summary/>
-            <param name="scalar"/>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.#ctor(System.Decimal)">
+            <summary/>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.Clone">
             <summary>
@@ -2090,7 +2115,7 @@
             </summary>
             <returns>a copy of this value</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.Add(System.Double)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.Add(System.Decimal)">
             <summary>
             Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
             </summary>
@@ -2147,7 +2172,7 @@
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.SerializableValue.#ctor">
             <summary/>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.SerializableValue.#ctor(System.Double,System.String)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.SerializableValue.#ctor(System.Decimal,System.String)">
             <summary/>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.SerializableValue.ToValue">
@@ -2176,15 +2201,22 @@
         <member name="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar">
             <summary/>
         </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.Values.Value.ScalarAsDouble">
+            <summary/>
+        </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit">
             <summary/>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.#ctor(System.Double,System.String)">
             <summary/>
-            <param name="scalar"/>
-            <param name="unit"/>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.#ctor(System.Decimal,System.String)">
+            <summary/>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.#ctor(System.Double,DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
+            <summary/>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.#ctor(System.Decimal,DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
             <summary/>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.ToString">
@@ -2213,6 +2245,13 @@
             <returns>a copy of this value</returns>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.Add(System.Double)">
+            <summary>
+            Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
+            </summary>
+            <param name="scalar">the scalar to be added</param>
+            <returns>a new value with the summed-up scalar</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.Add(System.Decimal)">
             <summary>
             Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
             </summary>
@@ -2274,7 +2313,9 @@
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value`1.#ctor(System.Double)">
             <summary/>
-            <param name="scalar"/>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value`1.#ctor(System.Decimal)">
+            <summary/>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value`1.Clone">
             <summary>
@@ -2283,6 +2324,13 @@
             <returns>a copy of this value</returns>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value`1.Add(System.Double)">
+            <summary>
+            Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
+            </summary>
+            <param name="scalar">the scalar to be added</param>
+            <returns>a new value with the summed-up scalar</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value`1.Add(System.Decimal)">
             <summary>
             Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
             </summary>

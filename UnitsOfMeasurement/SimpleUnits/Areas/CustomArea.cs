@@ -19,7 +19,7 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas
         /// <summary/>
         /// <param name="conversionFactorToSquareMeter">the multiplication factor of this unit in relation to the <see cref="SquareMeter"/></param>
         /// <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
-        public CustomArea(double conversionFactorToSquareMeter, string unitKey)
+        public CustomArea(decimal conversionFactorToSquareMeter, string unitKey)
         {
             if (string.IsNullOrWhiteSpace(unitKey))
             {
@@ -30,7 +30,7 @@ namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas
                 throw new ArgumentException("serializableValue must not contain '/'", nameof(unitKey));
             }
 
-            _factorToBaseUnit = Convert.ToDecimal(conversionFactorToSquareMeter);
+            _factorToBaseUnit = conversionFactorToSquareMeter;
 
             _unitKey = unitKey;
 
