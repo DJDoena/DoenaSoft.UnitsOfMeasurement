@@ -382,6 +382,12 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
             AssertAreEqual(result5d.Denominator, new FractionUnit<Kilogram, Celsius>());
         }
 
+        [TestMethod]
+        public void MetersPerSecond()
+        {
+            var mps = UnitConverter.ToUnitOfMeasurement("m/s");
+        }
+
         private static void AssertAreEqual(UnitOfMeasurement left, UnitOfMeasurement right)
         {
             Assert.IsTrue(left.Equals(right));

@@ -258,7 +258,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             source = new Value<FractionUnit<Liter, Kilometer>>(LiterPerKilometer);
             target = ValueConverter.Convert(source, new FractionUnit<Mile, USLiquidGallon>());
-            inverted = Math.Round(target.Scalar, 5);
+            inverted = target.Round(5).Scalar;
 
             Assert.AreEqual(GasMileage, inverted);
             Assert.AreEqual(typeof(FractionUnit<Mile, USLiquidGallon>), target.Unit.GetType());
