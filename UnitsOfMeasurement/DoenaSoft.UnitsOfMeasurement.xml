@@ -2063,6 +2063,89 @@
             Returns the unit that all other units of this category refer to as the base unit, <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Kilogram"/>.
             </summary>
         </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.BronzeKnut">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.BronzeKnut.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.BronzeKnut"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.BronzeKnut"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.BronzeKnut.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.BronzeKnut.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.GoldGalleon">
+            <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.GoldGalleon.FactorToBronzeKnut">
+            <summary>
+            493 Knut
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.GoldGalleon.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.GoldGalleon"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.BronzeKnut"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.GoldGalleon.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.GoldGalleon.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.SilverSickle">
+            <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.SilverSickle.FactorToBronzeKnut">
+            <summary>
+            29 Knut
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.SilverSickle.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.SilverSickle"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.BronzeKnut"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.SilverSickle.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.SilverSickle.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.WizardCurrency">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.WizardCurrency.UnitCategory">
+            <summary>
+            Returns the category of the unit, <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.WizardCurrency"/>.
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.WizardCurrency.BaseUnit">
+            <summary>
+            Returns the unit that all other units of this category refer to as the base unit, <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.WizardCurrencies.BronzeKnut"/>.
+            </summary>
+        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.UndefinedUnitOfMeasurement">
             <summary>
             Describes a unit that has no unit sign.

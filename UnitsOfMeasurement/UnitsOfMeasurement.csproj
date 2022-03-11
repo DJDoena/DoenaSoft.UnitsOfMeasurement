@@ -22,7 +22,7 @@ Also provides the ability to convert from volumes to weights (and vice versa) us
 		<RepositoryUrl>https://github.com/DJDoena/DoenaSoft.UnitsOfMeasurement</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>unit-of-measurement;uom;unit;weight;mass;volume;length;distance;area;temperature;time;energy;density;force;pressure</PackageTags>
-		<Version>1.2.1</Version>
+		<Version>1.2.2</Version>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
