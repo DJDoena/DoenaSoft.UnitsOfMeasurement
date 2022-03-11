@@ -267,7 +267,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         [TestMethod]
         public void SupermanHeight() //6'4"
         {
-var sourceFeet = (new Value<Foot>(6m)).Add(new Value<Inch>(4m));
+            var sourceFeet = (new Value<Foot>(6m)).Add(new Value<Inch>(4m));
 
             var targetInch = ValueConverter.Convert<Inch>(sourceFeet);
 

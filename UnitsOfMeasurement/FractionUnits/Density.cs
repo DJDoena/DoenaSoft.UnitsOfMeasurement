@@ -8,24 +8,18 @@
     /// </summary>
     public class Density : FractionUnit
     {
-        /// <summary>
-        /// Zähler
-        /// </summary>
+        /// <summary />
         public new Weight Numerator => (Weight)base.Numerator;
 
-        /// <summary>
-        /// Nenner
-        /// </summary>
+        /// <summary />
         public new Volume Denominator => (Volume)base.Denominator;
 
         /// <summary>
         /// Returns the base <see cref="Density"/> unit, i.e. <see cref="Kilogram"/>/<see cref="Liter"/>.
         /// </summary>
-        public new Density BaseUnit => new Density((Weight)this.Numerator.BaseUnit, (Volume)this.Denominator.BaseUnit);
+        public new Density<Kilogram, Liter> BaseUnit => new Density<Kilogram, Liter>();
 
         /// <summary/>
-        /// <param name="numerator"/>
-        /// <param name="denominator"/>
         public Density(Weight numerator, Volume denominator) : base(numerator, denominator)
         {
         }

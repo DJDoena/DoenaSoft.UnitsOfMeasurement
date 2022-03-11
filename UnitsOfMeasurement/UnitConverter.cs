@@ -4,11 +4,13 @@ using System.Linq;
 
 namespace DoenaSoft.UnitsOfMeasurement
 {
-    using FractionUnits;
     using Exceptions;
+    using FractionUnits;
+    using FractionUnits.Pressures;
     using SimpleUnits;
     using SimpleUnits.Areas;
     using SimpleUnits.Energies;
+    using SimpleUnits.Forces;
     using SimpleUnits.Lengths;
     using SimpleUnits.Temperatures;
     using SimpleUnits.Times;
@@ -208,6 +210,32 @@ namespace DoenaSoft.UnitsOfMeasurement
             _units.Add("MWh", new MegaWattHour());
 
             #endregion
+
+            #region Force
+
+            _units.Add("N", new Newton());
+
+            _units.Add("kN", new KiloNewton());
+
+            _units.Add("kgf", new KilogramForce());
+
+            _units.Add("lbf", new PoundForce());
+
+            #endregion
+
+            #region Pressure
+
+            _units.Add("Pa", new Pascal());
+
+            _units.Add("hPa", new HectoPascal());
+
+            _units.Add("kPa", new KiloPascal());
+
+            _units.Add("bar", new Bar());
+
+            _units.Add("psi", new PSI());
+
+            #endregion
         }
 
         /// <summary>
@@ -245,6 +273,10 @@ namespace DoenaSoft.UnitsOfMeasurement
                     if (numeratorUnit is Weight weight && denominatorUnit is Volume volume)
                     {
                         return new Density(weight, volume);
+                    }
+                    if (numeratorUnit is Force force && denominatorUnit is Area area)
+                    {
+                        return new Pressure(force, area);
                     }
                     else
                     {
@@ -322,6 +354,10 @@ namespace DoenaSoft.UnitsOfMeasurement
                     {
                         return new CustomEnergy(conversionFactorToBaseUnit, serializableValue);
                     }
+                case "force":
+                    {
+                        return new CustomForce(conversionFactorToBaseUnit, serializableValue);
+                    }
                 default:
                     {
                         throw new NotSupportedException($"Unit category '{unitCategory}' is not supported.");
@@ -391,6 +427,35 @@ namespace DoenaSoft.UnitsOfMeasurement
         }
 
         /// <summary>
+        /// Converts a <see cref="string"/> representing a unit to a <see cref="Pressure"/> unit.
+        /// </summary>
+        /// <param name="unitOfMeasurement">a <see cref="string"/> representing a unit</param>
+        /// <returns>a <see cref="Density"/> unit</returns>
+        public static Pressure ToPressureUnit(string unitOfMeasurement)
+        {
+            const string ErrorText = "Only " + nameof(Force) + "/" + nameof(Area) + " units allowed.";
+
+            var unit = ToUnitOfMeasurement(unitOfMeasurement);
+
+            if (!(unit is FractionUnit fractionUnit))
+            {
+                throw new UnitConversionException(ErrorText);
+            }
+            else if (!(fractionUnit.Numerator is Force force))
+            {
+                throw new UnitConversionException(ErrorText);
+            }
+            else if (!(fractionUnit.Denominator is Area area))
+            {
+                throw new UnitConversionException(ErrorText);
+            }
+            else
+            {
+                return new Pressure(force, area);
+            }
+        }
+
+        /// <summary>
         /// Registers an <see cref="ICustomUnit"/> in the system to be retreived/used later.
         /// </summary>
         /// <param name="customUnit">an <see cref="ICustomUnit"/></param>
@@ -431,6 +496,10 @@ namespace DoenaSoft.UnitsOfMeasurement
                 case CustomFractionUnit customFractionUnit:
                     {
                         return RegisterCustomUnit(customFractionUnit);
+                    }
+                case CustomForce customFore:
+                    {
+                        return RegisterCustomUnit(customFore);
                     }
                 default:
                     {

@@ -3,8 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
-    using FractionUnits;
     using Exceptions;
+    using FractionUnits;
     using SimpleUnits.Lengths;
     using SimpleUnits.Times;
     using SimpleUnits.Volumes;

@@ -113,13 +113,13 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
         /// Returns the unit in a format that can be sent over a data stream.
         /// </summary>
         /// <returns>the unit in a format that can be sent over a data stream</returns>
-        public override sealed string ToSerializable() => $"{this.Numerator.ToSerializable()}/{this.Denominator.ToSerializable()}";
+        public override string ToSerializable() => $"{this.Numerator.ToSerializable()}/{this.Denominator.ToSerializable()}";
 
         /// <summary>
         /// Returns the unit text in a well-formatted way.
         /// </summary>
         /// <returns>the unit text in a well-formatted way</returns>
-        public override sealed string GetDisplayValue() => $"{this.Numerator.GetDisplayValue()}/{this.Denominator.GetDisplayValue()}";
+        public override string GetDisplayValue() => $"{this.Numerator.GetDisplayValue()}/{this.Denominator.GetDisplayValue()}";
     }
 
     /// <summary>

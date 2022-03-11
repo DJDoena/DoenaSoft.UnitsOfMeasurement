@@ -45,14 +45,10 @@
             </summary>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density.Numerator">
-            <summary>
-            Zähler
-            </summary>
+            <summary />
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density.Denominator">
-            <summary>
-            Nenner
-            </summary>
+            <summary />
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density.BaseUnit">
             <summary>
@@ -61,8 +57,6 @@
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight,DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume)">
             <summary/>
-            <param name="numerator"/>
-            <param name="denominator"/>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density`2">
             <summary>
@@ -170,6 +164,163 @@
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.IFractionUnit.Denominator">
             <summary />
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Bar">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Bar.Numerator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Bar.Denominator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Bar.BaseUnit">
+            <summary>
+            Returns the base <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure"/> unit, i.e. <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Bar.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Bar.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.HectoPascal">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.HectoPascal.Numerator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.HectoPascal.Denominator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.HectoPascal.BaseUnit">
+            <summary>
+            Returns the base <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure"/> unit, i.e. <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.HectoPascal.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.HectoPascal.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.KiloPascal">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.KiloPascal.Numerator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.KiloPascal.Denominator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.KiloPascal.BaseUnit">
+            <summary>
+            Returns the base <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure"/> unit, i.e. <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.KiloPascal.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.KiloPascal.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal.Numerator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal.Denominator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal.BaseUnit">
+            <summary>
+            Returns the base <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure"/> unit, i.e. <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure">
+            <summary>
+            Describes a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit"/> of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Force"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.Area"/>
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure.Numerator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure.Denominator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure.BaseUnit">
+            <summary>
+            Returns the base <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure"/> unit, i.e. <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Force,DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.Area)">
+            <summary/>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure`2">
+            <summary>
+            Describes a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit`2"/> of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Force"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.Area"/>
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure`2.#ctor">
+            <summary/>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.PSI">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.PSI.Numerator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.PSI.Denominator">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.PSI.BaseUnit">
+            <summary>
+            Returns the base <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure"/> unit, i.e. <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pascal"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.PSI.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.PSI.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement">
             <summary>
@@ -504,7 +655,10 @@
             </summary>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.Joule">
-            <summary />
+            <summary>
+            Strictly speaking, <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.Joule"/> is not a simple unit as it's defined as (<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Kilogram"/> * <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.SquareMeter"/>) / (<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Second"/> * <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Second"/>).
+            But for the purpose of this library it's handled as a compound simple unit.
+            </summary>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies.Joule.FactorToBaseUnit">
             <summary>
@@ -623,6 +777,210 @@
             </summary>
             <returns>the unit text in a well-formatted way</returns>
         </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.CustomForce">
+            <summary>
+            Describes an <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Force"/> unit that is not predefined in this assembly.
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.CustomForce.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.CustomForce.#ctor(System.Decimal,System.String)">
+            <summary/>
+            <param name="conversionFactorToNewton">the multiplication factor of this unit in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton"/></param>
+            <param name="unitKey">a string that uniquely identifies this particular unit, must not contain a '/'</param>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.CustomForce.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.CustomForce.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Force">
+            <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Force.StandardGravity">
+            <summary>
+            https://en.wikipedia.org/wiki/Standard_gravity
+            It is defined by standard as 9.80665 m/s².
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Force.UnitCategory">
+            <summary>
+            Returns the category of the unit, <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Force"/>.
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Force.BaseUnit">
+            <summary>
+            Returns the unit that all other units of this category refer to as the base unit, <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton"/>.
+            </summary>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredKiloNewton">
+            <summary />
+            <remarks>
+            Is only needed for the <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Bar"/> unit, should not be used by itself as it has no defined unit symbol.
+            </remarks>
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredKiloNewton.FactorToNewton">
+            <summary>
+            100,000N
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredKiloNewton.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredKiloNewton"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredKiloNewton.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredKiloNewton.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredNewton">
+            <summary />
+            <remarks>
+            Is only needed for the <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.HectoPascal"/> unit, should not be used by itself as it has no defined unit symbol.
+            </remarks>
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredNewton.FactorToNewton">
+            <summary>
+            100,000N
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredNewton.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredNewton"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredNewton.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.HundredNewton.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KilogramForce">
+            <summary>
+            https://en.wikipedia.org/wiki/Kilogram-force
+            </summary>
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KilogramForce.FactorToNewton">
+            <summary>
+            9.80665N
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KilogramForce.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KilogramForce"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KilogramForce.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KilogramForce.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KiloNewton">
+            <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KiloNewton.FactorToNewton">
+            <summary>
+            1000N
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KiloNewton.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KiloNewton"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KiloNewton.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.KiloNewton.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton">
+            <summary>
+            Strictly speaking, <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton"/> is not a simple unit as it's defined as (<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Kilogram"/> * <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Meter"/>) / (<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Second"/> * <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Second"/>).
+            But for the purpose of this library it's handled as a compound simple unit.
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.PoundForce">
+            <summary>
+            https://en.wikipedia.org/wiki/Pound_(force)
+            </summary>
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.PoundForce.FactorToNewton">
+            <summary>
+            4.4482216152605N
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.PoundForce.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.PoundForce"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Newton"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.PoundForce.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.PoundForce.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit">
             <summary>
             Describes an atomic unit.
@@ -634,7 +992,7 @@
         <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.AstronomicalUnit.FactorToMeter">
             <summary>
             https://en.wikipedia.org/wiki/Astronomical_unit
-            since 2012 it has been defined as exactly 149,597,870,700m
+            since 2012 it has been defined as exactly 149,597,870,700m.
             </summary>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.AstronomicalUnit.FactorToBaseUnit">
@@ -924,7 +1282,7 @@
             <summary>
             Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Parsec"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Meter"/>.
             https://en.wikipedia.org/wiki/Parsec
-            [...] the International Astronomical Union (IAU) [...] mentioned an existing explicit definition of the parsec as exactly 648000/π au
+            [...] the International Astronomical Union (IAU) [...] mentioned an existing explicit definition of the parsec as exactly 648,000/π au
             </summary>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Parsec.ToSerializable">
@@ -1773,6 +2131,13 @@
         <member name="M:DoenaSoft.UnitsOfMeasurement.UnitConverter.ToDensityUnit(System.String)">
             <summary>
             Converts a <see cref="T:System.String"/> representing a unit to a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density"/> unit.
+            </summary>
+            <param name="unitOfMeasurement">a <see cref="T:System.String"/> representing a unit</param>
+            <returns>a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density"/> unit</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.UnitConverter.ToPressureUnit(System.String)">
+            <summary>
+            Converts a <see cref="T:System.String"/> representing a unit to a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure"/> unit.
             </summary>
             <param name="unitOfMeasurement">a <see cref="T:System.String"/> representing a unit</param>
             <returns>a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Density"/> unit</returns>
