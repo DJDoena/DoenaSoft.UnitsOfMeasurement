@@ -62,4 +62,4 @@ var source = new Value<FractionUnit<Liter, Kilometer>>(LitersPer100km);
 var target = ValueConverter.Convert(source, new FractionUnit<Mile, USLiquidGallon>()).Round(5); // 39.86688 miles per gallon
 ```
 
-More examples can be found in the [unit tests for the project] (https://github.com/DJDoena/DoenaSoft.UnitsOfMeasurement/tree/main/UnitsOfMeasurement.Tests)
+More examples can be found in the [unit tests for the project](https://github.com/DJDoena/DoenaSoft.UnitsOfMeasurement/tree/main/UnitsOfMeasurement.Tests)
