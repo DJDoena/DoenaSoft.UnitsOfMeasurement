@@ -1,4 +1,4 @@
-This package allows the conversion of common SI and American units within the same category (area, energy, length, temperature, time, volume, weight)
+This package allows the conversion of common SI and American units within the same category (area, energy, length, temperature, time, volume, weight/mass)
 
 All units can be accessed by type name (e.g. Meter) or serializable / SI value (e.g. "m");
 
@@ -47,7 +47,7 @@ You can also convert between volume and weight units with a given density.
 ```c#
 const double DensityOfHelium = 0.1785; // kg/l
 
-var source = new Value(5, UnitConverter.ToUnitOfMeasurement("dm³"));
+var source = new Value(5, UnitConverter.ToUnitOfMeasurement("dm3"));
 
 var target = ValueConverter.Convert(source, new Kilogram(), new DensityValue<Density<Kilogram, Liter>>(DensityOfHelium));
 ```
