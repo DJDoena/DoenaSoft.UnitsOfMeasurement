@@ -25,7 +25,7 @@
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.CustomFractionUnit">
             <summary>
-            Eine Klasse für Einheiten, die nicht dem Standard Zähler/Nenner Format folgen.
+            A class for units that don't follow the numerator/denominator format
             </summary>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.CustomFractionUnit.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,System.String)">
@@ -2114,6 +2114,13 @@
             Create a copy of this value.
             </summary>
             <returns>a copy of this value</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.Add(System.Double)">
+            <summary>
+            Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
+            </summary>
+            <param name="scalar">the scalar to be added</param>
+            <returns>a new value with the summed-up scalar</returns>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.Add(System.Decimal)">
             <summary>

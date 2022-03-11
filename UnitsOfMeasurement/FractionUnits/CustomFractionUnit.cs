@@ -5,7 +5,7 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
     using SimpleUnits;
 
     /// <summary>
-    /// Eine Klasse für Einheiten, die nicht dem Standard Zähler/Nenner Format folgen.
+    /// A class for units that don't follow the numerator/denominator format
     /// </summary>
     public sealed class CustomFractionUnit : FractionUnit, ICustomUnit
     {
