@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
     using FractionUnits;
+    using FractionUnits.Densities;
     using SimpleUnits.Lengths;
     using SimpleUnits.Times;
     using SimpleUnits.Volumes;

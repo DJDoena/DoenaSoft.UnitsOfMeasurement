@@ -1,28 +1,28 @@
 ﻿using System;
 
-namespace DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures
+namespace DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities
 {
-    using SimpleUnits.Areas;
-    using SimpleUnits.Forces;
+    using SimpleUnits.Volumes;
+    using SimpleUnits.Weights;
 
     /// <summary>
-    /// Describes a <see cref="FractionUnit"/> of <see cref="Force"/>/<see cref="Area"/>
+    /// Describes a <see cref="FractionUnit"/> of <see cref="Weight"/>/<see cref="Volume"/>
     /// </summary>
-    public class Pressure : FractionUnit, IEquatable<Pressure>
+    public class Density : FractionUnit, IEquatable<Density>
     {
         /// <summary />
-        public new Force Numerator => (Force)base.Numerator;
+        public new Weight Numerator => (Weight)base.Numerator;
 
         /// <summary />
-        public new Area Denominator => (Area)base.Denominator;
+        public new Volume Denominator => (Volume)base.Denominator;
 
         /// <summary>
-        /// Returns the base <see cref="Pressure"/> unit, i.e. <see cref="Pascal"/>.
+        /// Returns the base <see cref="Density"/> unit, i.e. <see cref="Kilogram"/>/<see cref="Liter"/>.
         /// </summary>
-        public new Pascal BaseUnit => new Pascal();
+        public new Density<Kilogram, Liter> BaseUnit => new Density<Kilogram, Liter>();
 
         /// <summary/>
-        public Pressure(Force numerator, Area denominator) : base(numerator, denominator)
+        public Density(Weight numerator, Volume denominator) : base(numerator, denominator)
         {
         }
 
@@ -31,7 +31,7 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures
         /// </summary>
         /// <param name="other">the other unit</param>
         /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(Pressure other)
+        public bool Equals(Density other)
         {
             if (other == null)
             {
@@ -46,14 +46,14 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures
     }
 
     /// <summary>
-    /// Describes a <see cref="FractionUnit{TForce, TArea}"/> of <see cref="Force"/>/<see cref="Area"/>
+    /// Describes a <see cref="FractionUnit{TWeight, TVolume}"/> of <see cref="Weight"/>/<see cref="Volume"/>
     /// </summary>
-    public class Pressure<TForce, TArea> : Pressure, IEquatable<Pressure<TForce, TArea>>
-        where TForce : Force, new()
-        where TArea : Area, new()
+    public class Density<TWeight, TVolume> : Density, IEquatable<Density<TWeight, TVolume>>
+        where TWeight : Weight, new()
+        where TVolume : Volume, new()
     {
         /// <summary/>
-        public Pressure() : base(new TForce(), new TArea())
+        public Density() : base(new TWeight(), new TVolume())
         {
         }
 
@@ -62,7 +62,7 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures
         /// </summary>
         /// <param name="other">the other unit</param>
         /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(Pressure<TForce, TArea> other)
+        public bool Equals(Density<TWeight, TVolume> other)
         {
             if (other == null)
             {

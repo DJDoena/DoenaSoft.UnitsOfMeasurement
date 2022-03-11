@@ -5,6 +5,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
     using Exceptions;
     using FractionUnits;
+    using FractionUnits.Densities;
     using SimpleUnits;
     using SimpleUnits.Lengths;
     using SimpleUnits.Temperatures;

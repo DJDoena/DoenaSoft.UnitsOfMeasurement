@@ -6,6 +6,7 @@ namespace DoenaSoft.UnitsOfMeasurement
 {
     using Exceptions;
     using FractionUnits;
+    using FractionUnits.Densities;
     using FractionUnits.Pressures;
     using SimpleUnits;
     using SimpleUnits.Areas;
