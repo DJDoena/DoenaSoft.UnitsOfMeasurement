@@ -1,0 +1,36 @@
+#In this script it is important to set the RepositoryUrl in the *.csproj file
+
+name: NuGet Generation for DoenaSoft
+
+on:
+  push:
+    branches:
+      - main
+      
+env:
+  SOURCE_URL: https://api.nuget.org/v3/index.json
+  PROJECT_FILE: UnitsOfMeasurement.csproj
+  PROJECT_FOLDER: UnitsOfMeasurement
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Update NuGet package
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+     
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          #version is optional: without means latest
+          dotnet-version: 6.0.x 
+          source-url: ${{env.SOURCE_URL}}  
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.NUGET_API_KEY}}        
+          
+      - name: Build solution and generate NuGet package
+        run: dotnet build ${{ env.PROJECT_FOLDER }}/${{ env.PROJECT_FILE }} -c Release     
+          
+      - name: Push generated package to Nuget.org
+        run: dotnet nuget push ./${{env.PROJECT_FOLDER}}/bin/Release/*.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source "${{env.SOURCE_URL}}" --skip-duplicate --no-symbols
