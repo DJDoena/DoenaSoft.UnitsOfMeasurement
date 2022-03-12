@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures
+﻿namespace DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures
 {
     using SimpleUnits.Areas;
     using SimpleUnits.Forces;
@@ -8,7 +6,7 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures
     /// <summary>
     /// Describes a <see cref="FractionUnit"/> of <see cref="Force"/>/<see cref="Area"/>
     /// </summary>
-    public class Pressure : FractionUnit, IEquatable<Pressure>
+    public class Pressure : FractionUnit
     {
         /// <summary />
         public new Force Numerator => (Force)base.Numerator;
@@ -25,54 +23,18 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures
         public Pressure(Force numerator, Area denominator) : base(numerator, denominator)
         {
         }
-
-        /// <summary>
-        /// Checks if this unit is equal to another unit.
-        /// </summary>
-        /// <param name="other">the other unit</param>
-        /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(Pressure other)
-        {
-            if (other == null)
-            {
-                return false;
-            }
-
-            var equals = this.Numerator.Equals(other.Numerator)
-                && this.Denominator.Equals(other.Denominator);
-
-            return equals;
-        }
     }
 
     /// <summary>
     /// Describes a <see cref="FractionUnit{TForce, TArea}"/> of <see cref="Force"/>/<see cref="Area"/>
     /// </summary>
-    public class Pressure<TForce, TArea> : Pressure, IEquatable<Pressure<TForce, TArea>>
+    public class Pressure<TForce, TArea> : Pressure
         where TForce : Force, new()
         where TArea : Area, new()
     {
         /// <summary/>
         public Pressure() : base(new TForce(), new TArea())
         {
-        }
-
-        /// <summary>
-        /// Checks if this unit is equal to another unit.
-        /// </summary>
-        /// <param name="other">the other unit</param>
-        /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(Pressure<TForce, TArea> other)
-        {
-            if (other == null)
-            {
-                return false;
-            }
-
-            var equals = this.Numerator.Equals(other.Numerator)
-                && this.Denominator.Equals(other.Denominator);
-
-            return equals;
         }
     }
 }

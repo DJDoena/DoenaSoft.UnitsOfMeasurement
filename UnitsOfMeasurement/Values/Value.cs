@@ -136,22 +136,15 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
 
             if (equals)
             {
-                equals = this.Scalar.Equals(other.Scalar);
+                equals = this.Scalar == other.Scalar;
             }
             else
             {
                 try
                 {
-                    var leftBase = ValueConverter.ConvertToBaseValue(this);
+                    var otherConverted = ValueConverter.Convert(other, this.Unit);
 
-                    var rightBase = ValueConverter.ConvertToBaseValue(other);
-
-                    equals = leftBase.Unit.Equals(rightBase.Unit);
-
-                    if (equals)
-                    {
-                        equals = leftBase.Scalar.Equals(rightBase.Scalar);
-                    }
+                    equals = this.Scalar == otherConverted.Scalar;
                 }
                 catch
                 {
@@ -183,6 +176,134 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// <param name="right"/>
         /// <returns>if the two given objects are not equal</returns>
         public static bool operator !=(Value left, Value right) => !(left == right);
+
+        /// <summary>
+        /// The &gt;= (greater than or equal) operator returns true if its left-hand operand is greater than or equal to its right-hand operand, false otherwise.
+        /// </summary>
+        public static bool operator >=(Value left, Value right)
+        {
+            if (ReferenceEquals(left, right))
+            {
+                return true;
+            }
+            else if (right == null)
+            {
+                return false;
+            }
+            else if (left.Unit.Equals(right.Unit))
+            {
+                return left.Scalar >= right.Scalar;
+            }
+            else
+            {
+                try
+                {
+                    var rightConverted = ValueConverter.Convert(right, left.Unit);
+
+                    return left.Scalar >= rightConverted.Scalar;
+                }
+                catch
+                {
+                    throw new InvalidOperationException($"Cannot compare a value of unit '{left.Unit}' with a value of unit '{right.Unit}'");
+                }
+            }
+        }
+
+        /// <summary>
+        /// The &lt;= (less than or equal) operator returns true if its left-hand operand is less than or equal to its right-hand operand, false otherwise.
+        /// </summary>
+        public static bool operator <=(Value left, Value right)
+        {
+            if (ReferenceEquals(left, right))
+            {
+                return true;
+            }
+            else if (right == null)
+            {
+                return false;
+            }
+            else if (left.Unit.Equals(right.Unit))
+            {
+                return left.Scalar <= right.Scalar;
+            }
+            else
+            {
+                try
+                {
+                    var rightConverted = ValueConverter.Convert(right, left.Unit);
+
+                    return left.Scalar <= rightConverted.Scalar;
+                }
+                catch
+                {
+                    throw new InvalidOperationException($"Cannot compare a value of unit '{left.Unit}' with a value of unit '{right.Unit}'");
+                }
+            }
+        }
+
+        /// <summary>
+        /// The &gt; (greater than) operator returns true if its left-hand operand is greater than its right-hand operand, false otherwise.
+        /// </summary>
+        public static bool operator >(Value left, Value right)
+        {
+            if (ReferenceEquals(left, right))
+            {
+                return false;
+            }
+            else if (right == null)
+            {
+                return false;
+            }
+            else if (left.Unit.Equals(right.Unit))
+            {
+                return left.Scalar > right.Scalar;
+            }
+            else
+            {
+                try
+                {
+                    var rightConverted = ValueConverter.Convert(right, left.Unit);
+
+                    return left.Scalar > rightConverted.Scalar;
+                }
+                catch
+                {
+                    throw new InvalidOperationException($"Cannot compare a value of unit '{left.Unit}' with a value of unit '{right.Unit}'");
+                }
+            }
+        }
+
+        /// <summary>
+        /// The &lt; (less than) operator returns true if its left-hand operand is less than its right-hand operand, false otherwise.
+        /// </summary>
+        public static bool operator <(Value left, Value right)
+        {
+            if (ReferenceEquals(left, right))
+            {
+                return false;
+            }
+            else if (right == null)
+            {
+                return false;
+            }
+            else if (left.Unit.Equals(right.Unit))
+            {
+                return left.Scalar < right.Scalar;
+            }
+            else
+            {
+                try
+                {
+                    var rightConverted = ValueConverter.Convert(right, left.Unit);
+
+                    return left.Scalar < rightConverted.Scalar;
+                }
+                catch
+                {
+                    throw new InvalidOperationException($"Cannot compare a value of unit '{left.Unit}' with a value of unit '{right.Unit}'");
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -275,21 +396,5 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// </summary>
         /// <returns>A hash code for the current object.</returns>
         public override int GetHashCode() => base.GetHashCode();
-
-        /// <summary>
-        /// The == (equality) operators checks if the two given objects are equal.
-        /// </summary>
-        /// <param name="left"/>
-        /// <param name="right"/>
-        /// <returns>if the two given objects are equal</returns>
-        public static bool operator ==(Value<TUnit> left, Value<TUnit> right) => ReferenceEquals(left, right) || (left is Value && left.Equals(right));
-
-        /// <summary>
-        /// The != (inequality) operators checks if the two given objects are not equal.
-        /// </summary>
-        /// <param name="left"/>
-        /// <param name="right"/>
-        /// <returns>if the two given objects are not equal</returns>
-        public static bool operator !=(Value<TUnit> left, Value<TUnit> right) => !(left == right);
     }
 }

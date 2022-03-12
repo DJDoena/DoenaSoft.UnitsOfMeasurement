@@ -67,7 +67,7 @@ namespace DoenaSoft.UnitsOfMeasurement
         /// </summary>
         /// <param name="other">the other unit</param>
         /// <returns>if this unit is equal to another unit</returns>
-        protected bool EqualsUnit(IUnitOfMeasurement other)
+        protected virtual bool EqualsUnit(IUnitOfMeasurement other)
         {
             if (other == null)
             {
@@ -75,7 +75,7 @@ namespace DoenaSoft.UnitsOfMeasurement
             }
 
             var equals = this.UnitCategory.Equals(other.UnitCategory)
-                && this.ToSerializable().Equals(other.ToSerializable(), StringComparison.OrdinalIgnoreCase);
+                && this.ToSerializable().Equals(other.ToSerializable());
 
             return equals;
         }

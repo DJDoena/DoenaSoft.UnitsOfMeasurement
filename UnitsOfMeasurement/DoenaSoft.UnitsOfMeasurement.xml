@@ -58,13 +58,6 @@
         <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities.Density.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight,DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume)">
             <summary/>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities.Density.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities.Density)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities.Density`2">
             <summary>
             Describes a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit`2"/> of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/>
@@ -72,13 +65,6 @@
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities.Density`2.#ctor">
             <summary/>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities.Density`2.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities.Density{`0,`1})">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit">
             <summary>
@@ -125,21 +111,7 @@
             <param name="obj">The object to compare with the current object.</param>
             <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.Equals(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.IFractionUnit)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.EqualsUnit(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
             <summary>
             Checks if this unit is equal to another unit.
             </summary>
@@ -302,13 +274,6 @@
         <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Force,DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.Area)">
             <summary/>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure`2">
             <summary>
             Describes a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit`2"/> of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces.Force"/>/<see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas.Area"/>
@@ -316,13 +281,6 @@
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure`2.#ctor">
             <summary/>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure`2.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.Pressure{`0,`1})">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Pressures.PSI">
             <summary />
@@ -377,27 +335,6 @@
             </summary>
             <param name="obj">The object to compare with the current object.</param>
             <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.FractionUnits.IFractionUnit)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.ICustomUnit">
             <summary>
@@ -1373,27 +1310,6 @@
             <param name="obj">The object to compare with the current object.</param>
             <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.SimpleUnit.Equals(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.SimpleUnit.Equals(DoenaSoft.UnitsOfMeasurement.SimpleUnits.SimpleUnit)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.SimpleUnit.Equals(DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Temperatures.Celsius">
             <summary />
         </member>
@@ -1619,27 +1535,6 @@
             </summary>
             <param name="obj">The object to compare with the current object.</param>
             <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.UnknownSimpleUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.UnknownSimpleUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.SimpleUnits.UnknownSimpleUnitOfMeasurement)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.UnknownSimpleUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit)">
-            <summary>
-            Checks if this unit is equal to another unit.
-            </summary>
-            <param name="other">the other unit</param>
-            <returns>if this unit is equal to another unit</returns>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicFoot">
             <summary />
@@ -2612,35 +2507,6 @@
             <param name="digits">the precision</param>
             <returns>a new value with the rounded scalar</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.GetHashCode">
-            <summary>
-            Serves as the default hash function.
-            </summary>
-            <returns>A hash code for the current object.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.op_Equality(DoenaSoft.UnitsOfMeasurement.Values.DensityValue{`0,`1},DoenaSoft.UnitsOfMeasurement.Values.DensityValue{`0,`1})">
-            <summary>
-            The == (equality) operators checks if the two given objects are equal.
-            </summary>
-            <param name="left"/>
-            <param name="right"/>
-            <returns>if the two given objects are equal</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.op_Inequality(DoenaSoft.UnitsOfMeasurement.Values.DensityValue{`0,`1},DoenaSoft.UnitsOfMeasurement.Values.DensityValue{`0,`1})">
-            <summary>
-            The != (inequality) operators checks if the two given objects are not equal.
-            </summary>
-            <param name="left"/>
-            <param name="right"/>
-            <returns>if the two given objects are not equal</returns>
-        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.SerializableValue">
             <summary>
             Represents a scalar with a unit in a format that can be sent over a data stream.
@@ -2788,6 +2654,26 @@
             <param name="right"/>
             <returns>if the two given objects are not equal</returns>
         </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.op_GreaterThanOrEqual(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
+            <summary>
+            The &gt;= (greater than or equal) operator returns true if its left-hand operand is greater than or equal to its right-hand operand, false otherwise.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.op_LessThanOrEqual(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
+            <summary>
+            The &lt;= (less than or equal) operator returns true if its left-hand operand is less than or equal to its right-hand operand, false otherwise.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.op_GreaterThan(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
+            <summary>
+            The &gt; (greater than) operator returns true if its left-hand operand is greater than its right-hand operand, false otherwise.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.op_LessThan(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
+            <summary>
+            The &lt; (less than) operator returns true if its left-hand operand is less than its right-hand operand, false otherwise.
+            </summary>
+        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.Value`1">
             <summary>
             Describes a scalar with an <see cref="T:DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement"/> unit.
@@ -2851,22 +2737,6 @@
             </summary>
             <returns>A hash code for the current object.</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value`1.op_Equality(DoenaSoft.UnitsOfMeasurement.Values.Value{`0},DoenaSoft.UnitsOfMeasurement.Values.Value{`0})">
-            <summary>
-            The == (equality) operators checks if the two given objects are equal.
-            </summary>
-            <param name="left"/>
-            <param name="right"/>
-            <returns>if the two given objects are equal</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value`1.op_Inequality(DoenaSoft.UnitsOfMeasurement.Values.Value{`0},DoenaSoft.UnitsOfMeasurement.Values.Value{`0})">
-            <summary>
-            The != (inequality) operators checks if the two given objects are not equal.
-            </summary>
-            <param name="left"/>
-            <param name="right"/>
-            <returns>if the two given objects are not equal</returns>
-        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.ValueConverter">
             <summary>
             Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.
@@ -2909,11 +2779,6 @@
             <param name="destinationUnit">the target <see cref="T:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement"/></param>
             <param name="density">is necessary when it's a conversion from <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/> to <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/> or vice versa</param>
             <returns>the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> with the target <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/></returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.ValueConverter.ConvertToBaseValue(DoenaSoft.UnitsOfMeasurement.Values.Value)">
-            <summary>
-            Converts the <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> to the <see cref="P:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.BaseUnit"/>.
-            </summary>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.ValueConverter.ConvertValueOverTimeToValue(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
             <summary>

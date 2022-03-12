@@ -8,7 +8,7 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
     /// <summary>
     /// Describes a unit that has a unit over another unit, e.g. <see cref="Liter"/>/<see cref="Hour"/>
     /// </summary>
-    public interface IFractionUnit : IUnitOfMeasurement, IEquatable<IFractionUnit>
+    public interface IFractionUnit : IUnitOfMeasurement
     {
         /// <summary />
         IUnitOfMeasurement Numerator { get; }

@@ -10,7 +10,7 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
     /// <summary>
     /// Describes a unit that has a unit over another unit, e.g. <see cref="Liter"/>/<see cref="Second"/>
     /// </summary>
-    public class FractionUnit : UnitOfMeasurement, IFractionUnit, IEquatable<FractionUnit>
+    public class FractionUnit : UnitOfMeasurement, IFractionUnit
     {
         /// <summary />
         public ISimpleUnit Numerator { get; }
@@ -70,7 +70,7 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
                 obj = UnitConverter.ToUnitOfMeasurement(serializableValue);
             }
 
-            return this.Equals(obj as IFractionUnit);
+            return this.EqualsUnit(obj as IFractionUnit);
         }
 
         /// <summary>
@@ -78,23 +78,9 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
         /// </summary>
         /// <param name="other">the other unit</param>
         /// <returns>if this unit is equal to another unit</returns>
-        public override bool Equals(IUnitOfMeasurement other) => this.Equals(other as IFractionUnit);
-
-        /// <summary>
-        /// Checks if this unit is equal to another unit.
-        /// </summary>
-        /// <param name="other">the other unit</param>
-        /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(FractionUnit other) => this.Equals(other as IFractionUnit);
-
-        /// <summary>
-        /// Checks if this unit is equal to another unit.
-        /// </summary>
-        /// <param name="other">the other unit</param>
-        /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(IFractionUnit other)
+        protected override bool EqualsUnit(IUnitOfMeasurement other)
         {
-            if (other == null)
+            if (!(other is IFractionUnit otherFractionUnit))
             {
                 return false;
             }
@@ -102,8 +88,8 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
             {
                 var thisFractionUnit = (IFractionUnit)this;
 
-                var equals = thisFractionUnit.Numerator.Equals(other.Numerator)
-                    && thisFractionUnit.Denominator.Equals(other.Denominator);
+                var equals = thisFractionUnit.Numerator.Equals(otherFractionUnit.Numerator)
+                    && thisFractionUnit.Denominator.Equals(otherFractionUnit.Denominator);
 
                 return equals;
             }

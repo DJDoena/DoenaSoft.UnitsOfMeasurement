@@ -96,33 +96,6 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         }
 
         [TestMethod]
-        public void KilogramToBaseUnit()
-        {
-            var source = new Value<Gram>(10.4m);
-            var target = ValueConverter.ConvertToBaseValue(source);
-
-            var scalar = Math.Round(target.Scalar, 4, MidpointRounding.AwayFromZero);
-
-            Assert.AreEqual(0.0104m, scalar);
-            Assert.AreEqual(typeof(Kilogram), target.Unit.GetType());
-
-            var source2 = new Value(10.4m, UnitConverter.ToUnitOfMeasurement("t"));
-            var target2 = ValueConverter.ConvertToBaseValue(source2);
-
-            scalar = Math.Round(target2.Scalar, 4, MidpointRounding.AwayFromZero);
-
-            Assert.AreEqual(10400m, scalar);
-            Assert.AreEqual(typeof(Kilogram), target2.Unit.GetType());
-
-            var source3 = new Value(10.4m, "km/s");
-            var target3 = ValueConverter.ConvertToBaseValue(source3);
-            var scalar3 = Math.Round(target3.Scalar, 4, MidpointRounding.AwayFromZero);
-
-            Assert.AreEqual(10400m, scalar3);
-            Assert.AreEqual("m/s", target3.Unit.ToString());
-        }
-
-        [TestMethod]
         public void UnknownTripleFractionUnit()
         {
             var unit = "m/s/s";

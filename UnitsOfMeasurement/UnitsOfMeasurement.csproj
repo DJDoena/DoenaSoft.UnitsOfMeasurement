@@ -21,8 +21,8 @@ Also provides the ability to convert from volumes to weights (and vice versa) us
 		<PackageIconUrl />
 		<RepositoryUrl>https://github.com/DJDoena/DoenaSoft.UnitsOfMeasurement</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>unit-of-measurement;uom;unit;weight;mass;volume;length;distance;area;temperature;time;energy;density;force;pressure</PackageTags>
-		<Version>1.2.2</Version>
+		<PackageTags>units-of-measurement;uom;units;measurements;weight;mass;volume;length;distance;area;temperature;time;energy;work;density;force;pressure</PackageTags>
+		<Version>1.3.0</Version>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>

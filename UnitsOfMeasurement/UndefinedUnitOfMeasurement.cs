@@ -5,7 +5,7 @@ namespace DoenaSoft.UnitsOfMeasurement
     /// <summary>
     /// Describes a unit that has no unit sign.
     /// </summary>
-    public sealed class UndefinedUnitOfMeasurement : UnitOfMeasurement, IEquatable<UndefinedUnitOfMeasurement>
+    public sealed class UndefinedUnitOfMeasurement : UnitOfMeasurement
     {
         /// <summary>
         /// Returns the category of the unit, "Undefined".
@@ -35,9 +35,7 @@ namespace DoenaSoft.UnitsOfMeasurement
                 obj = UnitConverter.ToUnitOfMeasurement(serializableValue);
             }
 
-            var equals = this.Equals(obj as UndefinedUnitOfMeasurement);
-
-            return equals;
+            return obj is UndefinedUnitOfMeasurement;
         }
 
         /// <summary>

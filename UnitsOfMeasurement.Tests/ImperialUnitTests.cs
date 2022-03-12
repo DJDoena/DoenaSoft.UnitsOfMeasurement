@@ -9,7 +9,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
     using Values;
 
     [TestClass]
-    public class ImperialUnits
+    public class ImperialUnitTests
     {
         [TestMethod]
         public void SquareInch()

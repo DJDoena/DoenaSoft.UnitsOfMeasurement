@@ -90,23 +90,6 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         }
 
         /// <summary>
-        /// Converts the <see cref="Value"/> to the <see cref="UnitOfMeasurement.BaseUnit"/>.
-        /// </summary>
-        public static Value ConvertToBaseValue(Value sourceValue)
-        {
-            if (sourceValue == null)
-            {
-                throw new ArgumentNullException(nameof(sourceValue));
-            }
-            else
-            {
-                var targetValue = Convert(sourceValue, sourceValue.Unit.BaseUnit);
-
-                return targetValue;
-            }
-        }
-
-        /// <summary>
         /// Converts the throughput of a value over time
         /// </summary>
         /// <param name="valueOverTime">a fraction value where the denominator is <see cref="Time"/></param>

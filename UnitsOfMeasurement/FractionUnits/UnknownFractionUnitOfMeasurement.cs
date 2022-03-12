@@ -5,7 +5,7 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
     /// <summary>
     /// A fraction unit that does not fall into any of the known categories.
     /// </summary>
-    public sealed class UnknownFractionUnitOfMeasurement : UnknownUnitOfMeasurement, IFractionUnit, IEquatable<UnknownFractionUnitOfMeasurement>
+    public sealed class UnknownFractionUnitOfMeasurement : UnknownUnitOfMeasurement, IFractionUnit
     {
         /// <summary>
         /// Zähler
@@ -44,42 +44,9 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
                 obj = UnitConverter.ToUnitOfMeasurement(serializableValue);
             }
 
-            var equals = this.Equals(obj as IFractionUnit);
+            var equals = base.Equals(obj as UnknownFractionUnitOfMeasurement);
 
             return equals;
         }
-
-        /// <summary>
-        /// Checks if this unit is equal to another unit.
-        /// </summary>
-        /// <param name="other">the other unit</param>
-        /// <returns>if this unit is equal to another unit</returns>
-        public override bool Equals(IUnitOfMeasurement other) => this.Equals(other as UnknownFractionUnitOfMeasurement);
-
-        /// <summary>
-        /// Checks if this unit is equal to another unit.
-        /// </summary>
-        /// <param name="other">the other unit</param>
-        /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(UnknownFractionUnitOfMeasurement other)
-        {
-            if (other == null)
-            {
-                return false;
-            }
-            else
-            {
-                var equals = base.Equals(other);
-
-                return equals;
-            }
-        }
-
-        /// <summary>
-        /// Checks if this unit is equal to another unit.
-        /// </summary>
-        /// <param name="other">the other unit</param>
-        /// <returns>if this unit is equal to another unit</returns>
-        public bool Equals(IFractionUnit other) => this.Equals(other as UnknownFractionUnitOfMeasurement);
     }
 }
