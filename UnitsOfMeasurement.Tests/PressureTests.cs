@@ -102,5 +102,15 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
             Assert.AreEqual(psi1, psi2);
             Assert.AreEqual(new PSI(), psi2);
         }
+
+        [TestMethod]
+        public void PSIversusSelfBuilt()
+        {
+            var psi = new Value<PSI>(5m);
+
+            var selfBuilt = new Value(5m, "lbf/in²");
+
+            Assert.AreEqual(psi, selfBuilt);
+        }
     }
 }
