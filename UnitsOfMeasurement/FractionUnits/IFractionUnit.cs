@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
+﻿namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
 {
     using SimpleUnits.Times;
     using SimpleUnits.Volumes;

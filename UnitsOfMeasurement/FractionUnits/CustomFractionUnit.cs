@@ -30,8 +30,6 @@ namespace DoenaSoft.UnitsOfMeasurement.FractionUnits
         }
 
         /// <summary/>
-        /// <param name="numerator"/>
-        /// <param name="denominator"/>
         public CustomFractionUnit(ISimpleUnit numerator, ISimpleUnit denominator) : base(numerator, denominator)
         {
             string numeratorKey = numerator is ICustomUnit customNumerator

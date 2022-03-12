@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement
+﻿namespace DoenaSoft.UnitsOfMeasurement
 {
     /// <summary>
     /// Describes a unit that has no unit sign.
@@ -22,21 +20,6 @@ namespace DoenaSoft.UnitsOfMeasurement
         /// </summary>
         /// <returns>A hash code for the current object.</returns>
         public override int GetHashCode() => 0;
-
-        /// <summary>
-        /// Determines whether the specified object is equal to the current object.
-        /// </summary>
-        /// <param name="obj">The object to compare with the current object.</param>
-        /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        public override bool Equals(object obj)
-        {
-            if (obj is string serializableValue)
-            {
-                obj = UnitConverter.ToUnitOfMeasurement(serializableValue);
-            }
-
-            return obj is UndefinedUnitOfMeasurement;
-        }
 
         /// <summary>
         /// Checks if this unit is equal to another unit.

@@ -9,6 +9,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     /// <summary>
     /// Describes a scalar with a <see cref="Density"/> unit.
     /// </summary>
+    /// <remarks><see cref="DensityValue"/> is immutable. Any operation that results in a different <see cref="Value.Scalar"/> will return a new instance.</remarks>
     public class DensityValue : Value
     {
         /// <summary/>
@@ -56,49 +57,12 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// <param name="digits">the precision</param>
         /// <returns>a new value with the rounded scalar</returns>
         public new DensityValue Round(int digits) => new DensityValue(Math.Round(this.Scalar, digits, MidpointRounding.AwayFromZero), this.Unit);
-
-        /// <summary>
-        /// Determines whether the specified object is equal to the current object.
-        /// </summary>
-        /// <param name="obj">The object to compare with the current object.</param>
-        /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        /// <remarks>
-        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-        /// In the context of this library, any difference smaller than that will be considered equal.
-        /// </remarks>
-        public override bool Equals(object obj) => base.Equals(obj);
-
-        /// <summary>
-        /// Serves as the default hash function.
-        /// </summary>
-        /// <returns>A hash code for the current object.</returns>
-        public override int GetHashCode() => base.GetHashCode();
-
-        /// <summary>
-        /// The == (equality) operators checks if the two given objects are equal.
-        /// </summary>
-        /// <returns>if the two given objects are equal</returns>
-        /// <remarks>
-        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-        /// In the context of this library, any difference smaller than that will be considered equal.
-        /// </remarks>
-        public static bool operator ==(DensityValue left, DensityValue right) => ReferenceEquals(left, right) || (left is Value && left.Equals(right));
-
-        /// <summary>
-        /// The != (inequality) operators checks if the two given objects are not equal.
-        /// </summary>
-        /// <returns>if the two given objects are not equal</returns>
-        /// <remarks>
-        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-        /// In the context of this library, any difference smaller than that will be considered equal.
-        /// </remarks>
-        public static bool operator !=(DensityValue left, DensityValue right) => !(left == right);
     }
 
     /// <summary>
     /// Describes a scalar with a <see cref="Density"/> unit.
     /// </summary>
-    /// <typeparam name="TDensityUnit"/>
+    /// <remarks><see cref="DensityValue{TDensityUnit}"/> is immutable. Any operation that results in a different <see cref="Value.Scalar"/> will return a new instance.</remarks>
     public class DensityValue<TDensityUnit> : DensityValue
         where TDensityUnit : Density, new()
     {
@@ -124,50 +88,12 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// <param name="digits">the precision</param>
         /// <returns>a new value with the rounded scalar</returns>
         public new DensityValue<TDensityUnit> Round(int digits) => new DensityValue<TDensityUnit>(Math.Round(this.Scalar, digits, MidpointRounding.AwayFromZero));
-
-        /// <summary>
-        /// Determines whether the specified object is equal to the current object.
-        /// </summary>
-        /// <param name="obj">The object to compare with the current object.</param>
-        /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        /// <remarks>
-        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-        /// In the context of this library, any difference smaller than that will be considered equal.
-        /// </remarks>
-        public override bool Equals(object obj) => base.Equals(obj);
-
-        /// <summary>
-        /// Serves as the default hash function.
-        /// </summary>
-        /// <returns>A hash code for the current object.</returns>
-        public override int GetHashCode() => base.GetHashCode();
-
-        /// <summary>
-        /// The == (equality) operators checks if the two given objects are equal.
-        /// </summary>
-        /// <returns>if the two given objects are equal</returns>
-        /// <remarks>
-        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-        /// In the context of this library, any difference smaller than that will be considered equal.
-        /// </remarks>
-        public static bool operator ==(DensityValue<TDensityUnit> left, DensityValue<TDensityUnit> right) => ReferenceEquals(left, right) || (left is Value && left.Equals(right));
-
-        /// <summary>
-        /// The != (inequality) operators checks if the two given objects are not equal.
-        /// </summary>
-        /// <returns>if the two given objects are not equal</returns>
-        /// <remarks>
-        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-        /// In the context of this library, any difference smaller than that will be considered equal.
-        /// </remarks>
-        public static bool operator !=(DensityValue<TDensityUnit> left, DensityValue<TDensityUnit> right) => !(left == right);
     }
 
     /// <summary>
     /// Describes a scalar with a <see cref="Density"/> unit.
     /// </summary>
-    /// <typeparam name="TWeight"/>
-    /// <typeparam name="TVolume"/>
+    /// <remarks><see cref="DensityValue{TWeight, TVolume}"/> is immutable. Any operation that results in a different <see cref="Value.Scalar"/> will return a new instance.</remarks>
     public class DensityValue<TWeight, TVolume> : DensityValue
         where TWeight : Weight, new()
         where TVolume : Volume, new()

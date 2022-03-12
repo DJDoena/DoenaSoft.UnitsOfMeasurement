@@ -19,22 +19,5 @@
         /// </summary>
         /// <returns>A hash code for the current object.</returns>
         public override sealed int GetHashCode() => this.UnitCategory.GetHashCode() ^ this.ToSerializable().GetHashCode();
-
-        /// <summary>
-        /// Determines whether the specified object is equal to the current object.
-        /// </summary>
-        /// <param name="obj">The object to compare with the current object.</param>
-        /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        public override sealed bool Equals(object obj)
-        {
-            if (obj is string serializableValue)
-            {
-                obj = UnitConverter.ToUnitOfMeasurement(serializableValue);
-            }
-
-            var equals = base.Equals(obj as ISimpleUnit);
-
-            return equals;
-        }
     }
 }

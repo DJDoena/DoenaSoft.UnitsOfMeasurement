@@ -6,6 +6,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     /// <summary>
     /// Describes a scalar with an <see cref="IUnitOfMeasurement"/> unit.
     /// </summary>
+    /// <remarks><see cref="Value"/> is immutable. Any operation that results in a different <see cref="Scalar"/> will return a new instance.</remarks>
     public class Value
     {
         /// <summary/>
@@ -89,25 +90,27 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// <returns>a new value with the summed-up scalar</returns>
         public Value Add(Value other)
         {
+            Func<Value, Value, Value> adder = (l, r) => new Value(l.Scalar + r.Scalar, l.Unit);
+
             if (other == null)
             {
                 throw new InvalidOperationException($"Cannot add null to a value");
             }
             else if (this.Unit.Equals(other.Unit))
             {
-                var newScalar = this.Scalar + other.Scalar;
+                var result = adder(this, other);
 
-                return new Value(newScalar, this.Unit);
+                return result;
             }
             else
             {
                 try
                 {
-                    var convertedOtherValue = ValueConverter.Convert(other, this.Unit);
+                    var otherConverted = ValueConverter.Convert(other, this.Unit);
 
-                    var newScalar = this.Scalar + convertedOtherValue.Scalar;
+                    var result = adder(this, otherConverted);
 
-                    return new Value(newScalar, this.Unit);
+                    return result;
                 }
                 catch
                 {
@@ -132,7 +135,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// The <see cref="Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
         /// In the context of this library, any difference smaller than that will be considered equal.
         /// </remarks>
-        public override bool Equals(object obj)
+        public override sealed bool Equals(object obj)
         {
             if (!(obj is Value other))
             {
@@ -141,11 +144,11 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
 
             var equals = this.Unit.Equals(other.Unit);
 
-            Func<decimal, decimal, bool> comparer = (l, r) => RoundForComparison(l) == RoundForComparison(r);
+            Func<Value, Value, bool> comparer = (l, r) => RoundForComparison(l) == RoundForComparison(r);
 
             if (equals)
             {
-                equals = comparer(this.Scalar, other.Scalar);
+                equals = comparer(this, other);
             }
             else
             {
@@ -153,7 +156,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
                 {
                     var otherConverted = ValueConverter.Convert(other, this.Unit);
 
-                    equals = comparer(this.Scalar, otherConverted.Scalar);
+                    equals = comparer(this, otherConverted);
                 }
                 catch
                 {
@@ -167,19 +170,17 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// <summary>
         /// To accomodate for conversion discrepencies.
         /// </summary>
-        private static decimal RoundForComparison(decimal scalar) => Math.Round(scalar, 18, MidpointRounding.AwayFromZero);
+        private static decimal RoundForComparison(Value value) => Math.Round(value.Scalar, 18, MidpointRounding.AwayFromZero);
 
         /// <summary>
         /// Serves as the default hash function.
         /// </summary>
         /// <returns>A hash code for the current object.</returns>
-        public override int GetHashCode() => this.Scalar.GetHashCode() ^ this.Unit.GetHashCode();
+        public override sealed int GetHashCode() => this.Scalar.GetHashCode() ^ this.Unit.GetHashCode();
 
         /// <summary>
         /// The == (equality) operators checks if the two given objects are equal.
         /// </summary>
-        /// <param name="left"/>
-        /// <param name="right"/>
         /// <returns>if the two given objects are equal</returns>
         /// <remarks>
         /// The <see cref="Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
@@ -233,7 +234,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// </remarks>
         public static bool operator <(Value left, Value right) => Compare(left, right, (l, r) => RoundForComparison(l) < RoundForComparison(r));
 
-        private static bool Compare(Value left, Value right, Func<decimal, decimal, bool> comparer)
+        private static bool Compare(Value left, Value right, Func<Value, Value, bool> comparer)
         {
             if (ReferenceEquals(left, right))
             {
@@ -243,7 +244,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
                 }
                 else
                 {
-                    var result = comparer(left.Scalar, right.Scalar);
+                    var result = comparer(left, right);
 
                     return result;
                 }
@@ -258,7 +259,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             }
             else if (left.Unit.Equals(right.Unit))
             {
-                var result = comparer(left.Scalar, right.Scalar);
+                var result = comparer(left, right);
 
                 return result;
             }
@@ -268,7 +269,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
                 {
                     var rightConverted = ValueConverter.Convert(right, left.Unit);
 
-                    var result = comparer(left.Scalar, rightConverted.Scalar);
+                    var result = comparer(left, rightConverted);
 
                     return result;
                 }
@@ -325,6 +326,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
     /// Describes a scalar with an <see cref="IUnitOfMeasurement"/> unit.
     /// </summary>
     /// <typeparam name="TUnit">the <see cref="IUnitOfMeasurement"/> unit</typeparam>
+    /// <remarks><see cref="Value{TUnit}"/> is immutable. Any operation that results in a different <see cref="Value.Scalar"/> will return a new instance.</remarks>
     public class Value<TUnit> : Value where TUnit : IUnitOfMeasurement, new()
     {
         /// <summary/>
@@ -379,18 +381,5 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// <param name="digits">the precision</param>
         /// <returns>a new value with the rounded scalar</returns>
         public new Value<TUnit> Round(int digits) => new Value<TUnit>(Math.Round(this.Scalar, digits, MidpointRounding.AwayFromZero));
-
-        /// <summary>
-        /// Determines whether the specified object is equal to the current object.
-        /// </summary>
-        /// <param name="obj">The object to compare with the current object.</param>
-        /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        public override bool Equals(object obj) => base.Equals(obj);
-
-        /// <summary>
-        /// Serves as the default hash function.
-        /// </summary>
-        /// <returns>A hash code for the current object.</returns>
-        public override int GetHashCode() => base.GetHashCode();
     }
 }

@@ -2,9 +2,20 @@
 
 namespace DoenaSoft.UnitsOfMeasurement
 {
+    using SimpleUnits.Areas;
+    using SimpleUnits.Energies;
+    using SimpleUnits.Forces;
+    using SimpleUnits.Lengths;
+    using SimpleUnits.Temperatures;
+    using SimpleUnits.Times;
+    using SimpleUnits.Volumes;
+    using SimpleUnits.Weights;
+    using SimpleUnits.WizardCurrencies;
+
     /// <summary>
     /// Abstract base class to all units.
     /// </summary>
+    /// <remarks>All of <see cref="UnitOfMeasurement"/>'s derived classes inside this library are immutable.</remarks>
     public abstract class UnitOfMeasurement : IUnitOfMeasurement, IEquatable<UnitOfMeasurement>
     {
         /// <summary>
@@ -46,7 +57,17 @@ namespace DoenaSoft.UnitsOfMeasurement
         /// </summary>
         /// <param name="obj">The object to compare with the current object.</param>
         /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        public override abstract bool Equals(object obj);
+        public override sealed bool Equals(object obj)
+        {
+            if (obj is string serializableValue)
+            {
+                obj = UnitConverter.ToUnitOfMeasurement(serializableValue);
+            }
+
+            var result = this.Equals(obj as IUnitOfMeasurement);
+
+            return result;
+        }
 
         /// <summary>
         /// Checks if this unit is equal to another unit.
@@ -77,22 +98,113 @@ namespace DoenaSoft.UnitsOfMeasurement
             var equals = this.UnitCategory.Equals(other.UnitCategory)
                 && this.ToSerializable().Equals(other.ToSerializable());
 
+            if (equals)
+            {
+                equals = EnsureBuiltInTypes(other);
+            }
+
             return equals;
+        }
+
+        /// <summary>
+        /// Check that the built-in categories are not polluted with outside implementations of IUnitOfMeasurement that do not derive from the correct base unit
+        /// </summary>
+        private static bool EnsureBuiltInTypes(IUnitOfMeasurement other)
+        {
+            bool equals;
+            switch (other.UnitCategory)
+            {
+                case nameof(Area):
+                    {
+                        equals = IsOfType(other, typeof(Area));
+
+                        break;
+                    }
+                case nameof(Energy):
+                    {
+                        equals = IsOfType(other, typeof(Energy));
+
+                        break;
+                    }
+                case nameof(Force):
+                    {
+                        equals = IsOfType(other, typeof(Force));
+
+                        break;
+                    }
+                case nameof(Length):
+                    {
+                        equals = IsOfType(other, typeof(Length));
+
+                        break;
+                    }
+                case nameof(Temparature):
+                    {
+                        equals = IsOfType(other, typeof(Temparature));
+
+                        break;
+                    }
+                case nameof(Time):
+                    {
+                        equals = IsOfType(other, typeof(Time));
+
+                        break;
+                    }
+                case nameof(Volume):
+                    {
+                        equals = IsOfType(other, typeof(Volume));
+
+                        break;
+                    }
+                case nameof(Weight):
+                    {
+                        equals = IsOfType(other, typeof(Weight));
+
+                        break;
+                    }
+                case nameof(WizardCurrency):
+                    {
+                        equals = IsOfType(other, typeof(WizardCurrency));
+
+                        break;
+                    }
+                default:
+                    {
+                        throw new NotSupportedException();
+                    }
+            }
+
+            return equals;
+        }
+
+        private static bool IsOfType(IUnitOfMeasurement other, Type requested)
+        {
+            var actual = other.GetType();
+
+            while (actual != null && !actual.Equals(typeof(object)))
+            {
+                if (actual.Equals(requested))
+                {
+                    return true;
+                }
+                else
+                {
+                    actual = actual.BaseType;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
         /// The == (equality) operators checks if the two given objects are equal.
         /// </summary>
-        /// <param name="left"/>
-        /// <param name="right"/>
         /// <returns>if the two given objects are equal</returns>
         public static bool operator ==(UnitOfMeasurement left, UnitOfMeasurement right) => ReferenceEquals(left, right) || (left is UnitOfMeasurement && left.Equals(right));
 
         /// <summary>
         /// The != (inequality) operators checks if the two given objects are not equal.
         /// </summary>
-        /// <param name="left"/>
-        /// <param name="right"/>
         /// <returns>if the two given objects are not equal</returns>
         public static bool operator !=(UnitOfMeasurement left, UnitOfMeasurement right) => !(left == right);
     }

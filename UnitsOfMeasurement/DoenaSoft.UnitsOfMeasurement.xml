@@ -36,8 +36,6 @@
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.CustomFractionUnit.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit)">
             <summary/>
-            <param name="numerator"/>
-            <param name="denominator"/>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities.Density">
             <summary>
@@ -95,21 +93,12 @@
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.#ctor(DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit,DoenaSoft.UnitsOfMeasurement.SimpleUnits.ISimpleUnit)">
             <summary/>
-            <param name="numerator"/>
-            <param name="denominator"/>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.GetHashCode">
             <summary>
             Serves as the default hash function.
             </summary>
             <returns>A hash code for the current object.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.FractionUnit.EqualsUnit(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
             <summary>
@@ -314,27 +303,10 @@
             </summary>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Numerator">
-            <summary>
-            Zähler
-            </summary>
+            <summary />
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Denominator">
-            <summary>
-            Nenner
-            </summary>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.GetHashCode">
-            <summary>
-            Serves as the default hash function.
-            </summary>
-            <returns>A hash code for the current object.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.FractionUnits.UnknownFractionUnitOfMeasurement.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+            <summary />
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.ICustomUnit">
             <summary>
@@ -1303,13 +1275,6 @@
             </summary>
             <returns>A hash code for the current object.</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.SimpleUnit.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Temperatures.Celsius">
             <summary />
         </member>
@@ -1522,19 +1487,6 @@
             <summary>
             A simple unit that does not fall into any of the known categories.
             </summary>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.UnknownSimpleUnitOfMeasurement.GetHashCode">
-            <summary>
-            Serves as the default hash function.
-            </summary>
-            <returns>A hash code for the current object.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.UnknownSimpleUnitOfMeasurement.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.CubicFoot">
             <summary />
@@ -2062,13 +2014,6 @@
             </summary>
             <returns>A hash code for the current object.</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.UndefinedUnitOfMeasurement.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.UndefinedUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
             <summary>
             Checks if this unit is equal to another unit.
@@ -2174,6 +2119,7 @@
             <summary>
             Abstract base class to all units.
             </summary>
+            <remarks>All of <see cref="T:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement"/>'s derived classes inside this library are immutable.</remarks>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.UnitCategory">
             <summary>
@@ -2237,20 +2183,21 @@
             <param name="other">the other unit</param>
             <returns>if this unit is equal to another unit</returns>
         </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.EnsureBuiltInTypes(DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
+            <summary>
+            Check that the built-in categories are not polluted with outside implementations of IUnitOfMeasurement that do not derive from the correct base unit
+            </summary>
+        </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.op_Equality(DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement,DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement)">
             <summary>
             The == (equality) operators checks if the two given objects are equal.
             </summary>
-            <param name="left"/>
-            <param name="right"/>
             <returns>if the two given objects are equal</returns>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.op_Inequality(DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement,DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement)">
             <summary>
             The != (inequality) operators checks if the two given objects are not equal.
             </summary>
-            <param name="left"/>
-            <param name="right"/>
             <returns>if the two given objects are not equal</returns>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.UnknownUnitOfMeasurement">
@@ -2276,13 +2223,6 @@
             Serves as the default hash function.
             </summary>
             <returns>A hash code for the current object.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.UnknownUnitOfMeasurement.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.UnknownUnitOfMeasurement.Equals(DoenaSoft.UnitsOfMeasurement.UnknownUnitOfMeasurement)">
             <summary>
@@ -2321,6 +2261,7 @@
             <summary>
             Describes a scalar with a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities.Density"/> unit.
             </summary>
+            <remarks><see cref="T:DoenaSoft.UnitsOfMeasurement.Values.DensityValue"/> is immutable. Any operation that results in a different <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> will return a new instance.</remarks>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.Unit">
             <summary/>
@@ -2356,48 +2297,11 @@
             <param name="digits">the precision</param>
             <returns>a new value with the rounded scalar</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-            <remarks>
-            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-            In the context of this library, any difference smaller than that will be considered equal.
-            </remarks>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.GetHashCode">
-            <summary>
-            Serves as the default hash function.
-            </summary>
-            <returns>A hash code for the current object.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.op_Equality(DoenaSoft.UnitsOfMeasurement.Values.DensityValue,DoenaSoft.UnitsOfMeasurement.Values.DensityValue)">
-            <summary>
-            The == (equality) operators checks if the two given objects are equal.
-            </summary>
-            <returns>if the two given objects are equal</returns>
-            <remarks>
-            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-            In the context of this library, any difference smaller than that will be considered equal.
-            </remarks>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.op_Inequality(DoenaSoft.UnitsOfMeasurement.Values.DensityValue,DoenaSoft.UnitsOfMeasurement.Values.DensityValue)">
-            <summary>
-            The != (inequality) operators checks if the two given objects are not equal.
-            </summary>
-            <returns>if the two given objects are not equal</returns>
-            <remarks>
-            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-            In the context of this library, any difference smaller than that will be considered equal.
-            </remarks>
-        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1">
             <summary>
             Describes a scalar with a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities.Density"/> unit.
             </summary>
-            <typeparam name="TDensityUnit"/>
+            <remarks><see cref="T:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1"/> is immutable. Any operation that results in a different <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> will return a new instance.</remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.#ctor(System.Double)">
             <summary/>
@@ -2418,49 +2322,11 @@
             <param name="digits">the precision</param>
             <returns>a new value with the rounded scalar</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-            <remarks>
-            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-            In the context of this library, any difference smaller than that will be considered equal.
-            </remarks>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.GetHashCode">
-            <summary>
-            Serves as the default hash function.
-            </summary>
-            <returns>A hash code for the current object.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.op_Equality(DoenaSoft.UnitsOfMeasurement.Values.DensityValue{`0},DoenaSoft.UnitsOfMeasurement.Values.DensityValue{`0})">
-            <summary>
-            The == (equality) operators checks if the two given objects are equal.
-            </summary>
-            <returns>if the two given objects are equal</returns>
-            <remarks>
-            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-            In the context of this library, any difference smaller than that will be considered equal.
-            </remarks>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.op_Inequality(DoenaSoft.UnitsOfMeasurement.Values.DensityValue{`0},DoenaSoft.UnitsOfMeasurement.Values.DensityValue{`0})">
-            <summary>
-            The != (inequality) operators checks if the two given objects are not equal.
-            </summary>
-            <returns>if the two given objects are not equal</returns>
-            <remarks>
-            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
-            In the context of this library, any difference smaller than that will be considered equal.
-            </remarks>
-        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2">
             <summary>
             Describes a scalar with a <see cref="T:DoenaSoft.UnitsOfMeasurement.FractionUnits.Densities.Density"/> unit.
             </summary>
-            <typeparam name="TWeight"/>
-            <typeparam name="TVolume"/>
+            <remarks><see cref="T:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2"/> is immutable. Any operation that results in a different <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> will return a new instance.</remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.#ctor(System.Double)">
             <summary/>
@@ -2520,6 +2386,7 @@
             <summary>
             Describes a scalar with an <see cref="T:DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement"/> unit.
             </summary>
+            <remarks><see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> is immutable. Any operation that results in a different <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> will return a new instance.</remarks>
         </member>
         <member name="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar">
             <summary/>
@@ -2610,7 +2477,7 @@
             In the context of this library, any difference smaller than that will be considered equal.
             </remarks>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.RoundForComparison(System.Decimal)">
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.RoundForComparison(DoenaSoft.UnitsOfMeasurement.Values.Value)">
             <summary>
             To accomodate for conversion discrepencies.
             </summary>
@@ -2625,8 +2492,6 @@
             <summary>
             The == (equality) operators checks if the two given objects are equal.
             </summary>
-            <param name="left"/>
-            <param name="right"/>
             <returns>if the two given objects are equal</returns>
             <remarks>
             The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
@@ -2694,6 +2559,7 @@
             Describes a scalar with an <see cref="T:DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement"/> unit.
             </summary>
             <typeparam name="TUnit">the <see cref="T:DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement"/> unit</typeparam>
+            <remarks><see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value`1"/> is immutable. Any operation that results in a different <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> will return a new instance.</remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value`1.#ctor(System.Double)">
             <summary/>
@@ -2738,19 +2604,6 @@
             </summary>
             <param name="digits">the precision</param>
             <returns>a new value with the rounded scalar</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value`1.Equals(System.Object)">
-            <summary>
-            Determines whether the specified object is equal to the current object.
-            </summary>
-            <param name="obj">The object to compare with the current object.</param>
-            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value`1.GetHashCode">
-            <summary>
-            Serves as the default hash function.
-            </summary>
-            <returns>A hash code for the current object.</returns>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.ValueConverter">
             <summary>
