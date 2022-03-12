@@ -2349,20 +2349,6 @@
             </summary>
             <returns>a copy of this value</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.Add(System.Double)">
-            <summary>
-            Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-            </summary>
-            <param name="scalar">the scalar to be added</param>
-            <returns>a new value with the summed-up scalar</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.Add(System.Decimal)">
-            <summary>
-            Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-            </summary>
-            <param name="scalar">the scalar to be added</param>
-            <returns>a new value with the summed-up scalar</returns>
-        </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.Round(System.Int32)">
             <summary>
             Rounds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> to the given <paramref name="digits"/> and returns a new value with the rounded scalar.
@@ -2376,6 +2362,10 @@
             </summary>
             <param name="obj">The object to compare with the current object.</param>
             <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.GetHashCode">
             <summary>
@@ -2387,17 +2377,21 @@
             <summary>
             The == (equality) operators checks if the two given objects are equal.
             </summary>
-            <param name="left"/>
-            <param name="right"/>
             <returns>if the two given objects are equal</returns>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue.op_Inequality(DoenaSoft.UnitsOfMeasurement.Values.DensityValue,DoenaSoft.UnitsOfMeasurement.Values.DensityValue)">
             <summary>
             The != (inequality) operators checks if the two given objects are not equal.
             </summary>
-            <param name="left"/>
-            <param name="right"/>
             <returns>if the two given objects are not equal</returns>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1">
             <summary>
@@ -2417,20 +2411,6 @@
             </summary>
             <returns>a copy of this value</returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.Add(System.Double)">
-            <summary>
-            Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-            </summary>
-            <param name="scalar">the scalar to be added</param>
-            <returns>a new value with the summed-up scalar</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.Add(System.Decimal)">
-            <summary>
-            Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-            </summary>
-            <param name="scalar">the scalar to be added</param>
-            <returns>a new value with the summed-up scalar</returns>
-        </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.Round(System.Int32)">
             <summary>
             Rounds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> to the given <paramref name="digits"/> and returns a new value with the rounded scalar.
@@ -2444,6 +2424,10 @@
             </summary>
             <param name="obj">The object to compare with the current object.</param>
             <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.GetHashCode">
             <summary>
@@ -2455,17 +2439,21 @@
             <summary>
             The == (equality) operators checks if the two given objects are equal.
             </summary>
-            <param name="left"/>
-            <param name="right"/>
             <returns>if the two given objects are equal</returns>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`1.op_Inequality(DoenaSoft.UnitsOfMeasurement.Values.DensityValue{`0},DoenaSoft.UnitsOfMeasurement.Values.DensityValue{`0})">
             <summary>
             The != (inequality) operators checks if the two given objects are not equal.
             </summary>
-            <param name="left"/>
-            <param name="right"/>
             <returns>if the two given objects are not equal</returns>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2">
             <summary>
@@ -2485,20 +2473,6 @@
             Create a copy of this value.
             </summary>
             <returns>a copy of this value</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.Add(System.Double)">
-            <summary>
-            Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-            </summary>
-            <param name="scalar">the scalar to be added</param>
-            <returns>a new value with the summed-up scalar</returns>
-        </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.Add(System.Decimal)">
-            <summary>
-            Adds the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-            </summary>
-            <param name="scalar">the scalar to be added</param>
-            <returns>a new value with the summed-up scalar</returns>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.DensityValue`2.Round(System.Int32)">
             <summary>
@@ -2631,6 +2605,15 @@
             </summary>
             <param name="obj">The object to compare with the current object.</param>
             <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.RoundForComparison(System.Decimal)">
+            <summary>
+            To accomodate for conversion discrepencies.
+            </summary>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.GetHashCode">
             <summary>
@@ -2645,34 +2628,66 @@
             <param name="left"/>
             <param name="right"/>
             <returns>if the two given objects are equal</returns>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.op_Inequality(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
             <summary>
             The != (inequality) operators checks if the two given objects are not equal.
             </summary>
-            <param name="left"/>
-            <param name="right"/>
             <returns>if the two given objects are not equal</returns>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.op_GreaterThanOrEqual(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
             <summary>
             The &gt;= (greater than or equal) operator returns true if its left-hand operand is greater than or equal to its right-hand operand, false otherwise.
             </summary>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.op_LessThanOrEqual(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
             <summary>
             The &lt;= (less than or equal) operator returns true if its left-hand operand is less than or equal to its right-hand operand, false otherwise.
             </summary>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.op_GreaterThan(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
             <summary>
             The &gt; (greater than) operator returns true if its left-hand operand is greater than its right-hand operand, false otherwise.
             </summary>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
         </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.op_LessThan(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
             <summary>
             The &lt; (less than) operator returns true if its left-hand operand is less than its right-hand operand, false otherwise.
             </summary>
+            <remarks>
+            The <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+            In the context of this library, any difference smaller than that will be considered equal.
+            </remarks>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.Value.op_Addition(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
+            <summary>
+            Adds <paramref name="left"/> and the given <paramref name="right"/> and returns a new value with the summed-up scalar.
+            </summary>
+            <remarks>
+            This only works if both values are in the same <see cref="P:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.UnitCategory"/>.
+            The result value will always have the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/> of <paramref name="left"/>  value.
+            </remarks>
+            <returns>a new value with the summed-up scalar</returns>
         </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.Value`1">
             <summary>

@@ -8,11 +8,6 @@
         /// </summary>
         /// <param name="unitOfMeasurement">a <see cref="string"/> representing a unit</param>
         /// <returns>a <see cref="UnitOfMeasurement"/></returns>
-        public static UnitOfMeasurement ToUnit(this string unitOfMeasurement)
-        {
-            var unit = UnitConverter.ToUnitOfMeasurement(unitOfMeasurement);
-
-            return unit;
-        }
+        public static UnitOfMeasurement ToUnit(this string unitOfMeasurement) => UnitConverter.ToUnitOfMeasurement(unitOfMeasurement);
     }
 }

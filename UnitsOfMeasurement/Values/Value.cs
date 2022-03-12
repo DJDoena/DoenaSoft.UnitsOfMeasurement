@@ -91,11 +91,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         {
             if (other == null)
             {
-                throw new ArgumentNullException(nameof(other));
-            }
-            else if (!this.Unit.UnitCategory.Equals(other.Unit.UnitCategory))
-            {
-                throw new ArgumentException("Values have different unit categories!", nameof(other));
+                throw new InvalidOperationException($"Cannot add null to a value");
             }
             else if (this.Unit.Equals(other.Unit))
             {
@@ -105,11 +101,18 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
             }
             else
             {
-                var convertedOtherValue = ValueConverter.Convert(other, this.Unit);
+                try
+                {
+                    var convertedOtherValue = ValueConverter.Convert(other, this.Unit);
 
-                var newScalar = this.Scalar + convertedOtherValue.Scalar;
+                    var newScalar = this.Scalar + convertedOtherValue.Scalar;
 
-                return new Value(newScalar, this.Unit);
+                    return new Value(newScalar, this.Unit);
+                }
+                catch
+                {
+                    throw new InvalidOperationException($"Cannot add a value of unit '{other.Unit}' to a value of unit '{this.Unit}'");
+                }
             }
         }
 
@@ -125,6 +128,10 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// </summary>
         /// <param name="obj">The object to compare with the current object.</param>
         /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        /// <remarks>
+        /// The <see cref="Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
         public override bool Equals(object obj)
         {
             if (!(obj is Value other))
@@ -134,9 +141,11 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
 
             var equals = this.Unit.Equals(other.Unit);
 
+            Func<decimal, decimal, bool> comparer = (l, r) => RoundForComparison(l) == RoundForComparison(r);
+
             if (equals)
             {
-                equals = this.Scalar == other.Scalar;
+                equals = comparer(this.Scalar, other.Scalar);
             }
             else
             {
@@ -144,7 +153,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
                 {
                     var otherConverted = ValueConverter.Convert(other, this.Unit);
 
-                    equals = this.Scalar == otherConverted.Scalar;
+                    equals = comparer(this.Scalar, otherConverted.Scalar);
                 }
                 catch
                 {
@@ -154,6 +163,11 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
 
             return equals;
         }
+
+        /// <summary>
+        /// To accomodate for conversion discrepencies.
+        /// </summary>
+        private static decimal RoundForComparison(decimal scalar) => Math.Round(scalar, 18, MidpointRounding.AwayFromZero);
 
         /// <summary>
         /// Serves as the default hash function.
@@ -167,96 +181,86 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// <param name="left"/>
         /// <param name="right"/>
         /// <returns>if the two given objects are equal</returns>
+        /// <remarks>
+        /// The <see cref="Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
         public static bool operator ==(Value left, Value right) => ReferenceEquals(left, right) || (left is Value && left.Equals(right));
 
         /// <summary>
         /// The != (inequality) operators checks if the two given objects are not equal.
         /// </summary>
-        /// <param name="left"/>
-        /// <param name="right"/>
         /// <returns>if the two given objects are not equal</returns>
+        /// <remarks>
+        /// The <see cref="Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
         public static bool operator !=(Value left, Value right) => !(left == right);
 
         /// <summary>
         /// The &gt;= (greater than or equal) operator returns true if its left-hand operand is greater than or equal to its right-hand operand, false otherwise.
         /// </summary>
-        public static bool operator >=(Value left, Value right)
-        {
-            if (ReferenceEquals(left, right))
-            {
-                return true;
-            }
-            else if (right == null)
-            {
-                return false;
-            }
-            else if (left.Unit.Equals(right.Unit))
-            {
-                return left.Scalar >= right.Scalar;
-            }
-            else
-            {
-                try
-                {
-                    var rightConverted = ValueConverter.Convert(right, left.Unit);
-
-                    return left.Scalar >= rightConverted.Scalar;
-                }
-                catch
-                {
-                    throw new InvalidOperationException($"Cannot compare a value of unit '{left.Unit}' with a value of unit '{right.Unit}'");
-                }
-            }
-        }
+        /// <remarks>
+        /// The <see cref="Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
+        public static bool operator >=(Value left, Value right) => Compare(left, right, (l, r) => RoundForComparison(l) >= RoundForComparison(r));
 
         /// <summary>
         /// The &lt;= (less than or equal) operator returns true if its left-hand operand is less than or equal to its right-hand operand, false otherwise.
         /// </summary>
-        public static bool operator <=(Value left, Value right)
-        {
-            if (ReferenceEquals(left, right))
-            {
-                return true;
-            }
-            else if (right == null)
-            {
-                return false;
-            }
-            else if (left.Unit.Equals(right.Unit))
-            {
-                return left.Scalar <= right.Scalar;
-            }
-            else
-            {
-                try
-                {
-                    var rightConverted = ValueConverter.Convert(right, left.Unit);
-
-                    return left.Scalar <= rightConverted.Scalar;
-                }
-                catch
-                {
-                    throw new InvalidOperationException($"Cannot compare a value of unit '{left.Unit}' with a value of unit '{right.Unit}'");
-                }
-            }
-        }
+        /// <remarks>
+        /// The <see cref="Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
+        public static bool operator <=(Value left, Value right) => Compare(left, right, (l, r) => RoundForComparison(l) <= RoundForComparison(r));
 
         /// <summary>
         /// The &gt; (greater than) operator returns true if its left-hand operand is greater than its right-hand operand, false otherwise.
         /// </summary>
-        public static bool operator >(Value left, Value right)
+        /// <remarks>
+        /// The <see cref="Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
+        public static bool operator >(Value left, Value right) => Compare(left, right, (l, r) => RoundForComparison(l) > RoundForComparison(r));
+
+        /// <summary>
+        /// The &lt; (less than) operator returns true if its left-hand operand is less than its right-hand operand, false otherwise.
+        /// </summary>
+        /// <remarks>
+        /// The <see cref="Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
+        public static bool operator <(Value left, Value right) => Compare(left, right, (l, r) => RoundForComparison(l) < RoundForComparison(r));
+
+        private static bool Compare(Value left, Value right, Func<decimal, decimal, bool> comparer)
         {
             if (ReferenceEquals(left, right))
             {
-                return false;
+                if (ReferenceEquals(left, null))
+                {
+                    throw new InvalidOperationException($"Cannot compare to a null value");
+                }
+                else
+                {
+                    var result = comparer(left.Scalar, right.Scalar);
+
+                    return result;
+                }
+            }
+            else if (left == null)
+            {
+                throw new InvalidOperationException($"Cannot compare to a null value");
             }
             else if (right == null)
             {
-                return false;
+                throw new InvalidOperationException($"Cannot compare to a null value");
             }
             else if (left.Unit.Equals(right.Unit))
             {
-                return left.Scalar > right.Scalar;
+                var result = comparer(left.Scalar, right.Scalar);
+
+                return result;
             }
             else
             {
@@ -264,7 +268,9 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
                 {
                     var rightConverted = ValueConverter.Convert(right, left.Unit);
 
-                    return left.Scalar > rightConverted.Scalar;
+                    var result = comparer(left.Scalar, rightConverted.Scalar);
+
+                    return result;
                 }
                 catch
                 {
@@ -274,34 +280,43 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         }
 
         /// <summary>
-        /// The &lt; (less than) operator returns true if its left-hand operand is less than its right-hand operand, false otherwise.
+        /// Adds <paramref name="left"/> and the given <paramref name="right"/> and returns a new value with the summed-up scalar.
         /// </summary>
-        public static bool operator <(Value left, Value right)
+        /// <remarks>
+        /// This only works if both values are in the same <see cref="UnitOfMeasurement.UnitCategory"/>.
+        /// The result value will always have the <see cref="Unit"/> of <paramref name="left"/>  value.
+        /// </remarks>
+        /// <returns>a new value with the summed-up scalar</returns>
+        public static Value operator +(Value left, Value right)
         {
+            Func<Value, Value, Value> adder = (l, r) => l.Add(r);
+
             if (ReferenceEquals(left, right))
             {
-                return false;
+                if (ReferenceEquals(left, null))
+                {
+                    throw new InvalidOperationException($"Cannot add to a null value");
+                }
+                else
+                {
+                    var result = adder(left, right);
+
+                    return result;
+                }
+            }
+            else if (left == null)
+            {
+                throw new InvalidOperationException($"Cannot add to a null value");
             }
             else if (right == null)
             {
-                return false;
-            }
-            else if (left.Unit.Equals(right.Unit))
-            {
-                return left.Scalar < right.Scalar;
+                throw new InvalidOperationException($"Cannot add null to a value");
             }
             else
             {
-                try
-                {
-                    var rightConverted = ValueConverter.Convert(right, left.Unit);
+                var result = adder(left, right);
 
-                    return left.Scalar < rightConverted.Scalar;
-                }
-                catch
-                {
-                    throw new InvalidOperationException($"Cannot compare a value of unit '{left.Unit}' with a value of unit '{right.Unit}'");
-                }
+                return result;
             }
         }
     }
@@ -353,28 +368,9 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// <returns>a new value with the summed-up scalar</returns>
         public new Value<TUnit> Add(Value other)
         {
-            if (other == null)
-            {
-                throw new ArgumentNullException(nameof(other));
-            }
-            else if (!this.Unit.UnitCategory.Equals(other.Unit.UnitCategory))
-            {
-                throw new ArgumentException("Values have different unit categories!", nameof(other));
-            }
-            else if (this.Unit.Equals(other.Unit))
-            {
-                var newScalar = this.Scalar + other.Scalar;
+            var baseResult = base.Add(other);
 
-                return new Value<TUnit>(newScalar);
-            }
-            else
-            {
-                var convertedOtherValue = ValueConverter.Convert(other, this.Unit);
-
-                var newScalar = this.Scalar + convertedOtherValue.Scalar;
-
-                return new Value<TUnit>(newScalar);
-            }
+            return new Value<TUnit>(baseResult.Scalar);
         }
 
         /// <summary>

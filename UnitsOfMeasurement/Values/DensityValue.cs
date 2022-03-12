@@ -51,20 +51,6 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         public new DensityValue Clone() => new DensityValue(this.Scalar, this.Unit);
 
         /// <summary>
-        /// Adds the <see cref="Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-        /// </summary>
-        /// <param name="scalar">the scalar to be added</param>
-        /// <returns>a new value with the summed-up scalar</returns>
-        public new DensityValue Add(double scalar) => this.Add(Convert.ToDecimal(scalar));
-
-        /// <summary>
-        /// Adds the <see cref="Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-        /// </summary>
-        /// <param name="scalar">the scalar to be added</param>
-        /// <returns>a new value with the summed-up scalar</returns>
-        public new DensityValue Add(decimal scalar) => new DensityValue(this.Scalar + scalar, this.Unit);
-
-        /// <summary>
         /// Rounds the <see cref="Value.Scalar"/> to the given <paramref name="digits"/> and returns a new value with the rounded scalar.
         /// </summary>
         /// <param name="digits">the precision</param>
@@ -76,6 +62,10 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// </summary>
         /// <param name="obj">The object to compare with the current object.</param>
         /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        /// <remarks>
+        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
         public override bool Equals(object obj) => base.Equals(obj);
 
         /// <summary>
@@ -87,17 +77,21 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// <summary>
         /// The == (equality) operators checks if the two given objects are equal.
         /// </summary>
-        /// <param name="left"/>
-        /// <param name="right"/>
         /// <returns>if the two given objects are equal</returns>
+        /// <remarks>
+        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
         public static bool operator ==(DensityValue left, DensityValue right) => ReferenceEquals(left, right) || (left is Value && left.Equals(right));
 
         /// <summary>
         /// The != (inequality) operators checks if the two given objects are not equal.
         /// </summary>
-        /// <param name="left"/>
-        /// <param name="right"/>
         /// <returns>if the two given objects are not equal</returns>
+        /// <remarks>
+        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
         public static bool operator !=(DensityValue left, DensityValue right) => !(left == right);
     }
 
@@ -125,20 +119,6 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         public new DensityValue<TDensityUnit> Clone() => new DensityValue<TDensityUnit>(this.Scalar);
 
         /// <summary>
-        /// Adds the <see cref="Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-        /// </summary>
-        /// <param name="scalar">the scalar to be added</param>
-        /// <returns>a new value with the summed-up scalar</returns>
-        public new DensityValue<TDensityUnit> Add(double scalar) => this.Add(Convert.ToDecimal(scalar));
-
-        /// <summary>
-        /// Adds the <see cref="Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-        /// </summary>
-        /// <param name="scalar">the scalar to be added</param>
-        /// <returns>a new value with the summed-up scalar</returns>
-        public new DensityValue<TDensityUnit> Add(decimal scalar) => new DensityValue<TDensityUnit>(this.Scalar + scalar);
-
-        /// <summary>
         /// Rounds the <see cref="Value.Scalar"/> to the given <paramref name="digits"/> and returns a new value with the rounded scalar.
         /// </summary>
         /// <param name="digits">the precision</param>
@@ -150,6 +130,10 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// </summary>
         /// <param name="obj">The object to compare with the current object.</param>
         /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        /// <remarks>
+        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
         public override bool Equals(object obj) => base.Equals(obj);
 
         /// <summary>
@@ -161,17 +145,21 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// <summary>
         /// The == (equality) operators checks if the two given objects are equal.
         /// </summary>
-        /// <param name="left"/>
-        /// <param name="right"/>
         /// <returns>if the two given objects are equal</returns>
+        /// <remarks>
+        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
         public static bool operator ==(DensityValue<TDensityUnit> left, DensityValue<TDensityUnit> right) => ReferenceEquals(left, right) || (left is Value && left.Equals(right));
 
         /// <summary>
         /// The != (inequality) operators checks if the two given objects are not equal.
         /// </summary>
-        /// <param name="left"/>
-        /// <param name="right"/>
         /// <returns>if the two given objects are not equal</returns>
+        /// <remarks>
+        /// The <see cref="Value.Scalar"/> value will be rounded to the 18th decimal place (atto) to accommodate for converting discrepancies.
+        /// In the context of this library, any difference smaller than that will be considered equal.
+        /// </remarks>
         public static bool operator !=(DensityValue<TDensityUnit> left, DensityValue<TDensityUnit> right) => !(left == right);
     }
 
@@ -199,20 +187,6 @@ namespace DoenaSoft.UnitsOfMeasurement.Values
         /// </summary>
         /// <returns>a copy of this value</returns>
         public new DensityValue<TWeight, TVolume> Clone() => new DensityValue<TWeight, TVolume>(this.Scalar);
-
-        /// <summary>
-        /// Adds the <see cref="Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-        /// </summary>
-        /// <param name="scalar">the scalar to be added</param>
-        /// <returns>a new value with the summed-up scalar</returns>
-        public new DensityValue<TWeight, TVolume> Add(double scalar) => this.Add(Convert.ToDecimal(scalar));
-
-        /// <summary>
-        /// Adds the <see cref="Value.Scalar"/> and the given <paramref name="scalar"/> and returns a new value with the summed-up scalar.
-        /// </summary>
-        /// <param name="scalar">the scalar to be added</param>
-        /// <returns>a new value with the summed-up scalar</returns>
-        public new DensityValue<TWeight, TVolume> Add(decimal scalar) => new DensityValue<TWeight, TVolume>(this.Scalar + scalar);
 
         /// <summary>
         /// Rounds the <see cref="Value.Scalar"/> to the given <paramref name="digits"/> and returns a new value with the rounded scalar.

@@ -387,5 +387,17 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
             Assert.AreEqual(36.7056m, target.Scalar);
             Assert.IsInstanceOfType(target.Unit, typeof(FractionUnit<Meter, Second>));
         }
+
+        [TestMethod]
+        public void AddMinutesPerKilometerToKilometersPerHour()
+        {
+            var source = new Value<FractionUnit<Kilometer, Hour>>(60m);
+
+            var target = source.Add(new Value<FractionUnit<Minute, Kilometer>>(1m)).Round(9);
+
+            Assert.IsNotNull(target);
+            Assert.AreEqual(120m, target.Scalar);
+            Assert.IsInstanceOfType(target.Unit, typeof(FractionUnit<Kilometer, Hour>));
+        }
     }
 }
