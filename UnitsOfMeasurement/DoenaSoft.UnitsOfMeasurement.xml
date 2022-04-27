@@ -1212,6 +1212,32 @@
             </summary>
             <returns>the unit text in a well-formatted way</returns>
         </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.NauticalMile">
+            <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.NauticalMile.FactorToMeter">
+            <summary>
+            https://en.wikipedia.org/wiki/Nautical_mile
+            Today the international nautical mile is defined as exactly 1,852 metres 
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.NauticalMile.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.NauticalMile"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Meter"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.NauticalMile.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.NauticalMile.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths.Parsec">
             <summary />
         </member>

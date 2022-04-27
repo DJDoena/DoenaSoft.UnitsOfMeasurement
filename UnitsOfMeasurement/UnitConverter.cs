@@ -45,6 +45,8 @@ namespace DoenaSoft.UnitsOfMeasurement
             _units.Add("mi", mi);
             _units.Add("mei", mi);
 
+            _units.Add("nmi", new NauticalMile());
+
             _units.Add("yd", new Yard());
 
             var ft = new Foot();
