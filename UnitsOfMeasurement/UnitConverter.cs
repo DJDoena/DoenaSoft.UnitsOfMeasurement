@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace DoenaSoft.UnitsOfMeasurement
 {
+    using DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers;
     using Exceptions;
     using FractionUnits;
     using FractionUnits.Densities;
@@ -211,6 +212,18 @@ namespace DoenaSoft.UnitsOfMeasurement
             _units.Add("kWh", new KiloWattHour());
 
             _units.Add("MWh", new MegaWattHour());
+
+            #endregion
+
+            #region Power
+
+            _units.Add("W", new Watt());
+
+            _units.Add("mW", new MilliWatt());
+
+            _units.Add("kW", new KiloWatt());
+
+            _units.Add("MW", new MegaWatt());
 
             #endregion
 
