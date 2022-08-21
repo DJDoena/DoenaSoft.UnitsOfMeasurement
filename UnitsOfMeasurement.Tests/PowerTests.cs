@@ -32,5 +32,15 @@
             Assert.AreEqual(0.001m, target.Scalar);
             Assert.AreEqual(typeof(KiloWatt), target.Unit.GetType());
         }
+
+        [TestMethod]
+        public void NoConversion()
+        {
+            Value source = new Value<Watt>(1m);
+            Value target = ValueConverter.Convert(source, new Watt());
+
+            Assert.AreEqual(1m, target.Scalar);
+            Assert.AreEqual(typeof(Watt), target.Unit.GetType());
+        }
     }
 }
