@@ -57,15 +57,15 @@ const double DensityOfHelium = 0.1785; // kg/l
 
 var source = new Value(5, UnitConverter.ToUnitOfMeasurement("dm3"));
 
-var target = ValueConverter.Convert(source, new Kilogram(), new DensityValue<Density<Kilogram, Liter>>(DensityOfHelium));
+var target = ValueConverter.Convert(source, new Kilogram(), new DensityValue<Density<Kilogram, Liter>>(DensityOfHelium)); // 0.8925kg
 ```
 
 You can even convert values with fractional units where the unit categories are inverted, such as liter per 100 km (volume/length) to gasmileage (length/volume)
 
 ```c#
-const double LitersPer100km = 5.9 / 100;
+const double LitersPerKm = 5.9 / 100;
 
-var source = new Value<FractionUnit<Liter, Kilometer>>(LitersPer100km);
+var source = new Value<FractionUnit<Liter, Kilometer>>(LitersPerKm);
 
 var target = ValueConverter.Convert(source, new FractionUnit<Mile, USLiquidGallon>()).Round(5); // 39.86688 miles per gallon
 ```
