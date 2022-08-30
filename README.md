@@ -45,7 +45,7 @@ var target = source.Add(new Value<FractionUnit<Mile, Hour>>(15));
 Or calculate Superman's height in meters:
 
 ```c#
-var sourceFeet = (new Value<Foot>(6m)).Add(new Value<Inch>(4m)); // 6'4"
+var sourceFeet = new Value<Foot>(6).Add(new Value(4, "inc")); // 6'4"
 
 var targetMeter = ValueConverter.Convert<Meter>(sourceFeet).Round(2); // 1.93m
 ```
