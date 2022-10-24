@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
+﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
 {
+    using System;
+
     /// <summary />
     public sealed class Parsec : Length
     {

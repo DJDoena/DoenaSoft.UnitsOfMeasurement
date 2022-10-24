@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights
+﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights
 {
+    using System;
+
     /// <summary>
     /// Describes an <see cref="Weight"/> unit that is not predefined in this assembly.
     /// </summary>

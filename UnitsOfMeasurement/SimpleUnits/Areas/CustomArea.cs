@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas
+﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Areas
 {
+    using System;
+
     /// <summary>
     /// Describes an <see cref="Area"/> unit that is not predefined in this assembly.
     /// </summary>

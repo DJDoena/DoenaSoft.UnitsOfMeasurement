@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement
+﻿namespace DoenaSoft.UnitsOfMeasurement
 {
+    using System;
     using SimpleUnits.Areas;
     using SimpleUnits.Energies;
     using SimpleUnits.Forces;

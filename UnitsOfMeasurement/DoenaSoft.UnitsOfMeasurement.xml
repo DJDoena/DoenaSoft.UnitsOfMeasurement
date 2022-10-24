@@ -2373,6 +2373,21 @@
             <param name="digits">the precision</param>
             <returns>a new value with the rounded scalar</returns>
         </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.Values.GenericValueConverter">
+            <summary>
+            Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.GenericValueConverter.Convert(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement,DoenaSoft.UnitsOfMeasurement.Values.DensityValue)">
+            <summary>
+            Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.<br/>
+            A valid conversion is when both <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit">units</see> belong to the same <see cref="P:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.UnitCategory"/>.
+            </summary>
+            <param name="sourceValue">the source <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/></param>
+            <param name="destinationUnit">the target <see cref="T:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement"/></param>
+            <param name="density">is necessary when it's a conversion from <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/> to <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/> or vice versa</param>
+            <returns>the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> with the target <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/></returns>
+        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.Values.SerializableValue">
             <summary>
             Represents a scalar with a unit in a format that can be sent over a data stream.
@@ -2645,16 +2660,6 @@
             <param name="sourceValue">the source <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/></param>
             <returns>the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> with the target <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/></returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.ValueConverter.Convert``1(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.DensityValue)">
-            <summary>
-            Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.<br/>
-            A valid conversion is when both <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit">units</see> belong to the same <see cref="P:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.UnitCategory"/>.
-            </summary>
-            <typeparam name="TDestinationUnit">the target <see cref="T:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement"/></typeparam>
-            <param name="sourceValue">the source <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/></param>
-            <param name="density">is necessary when it's a conversion from <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/> to <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/> or vice versa</param>
-            <returns>the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> with the target <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/></returns>
-        </member>
         <member name="M:DoenaSoft.UnitsOfMeasurement.Values.ValueConverter.Convert(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement)">
             <summary>
             Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.<br/>
@@ -2664,7 +2669,34 @@
             <param name="destinationUnit">the target <see cref="T:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement"/></param>
             <returns>the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> with the target <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/></returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.ValueConverter.Convert(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement,DoenaSoft.UnitsOfMeasurement.Values.DensityValue)">
+        <member name="T:DoenaSoft.UnitsOfMeasurement.Values.ValueOverTimeConverter">
+            <summary>
+            Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.ValueOverTimeConverter.Convert(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
+            <summary>
+            Converts the throughput of a value over time
+            </summary>
+            <param name="valueOverTime">a fraction value where the denominator is <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Time"/></param>
+            <param name="time">a simple value where the unit is <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Time"/></param>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.Values.VolumeToWeightConverter">
+            <summary>
+            Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.VolumeToWeightConverter.Convert``1(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.DensityValue)">
+            <summary>
+            Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.<br/>
+            A valid conversion is when both <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit">units</see> belong to the same <see cref="P:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.UnitCategory"/>.
+            </summary>
+            <typeparam name="TDestinationUnit">the target <see cref="T:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement"/></typeparam>
+            <param name="sourceValue">the source <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/></param>
+            <param name="density">is necessary when it's a conversion from <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/> to <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/> or vice versa</param>
+            <returns>the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> with the target <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/></returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.VolumeToWeightConverter.Convert(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement,DoenaSoft.UnitsOfMeasurement.Values.DensityValue)">
             <summary>
             Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.<br/>
             A valid conversion is when both <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit">units</see> belong to the same <see cref="P:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.UnitCategory"/>.
@@ -2674,12 +2706,30 @@
             <param name="density">is necessary when it's a conversion from <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/> to <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/> or vice versa</param>
             <returns>the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> with the target <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/></returns>
         </member>
-        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.ValueConverter.ConvertValueOverTimeToValue(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.Value)">
+        <member name="T:DoenaSoft.UnitsOfMeasurement.Values.WeightToVolumeConverter">
             <summary>
-            Converts the throughput of a value over time
+            Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.
             </summary>
-            <param name="valueOverTime">a fraction value where the denominator is <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Time"/></param>
-            <param name="time">a simple value where the unit is <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times.Time"/></param>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.WeightToVolumeConverter.Convert``1(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.Values.DensityValue)">
+            <summary>
+            Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.<br/>
+            A valid conversion is when both <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit">units</see> belong to the same <see cref="P:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.UnitCategory"/>.
+            </summary>
+            <typeparam name="TDestinationUnit">the target <see cref="T:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement"/></typeparam>
+            <param name="sourceValue">the source <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/></param>
+            <param name="density">is necessary when it's a conversion from <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/> to <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/> or vice versa</param>
+            <returns>the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> with the target <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/></returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.Values.WeightToVolumeConverter.Convert(DoenaSoft.UnitsOfMeasurement.Values.Value,DoenaSoft.UnitsOfMeasurement.IUnitOfMeasurement,DoenaSoft.UnitsOfMeasurement.Values.DensityValue)">
+            <summary>
+            Converts the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/> into a <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> of a compatible <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/>.<br/>
+            A valid conversion is when both <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit">units</see> belong to the same <see cref="P:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement.UnitCategory"/>.
+            </summary>
+            <param name="sourceValue">the source <see cref="T:DoenaSoft.UnitsOfMeasurement.Values.Value"/></param>
+            <param name="destinationUnit">the target <see cref="T:DoenaSoft.UnitsOfMeasurement.UnitOfMeasurement"/></param>
+            <param name="density">is necessary when it's a conversion from <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Weights.Weight"/> to <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes.Volume"/> or vice versa</param>
+            <returns>the <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Scalar"/> with the target <see cref="P:DoenaSoft.UnitsOfMeasurement.Values.Value.Unit"/></returns>
         </member>
     </members>
 </doc>

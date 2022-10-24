@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times
+﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Times
 {
+    using System;
+
     /// <summary>
     /// Describes an <see cref="Time"/> unit that is not predefined in this assembly.
     /// </summary>

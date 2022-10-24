@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces
+﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces
 {
+    using System;
+
     using FractionUnits.Pressures;
 
     /// <summary />

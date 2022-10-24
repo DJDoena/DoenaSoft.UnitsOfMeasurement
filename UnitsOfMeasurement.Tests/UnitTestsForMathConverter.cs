@@ -147,12 +147,12 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
         public void MilliliterToKilogram()
         {
             var source = new Value<Milliliter>(1000m);
-            var target = ValueConverter.Convert(source, new Kilogram(), new DensityValue<Density<Kilogram, Liter>>(0.5m));
+            var target = VolumeToWeightConverter.Convert(source, new Kilogram(), new DensityValue<Density<Kilogram, Liter>>(0.5m));
             Assert.AreEqual(0.5m, target.Scalar);
             Assert.AreEqual(typeof(Kilogram), target.Unit.GetType());
 
             var source2 = new Value<Milliliter>(1000m);
-            var target2 = ValueConverter.Convert(source2, new Gram(), new DensityValue<Density<Kilogram, Liter>>(2m));
+            var target2 = VolumeToWeightConverter.Convert(source2, new Gram(), new DensityValue<Density<Kilogram, Liter>>(2m));
             Assert.AreEqual(2000m, target2.Scalar);
             Assert.AreEqual(typeof(Gram), target2.Unit.GetType());
             var target3 = ValueConverter.Convert(target2, new Kilogram());
@@ -166,7 +166,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
             const decimal DensityOfHelium = 0.1785m; // kg/l
 
             var source = new Value(5m, UnitConverter.ToUnitOfMeasurement("dm³"));
-            var target = ValueConverter.Convert(source, new Kilogram(), new DensityValue<Density<Kilogram, Liter>>(DensityOfHelium));
+            var target = VolumeToWeightConverter.Convert(source, new Kilogram(), new DensityValue<Density<Kilogram, Liter>>(DensityOfHelium));
             Assert.AreEqual(DensityOfHelium * 5, target.Scalar);
             Assert.AreEqual(typeof(Kilogram), target.Unit.GetType());
         }
@@ -177,7 +177,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
             const decimal DensityOfHelium = 0.1785m; // kg/l
 
             var source = new Value(5m, UnitConverter.ToUnitOfMeasurement("L"));
-            var target = ValueConverter.Convert(source, new Kilogram(), new DensityValue<Kilogram, Liter>(DensityOfHelium));
+            var target = VolumeToWeightConverter.Convert(source, new Kilogram(), new DensityValue<Kilogram, Liter>(DensityOfHelium));
             Assert.AreEqual(DensityOfHelium * 5, target.Scalar);
             Assert.AreEqual(typeof(Kilogram), target.Unit.GetType());
         }
@@ -189,7 +189,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             // 5 kg Helium / 0.1785 = 28,011 Liter
             var source = new Value(5m, UnitConverter.ToUnitOfMeasurement("kg"));
-            var target = ValueConverter.Convert(source, new Liter(), new DensityValue<Kilogram, Liter>(DensityOfHelium));
+            var target = WeightToVolumeConverter.Convert(source, new Liter(), new DensityValue<Kilogram, Liter>(DensityOfHelium));
             Assert.AreEqual(5m / 0.1785m, target.Scalar);
             Assert.AreEqual(typeof(Liter), target.Unit.GetType());
         }
@@ -201,7 +201,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             // 5 kg Helium / 0.1785 = 28,011 Liter
             var source = new Value(5m, UnitConverter.ToUnitOfMeasurement("kg"));
-            var target = ValueConverter.Convert(source, new Liter(), new DensityValue<Density<Kilogram, Liter>>(DensityOfHelium));
+            var target = WeightToVolumeConverter.Convert(source, new Liter(), new DensityValue<Density<Kilogram, Liter>>(DensityOfHelium));
             Assert.AreEqual(5 / 0.1785m, target.Scalar);
             Assert.AreEqual(typeof(Liter), target.Unit.GetType());
         }
@@ -212,7 +212,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
             const decimal DensityOfGold = 19.302m; // g/cm³
 
             var source = new Value(2m, UnitConverter.ToUnitOfMeasurement("cm³"));
-            var target = ValueConverter.Convert(source, new Gram(), new DensityValue(DensityOfGold, " g/cm³"));
+            var target = VolumeToWeightConverter.Convert(source, new Gram(), new DensityValue(DensityOfGold, " g/cm³"));
             Assert.AreEqual(DensityOfGold * 2, target.Scalar);
             Assert.AreEqual(typeof(Gram), target.Unit.GetType());
         }
@@ -258,13 +258,13 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             var density = new DensityValue<Density<Kilogram, Liter>>(0.5);
 
-            var targetVolume = ValueConverter.Convert(sourceWeight, new Liter(), density);
+            var targetVolume = WeightToVolumeConverter.Convert(sourceWeight, new Liter(), density);
 
             Assert.IsNotNull(targetVolume);
             Assert.IsInstanceOfType(targetVolume.Unit, typeof(Liter));
             Assert.AreEqual(20m, targetVolume.Scalar);
 
-            var targetWeight = ValueConverter.Convert(targetVolume, new Kilogram(), density);
+            var targetWeight = VolumeToWeightConverter.Convert(targetVolume, new Kilogram(), density);
 
             Assert.IsNotNull(targetWeight);
             Assert.IsInstanceOfType(targetWeight.Unit, typeof(Kilogram));
@@ -279,7 +279,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             var sourceWeight = new Value(10m, new Meter());
 
-            ValueConverter.Convert(sourceWeight, new Kilogram(), density);
+            WeightToVolumeConverter.Convert(sourceWeight, new Kilogram(), density);
         }
 
         [TestMethod]
@@ -289,13 +289,13 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             var sourceWeight = new Value(10m, new Kilogram());
 
-            var targetVolume = ValueConverter.Convert(sourceWeight, new Liter(), new DensityValue(density.Scalar, "kg/L"));
+            var targetVolume = WeightToVolumeConverter.Convert(sourceWeight, new Liter(), new DensityValue(density.Scalar, "kg/L"));
 
             Assert.IsNotNull(targetVolume);
             Assert.IsInstanceOfType(targetVolume.Unit, typeof(Liter));
             Assert.AreEqual(20m, targetVolume.Scalar);
 
-            var targetWeight = ValueConverter.Convert(targetVolume, new Kilogram(), density);
+            var targetWeight = VolumeToWeightConverter.Convert(targetVolume, new Kilogram(), density);
 
             Assert.IsNotNull(targetWeight);
             Assert.IsInstanceOfType(targetWeight.Unit, typeof(Kilogram));
@@ -309,13 +309,13 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             var sourceWeight = new Value(10m, new Kilogram());
 
-            var targetVolume = ValueConverter.Convert(sourceWeight, new Liter(), new DensityValue<Kilogram, Liter>(conversionfactor));
+            var targetVolume = WeightToVolumeConverter.Convert(sourceWeight, new Liter(), new DensityValue<Kilogram, Liter>(conversionfactor));
 
             Assert.IsNotNull(targetVolume);
             Assert.IsInstanceOfType(targetVolume.Unit, typeof(Liter));
             Assert.AreEqual(20m, targetVolume.Scalar);
 
-            var targetWeight = ValueConverter.Convert(targetVolume, new Kilogram(), new DensityValue<Kilogram, Liter>(conversionfactor));
+            var targetWeight = VolumeToWeightConverter.Convert(targetVolume, new Kilogram(), new DensityValue<Kilogram, Liter>(conversionfactor));
 
             Assert.IsNotNull(targetWeight);
             Assert.IsInstanceOfType(targetWeight.Unit, typeof(Kilogram));
@@ -329,7 +329,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             var sourceVolume = new Value(10m, new Liter());
 
-            var targetWeight = ValueConverter.Convert(sourceVolume, new Kilogram(), density);
+            var targetWeight = VolumeToWeightConverter.Convert(sourceVolume, new Kilogram(), density);
 
             Assert.IsNotNull(targetWeight);
             Assert.IsInstanceOfType(targetWeight.Unit, typeof(Kilogram));
@@ -499,7 +499,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             var time = new Value<Minute>(30m);
 
-            var liters = ValueConverter.ConvertValueOverTimeToValue(litersPerHour, time);
+            var liters = ValueOverTimeConverter.Convert(litersPerHour, time);
 
             Assert.IsNotNull(liters);
             Assert.AreEqual(6m, liters.Scalar);
@@ -513,7 +513,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             var source = new Value<CubicMeter>(6.0m);
 
-            var target = ValueConverter.Convert(source, new Ton(), density);
+            var target = VolumeToWeightConverter.Convert(source, new Ton(), density);
 
             Assert.IsNotNull(target);
             Assert.AreEqual(9.0m, target.Scalar);
@@ -688,7 +688,7 @@ namespace DoenaSoft.UnitsOfMeasurement.Tests
 
             var kgUnit = UnitConverter.ToUnitOfMeasurement("kg");
 
-            var kgValue = ValueConverter.Convert(gValue, kgUnit, densityValue);
+            var kgValue = VolumeToWeightConverter.Convert(gValue, kgUnit, densityValue);
 
             kgValue = kgValue.Round(3);
 

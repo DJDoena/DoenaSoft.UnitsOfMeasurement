@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies
+﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Energies
 {
+    using System;
+
     /// <summary>
     /// Describes an <see cref="Energy"/> unit that is not predefined in this assembly.
     /// </summary>

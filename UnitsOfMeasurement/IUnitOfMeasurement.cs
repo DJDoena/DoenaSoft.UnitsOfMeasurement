@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement
+﻿namespace DoenaSoft.UnitsOfMeasurement
 {
+    using System;
     using SimpleUnits.Volumes;
     using SimpleUnits.Weights;
 

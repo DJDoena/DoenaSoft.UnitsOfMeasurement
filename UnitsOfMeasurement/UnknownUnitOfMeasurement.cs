@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement
+﻿namespace DoenaSoft.UnitsOfMeasurement
 {
+    using System;
+
     /// <summary>
     /// A unit that does not fall into any of the known categories.
     /// </summary>

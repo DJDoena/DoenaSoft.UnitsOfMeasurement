@@ -1,8 +1,8 @@
-﻿using System;
-using System.Globalization;
-
-namespace DoenaSoft.UnitsOfMeasurement.Values
+﻿namespace DoenaSoft.UnitsOfMeasurement.Values
 {
+    using System;
+    using System.Globalization;
+
     /// <summary>
     /// Describes a scalar with an <see cref="IUnitOfMeasurement"/> unit.
     /// </summary>

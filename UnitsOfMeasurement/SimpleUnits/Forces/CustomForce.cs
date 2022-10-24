@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces
+﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Forces
 {
+    using System;
+
     /// <summary>
     /// Describes an <see cref="Force"/> unit that is not predefined in this assembly.
     /// </summary>

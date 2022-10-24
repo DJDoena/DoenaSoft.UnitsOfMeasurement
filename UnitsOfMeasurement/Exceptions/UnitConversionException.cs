@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.Exceptions
+﻿namespace DoenaSoft.UnitsOfMeasurement.Exceptions
 {
+    using System;
+
     /// <summary/>
     public sealed class UnitConversionException : Exception
     {

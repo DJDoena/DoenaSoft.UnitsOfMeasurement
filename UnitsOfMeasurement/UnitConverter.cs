@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace DoenaSoft.UnitsOfMeasurement
+﻿namespace DoenaSoft.UnitsOfMeasurement
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Exceptions;
     using FractionUnits;
     using FractionUnits.Densities;

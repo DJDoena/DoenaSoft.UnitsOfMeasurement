@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes
+﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Volumes
 {
+    using System;
+
     /// <summary>
     /// Describes an <see cref="Volume"/> unit that is not predefined in this assembly.
     /// </summary>

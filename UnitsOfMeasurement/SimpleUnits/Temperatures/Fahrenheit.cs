@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Temperatures
+﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Temperatures
 {
+    using System;
+
     /// <summary />
     public sealed class Fahrenheit : Temparature
     {

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
+﻿namespace DoenaSoft.UnitsOfMeasurement.SimpleUnits.Lengths
 {
+    using System;
+
     /// <summary>
     /// Describes an <see cref="Length"/> unit that is not predefined in this assembly.
     /// </summary>
