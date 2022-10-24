@@ -12,6 +12,7 @@
     using SimpleUnits.Energies;
     using SimpleUnits.Forces;
     using SimpleUnits.Lengths;
+    using SimpleUnits.Powers;
     using SimpleUnits.Temperatures;
     using SimpleUnits.Times;
     using SimpleUnits.Volumes;
@@ -236,6 +237,18 @@
             _units.Add("bar", new Bar());
 
             _units.Add("psi", new PSI());
+
+            #endregion
+
+            #region Power
+
+            _units.Add("W", new Watt());
+
+            _units.Add("mW", new MilliWatt());
+
+            _units.Add("kW", new KiloWatt());
+
+            _units.Add("MW", new MegaWatt());
 
             #endregion
         }

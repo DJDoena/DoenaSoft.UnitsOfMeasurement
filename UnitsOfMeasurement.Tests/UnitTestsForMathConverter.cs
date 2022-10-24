@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace DoenaSoft.UnitsOfMeasurement.Tests
+﻿namespace DoenaSoft.UnitsOfMeasurement.Tests
 {
+    using System;
     using Exceptions;
     using FractionUnits;
     using FractionUnits.Densities;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using SimpleUnits;
     using SimpleUnits.Lengths;
     using SimpleUnits.Temperatures;

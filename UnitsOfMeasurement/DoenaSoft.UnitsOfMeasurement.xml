@@ -1285,6 +1285,114 @@
             </summary>
             <returns>the unit text in a well-formatted way</returns>
         </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.KiloWatt">
+            <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.KiloWatt.FactorToWatt">
+            <summary>
+            3,600,000J
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.KiloWatt.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.KiloWatt"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Watt"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.KiloWatt.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.KiloWatt.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MegaWatt">
+            <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MegaWatt.FactorToWatt">
+            <summary>
+            3,600,000J
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MegaWatt.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MegaWatt"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Watt"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MegaWatt.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MegaWatt.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MilliWatt">
+            <summary />
+        </member>
+        <member name="F:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MilliWatt.FactorToWatt">
+            <summary>
+            3,600,000J
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MilliWatt.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MilliWatt"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Watt"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MilliWatt.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.MilliWatt.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Power">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Power.UnitCategory">
+            <summary>
+            Returns the category of the unit, <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Power"/>.
+            </summary>
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Power.BaseUnit">
+            <summary>
+            Returns the unit that all other units of this category refer to as the base unit, <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Watt"/>.
+            </summary>
+        </member>
+        <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Watt">
+            <summary />
+        </member>
+        <member name="P:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Watt.FactorToBaseUnit">
+            <summary>
+            Returns the multiplication factor of <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Watt"/> in relation to the <see cref="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Watt"/>.
+            </summary>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Watt.ToSerializable">
+            <summary>
+            Returns the unit in a format that can be sent over a data stream.
+            </summary>
+            <returns>the unit in a format that can be sent over a data stream</returns>
+        </member>
+        <member name="M:DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers.Watt.GetDisplayValue">
+            <summary>
+            Returns the unit text in a well-formatted way.
+            </summary>
+            <returns>the unit text in a well-formatted way</returns>
+        </member>
         <member name="T:DoenaSoft.UnitsOfMeasurement.SimpleUnits.SimpleUnit">
             <summary>
             Describes an atomic unit.

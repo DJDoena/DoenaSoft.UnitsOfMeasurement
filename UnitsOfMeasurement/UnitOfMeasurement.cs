@@ -1,6 +1,7 @@
 ﻿namespace DoenaSoft.UnitsOfMeasurement
 {
     using System;
+    using DoenaSoft.UnitsOfMeasurement.SimpleUnits.Powers;
     using SimpleUnits.Areas;
     using SimpleUnits.Energies;
     using SimpleUnits.Forces;
@@ -158,6 +159,12 @@
                 case nameof(Weight):
                     {
                         equals = IsOfType(other, typeof(Weight));
+
+                        break;
+                    }
+                case nameof(Power):
+                    {
+                        equals = IsOfType(other, typeof(Power));
 
                         break;
                     }
