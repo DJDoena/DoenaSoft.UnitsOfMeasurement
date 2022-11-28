@@ -1,12 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netcoreapp2.1</TargetFramework>
-		<RuntimeFrameworkVersion>2.1.0</RuntimeFrameworkVersion>
+		<TargetFramework>net6.0</TargetFramework>
 		<IsPackable>false</IsPackable>
 		<AssemblyName>DoenaSoft.UnitsOfMeasurement.Tests</AssemblyName>
 		<RootNamespace>DoenaSoft.UnitsOfMeasurement.Tests</RootNamespace>
-		<FileVersion>1.0.0.0</FileVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
