@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="UnitsOfMeasurement.Tests\UnitsOfMeasurement.Tests.csproj" />
+  <Project Path="UnitsOfMeasurement\UnitsOfMeasurement.csproj" />
+  <Properties Name="Visual Studio">
+    <Property Name="OpenWith" Value="17" />
+  </Properties>
+</Solution>
