@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
       
 env:
   SOURCE_URL: https://api.nuget.org/v3/index.json
