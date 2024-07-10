@@ -23,8 +23,6 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
-          #version is optional: without means latest
-          dotnet-version: 6.0.x 
           source-url: ${{env.SOURCE_URL}}  
         env:
           NUGET_AUTH_TOKEN: ${{secrets.NUGET_API_KEY}}        
