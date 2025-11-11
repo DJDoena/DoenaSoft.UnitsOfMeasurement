@@ -1,41 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup Label="Globals">
-		<Configurations>Debug;Release</Configurations>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;netstandard2.1;net452;net472;net48;net5.0;net6.0;net7.0;net8.0;</TargetFrameworks>
-		<RootNamespace>DoenaSoft.UnitsOfMeasurement</RootNamespace>
 		<AssemblyName>DoenaSoft.UnitsOfMeasurement</AssemblyName>
-		<Authors>DJ Doena</Authors>
-		<Company>Doena Soft.</Company>
-		<Product>Units of Measurement</Product>
-		<Description>Provides the most common unit for length, weight, area, volume and temperature and their conversion from one to the other.
-Also provides the ability to use complex units in the style of a/b
-Also provides the ability to convert from volumes to weights (and vice versa) using density</Description>
+		<RootNamespace>DoenaSoft.UnitsOfMeasurement</RootNamespace>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net452;net472;net48;net5.0;net6.0;net7.0;net8.0;net9.0;net10.0;</TargetFrameworks>
+		<Configurations>Debug;Release</Configurations>
+		<DocumentationFile>DoenaSoft.UnitsOfMeasurement.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Copyright>2022</Copyright>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/DJDoena/DoenaSoft.UnitsOfMeasurement</PackageProjectUrl>
-		<PackageIcon>djdsoft.png</PackageIcon>
-		<PackageIconUrl />
 		<RepositoryUrl>https://github.com/DJDoena/DoenaSoft.UnitsOfMeasurement</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>units-of-measurement; uom; units; measurements; weight; mass; volume; length; distance; area; temperature; time; energy; work; density; force; pressure; engineering; engineering-units</PackageTags>
-		<Version>2.0.2</Version>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageReadmeFile>readme.md</PackageReadmeFile>
-		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<DocumentationFile>DoenaSoft.UnitsOfMeasurement.xml</DocumentationFile>
-		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-		<AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+		<PackageIcon>djdsoft.png</PackageIcon>
+		<Product>Units of Measurement</Product>
+		<Company>Doena Soft.</Company>
+		<Authors>DJ Doena</Authors>
+		<Copyright>2025</Copyright>
+		<Version>2.0.3</Version>
+		<Description>Provides the most common unit for length, weight, area, volume and temperature and their conversion from one to the other.
+Also provides the ability to use complex units in the style of a/b
+Also provides the ability to convert from volumes to weights (and vice versa) using density</Description>
+		<PackageIconUrl />
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="djdsoft.png" Pack="true" PackagePath="\" />
 		<None Include="..\readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
-
 
 	<ItemGroup>
 		<PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
